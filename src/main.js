@@ -3,6 +3,7 @@ const IntroFade = require("./IntroFade");
 const SlideOne = require("./SlideOne");
 const SlideTwo = require("./SlideTwo");
 const SlideThree = require("./SlideThree");
+const Technologies = require("./Technologies")
 
 module.exports = {
   npm_name: "@kissmybutton/motorcortex-softslide",
@@ -26,6 +27,10 @@ module.exports = {
     {
       exportable: SlideThree,
       name: "SlideThree"
+    },
+    {
+      exportable: Technologies,
+      name: "Technologies"
     }
   ]
 };

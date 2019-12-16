@@ -125,7 +125,7 @@ class SlideThree extends MotorCortex.API.Clip {
       height: ${this.attrs.height * 0.6}px;
       box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
       position: absolute;
-      top : 100%;
+      top : -100%;
       left : 5%;
       display:flex;
       justify-content: center;
@@ -136,7 +136,7 @@ class SlideThree extends MotorCortex.API.Clip {
     }
 
     .content-wrapper{
-      margin: 0;
+      margin: 5%;
       position: relative;
       
     }
@@ -178,15 +178,16 @@ class SlideThree extends MotorCortex.API.Clip {
     }
 
     .border1{
-      width: ${this.attrs.width * 0.6}px;
+      width: ${this.attrs.width * 0.33}px;
       height: 100%;
       position: absolute;
       overflow: hidden;
       top: 100%;
       left: 7%;
       z-index: 2;
-      box-shadow: -21px 25px 23px rgba(0,0,0,0.65);
+      box-shadow: -23px -4px 23px rgba(0,0,0,0.65);
       border-left: 5px solid;
+      border-top: 5px solid;
     }
 
     .title-holder{
@@ -200,8 +201,8 @@ class SlideThree extends MotorCortex.API.Clip {
       text-transform: uppercase;
       box-shadow: -17px 7px 18px rgb(0, 0, 0);
       position: absolute;
-      top: 100%;
-      left: 55%;
+      top: 80%;
+      left: 120%;
       width: ${this.attrs.width * 0.3}px;
       display: flex;
       justify-content: center;
@@ -218,7 +219,7 @@ class SlideThree extends MotorCortex.API.Clip {
           top: "25%"
         },
         initialValues: {
-          top: "100%"
+          top: "-100%"
         },
         attrs: {}
       },
@@ -232,10 +233,10 @@ class SlideThree extends MotorCortex.API.Clip {
     const titleHolder = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "15%"
+          left: "55%"
         },
         initialValues: {
-          top: "100%"
+          left: "120%"
         },
         attrs: {}
       },
@@ -300,10 +301,10 @@ class SlideThree extends MotorCortex.API.Clip {
     const titleHolderOut = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "100%"
+          top: "-100%"
         },
         initialValues: {
-          top: "15%"
+          top: "80%"
         },
         attrs: {}
       },
