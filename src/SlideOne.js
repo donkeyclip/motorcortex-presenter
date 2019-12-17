@@ -163,7 +163,7 @@ class SlideOne extends MotorCortex.API.Clip {
       top: 100%;
       left: 40%;
       z-index: 1;
-      background: url("./app.png");
+      background: url(${this.attrs.app});
       background-size: cover;
       box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
     }
@@ -231,7 +231,7 @@ class SlideOne extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: " .content-container",
-        easing: "easeOutQuart"
+        easing: "easeOutCubic"
       }
     );
 
@@ -248,7 +248,7 @@ class SlideOne extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: " .title-holder",
-        easing: "easeOutQuart"
+        easing: "easeOutCubic"
       }
     );
 
@@ -265,7 +265,7 @@ class SlideOne extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: ".app-holder ",
-        easing: "easeOutQuart"
+        easing: "easeOutCubic"
       }
     );
 
@@ -282,7 +282,7 @@ class SlideOne extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: ".border,.border1",
-        easing: "easeOutQuart"
+        easing: "easeOutCubic"
       }
     );
 
@@ -299,7 +299,7 @@ class SlideOne extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: " .content-container",
-        easing: "easeOutQuart"
+        easing: "easeInQuart"
       }
     );
 
@@ -316,7 +316,7 @@ class SlideOne extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: " .title-holder",
-        easing: "easeOutQuart"
+        easing: "easeInQuart"
       }
     );
 
@@ -333,7 +333,7 @@ class SlideOne extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: ".app-holder ",
-        easing: "easeOutQuart"
+        easing: "easeInQuart"
       }
     );
 
@@ -350,7 +350,7 @@ class SlideOne extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: ".border,.border1",
-        easing: "easeOutQuart"
+        easing: "easeInQuart"
       }
     );
 

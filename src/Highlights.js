@@ -2,7 +2,7 @@ const MotorCortex = require("@kissmybutton/motorcortex/");
 const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class Technologies extends MotorCortex.API.Clip {
+class Highlights extends MotorCortex.API.Clip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
@@ -52,8 +52,7 @@ class Technologies extends MotorCortex.API.Clip {
       </div>
 
       <div class="content-container">
-   
-        
+       
       </div>
 
 
@@ -72,17 +71,13 @@ class Technologies extends MotorCortex.API.Clip {
   get css() {
     return `
 
-    .img img{
-      width:80%;
-      -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));
-      filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));
+    .app-img{
+      height: 101%;
+      object-fit: cover;
     }
 
     .img{
-      display:flex;
-          justify-content: center;
-          align-content: center;
-          align-items: center;
+      object-fit: cover;
     }
 
     .bg {
@@ -114,17 +109,21 @@ class Technologies extends MotorCortex.API.Clip {
     }
    
     .content-container{
-      width: ${this.attrs.width * 0.84}px;
-      height: ${this.attrs.height * 0.42}px;
-      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+      width: ${this.attrs.width * 0.45}px;
+      height: ${this.attrs.height * 0.82}px;
       position: absolute;
       bottom: 120%;
+      right: 7%;
       display:flex;
       justify-content: space-around;
       align-content: center;
       align-items: center;
-      background:#c10000;
+      background: url(${this.attrs.app});
       z-index: 2;
+      transform: skew(-18deg, 0deg) rotateX(6deg);
+      filter: drop-shadow(31px 35px 53px
+      rgb(0, 0, 0));
+      background-size: cover;
     }
 
     .img-container{
@@ -156,6 +155,13 @@ class Technologies extends MotorCortex.API.Clip {
       transform: rotate(79deg);
     }
 
+
+    .subtitle-holder,.title-holder{
+      -ms-transform-origin: 30% 180%;
+      -webkit-transform: rotate(-10deg);
+      -webkit-transform-origin: 30% 180%;
+      transform: rotate(-10deg);
+    }
     
 
     .subtitle-holder{
@@ -169,8 +175,8 @@ class Technologies extends MotorCortex.API.Clip {
       text-transform: uppercase;
       box-shadow: -20px 9px 44px rgb(0, 0, 0);
       position: absolute;
-      top:33%;
-      left:120%;
+      top:60%;
+      left:-100%;
       font-weight: 900;
       width: ${this.attrs.width * 0.2}px;
       height: ${this.attrs.height * 0.15}px;
@@ -191,7 +197,8 @@ class Technologies extends MotorCortex.API.Clip {
       text-transform: uppercase;
       box-shadow: -17px 7px 18px rgb(0, 0, 0);
       position: absolute;
-      top:120%;
+      top:40%;
+      left: -100%;
       font-weight: 900;
       width: ${this.attrs.width * 0.45}px;
       height: ${this.attrs.height * 0.2}px;
@@ -205,21 +212,6 @@ class Technologies extends MotorCortex.API.Clip {
   }
 
   buildTree() {
-    let html3 = "";
-
-    for (let i = 0; i < this.attrs.logos.length; i++) {
-      const html = `<div class="img"> <img src="${this.attrs.logos[i]}" /></div>`;
-      html3 = html3 + html;
-    }
-
-    const word = new MotorCortex.Clip({
-      css: this.css,
-      html: `<div class="img-container"> ${html3} </div>`,
-      selector: ".content-container"
-    });
-
-    this.addIncident(word, 0);
-
     const border = new Anime.Anime(
       {
         animatedAttrs: {
@@ -257,10 +249,10 @@ class Technologies extends MotorCortex.API.Clip {
     const subtitle = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "60%"
+          left: "10%"
         },
         initialValues: {
-          left: "120%"
+          left: "-100%"
         },
         attrs: {}
       },
@@ -274,10 +266,10 @@ class Technologies extends MotorCortex.API.Clip {
     const title = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "15%"
+          left: "5%"
         },
         initialValues: {
-          top: "120%"
+          left: "-100%"
         },
         attrs: {}
       },
@@ -287,8 +279,6 @@ class Technologies extends MotorCortex.API.Clip {
         easing: "easeOutCubic"
       }
     );
-
-    // out
 
     const borderOut = new Anime.Anime(
       {
@@ -330,7 +320,7 @@ class Technologies extends MotorCortex.API.Clip {
           left: "-120%"
         },
         initialValues: {
-          left: "60%"
+          left: "10%"
         },
         attrs: {}
       },
@@ -347,7 +337,7 @@ class Technologies extends MotorCortex.API.Clip {
           top: "-120%"
         },
         initialValues: {
-          top: "15%"
+          top: "40%"
         },
         attrs: {}
       },
@@ -385,4 +375,4 @@ class Technologies extends MotorCortex.API.Clip {
   }
 }
 
-module.exports = Technologies;
+module.exports = Highlights;

@@ -15,6 +15,15 @@ class Intro extends MotorCortex.API.Clip {
     return fontsize;
   }
 
+  get font() {
+    [
+      {
+        type: `google-font`,
+        src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`
+      }
+    ];
+  }
+
   get html() {
     this.attrs.bgUrl = !this.attrs.bgUrl
       ? (this.attrs.bgUrl = "./kissmybutonbg.jpg")
@@ -66,6 +75,7 @@ class Intro extends MotorCortex.API.Clip {
       align-items: center;
       flex-direction: column;
       color: ${this.attrs.fontColor};
+      font-family: lato;
     }
     .bg:after {
       content: "";
@@ -224,14 +234,13 @@ class Intro extends MotorCortex.API.Clip {
     const bgout = new Anime.Anime(
       {
         animatedAttrs: {
-          width: 0,
           opacity: 0
         },
 
         attrs: {}
       },
       {
-        duration: 1,
+        duration: 1000,
         selector: ".bg"
       }
     );
