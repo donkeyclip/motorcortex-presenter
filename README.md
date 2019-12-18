@@ -1,5 +1,7 @@
 # motorcortex-presenter
 
+## [Demo](https://kissmybutton.github.io/motorcortex-presenter/demo/)
+
 ## Installation
 
 ```bash
