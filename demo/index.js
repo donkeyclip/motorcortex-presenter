@@ -1,7 +1,7 @@
 const MotorCortex = require("@kissmybutton/motorcortex/");
 const Player = require("@kissmybutton/motorcortex-player/");
-const softclip = require("../src/main");
-const Clip = MotorCortex.loadPlugin(softclip);
+const presenter = require("../src/main");
+const Clip = MotorCortex.loadPlugin(presenter);
 const css = `
              
 .container {
@@ -41,8 +41,8 @@ const clip = new MotorCortex.Clip({
 });
 const introClip = new Clip.Intro(
   {
-    width: "1270px",
-    height: "720px",
+    width: 1270,
+    height: 720,
     clientLogo: "img.svg",
     clientLogoWidth: 500,
     compLogo: "logo.png",
@@ -51,7 +51,6 @@ const introClip = new Clip.Intro(
     date: "2019 - Today",
     bgUrl: "./bg.jpg",
     overlayColor: overlay,
-    mainColor: main,
     fontColor: "#fff",
     speed: 2
   },
@@ -73,8 +72,8 @@ const SlideOne = new Clip.SlideOne(
     textTwo: "module-based",
     textThree: "eHealth platform",
     bgColor: "#000c8f",
+    contentColor: "#c10000",
     overlayColor: overlay,
-    mainColor: main,
     fontColor: "#fff",
     speed: 2,
     contentTitle: "Scope",
@@ -99,8 +98,8 @@ const SlideOneSVG = new Clip.SlideOneSVG(
     textThree: "eHealth platform",
     bgColor: "#000c8f",
     overlayColor: overlay,
-    mainColor: main,
     fontColor: "#fff",
+    contentColor: "#c10000",
     speed: 2,
     contentTitle: "Scope",
     app: "./app.png"
@@ -123,8 +122,8 @@ const SlideTwo = new Clip.SlideTwo(
       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
     bgColor: "#000c8f",
     overlayColor: overlay,
-    mainColor: main,
     fontColor: "#fff",
+    contentColor: "#c10000",
     speed: 2,
     contentTitle: "Scope",
     fonSize: 40,
@@ -148,8 +147,8 @@ const SlideThree = new Clip.SlideThree(
       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
     bgColor: "#000c8f",
     overlayColor: overlay,
-    mainColor: main,
     fontColor: "#fff",
+    contentColor: "#c10000",
     speed: 2,
     contentTitle: "Scope",
     fonSize: 40,
@@ -172,8 +171,8 @@ const Technologies = new Clip.Technologies(
     logos: ["./1.png", "./2.png", "./3.png", "./4.png", "./5.png"],
     bgColor: "#000c8f",
     overlayColor: overlay,
-    mainColor: main,
     fontColor: "#fff",
+    contentColor: "#c10000",
     speed: 2,
     contentTitle: "Technologies",
     fonSize: 40,
@@ -196,24 +195,123 @@ const Highlights = new Clip.Highlights(
     app: "./app.png",
     bgColor: "#000c8f",
     overlayColor: overlay,
-    mainColor: main,
     fontColor: "#fff",
+    contentColor: "#c10000",
     speed: 2,
     contentTitle: "Highlights",
     fonSize: 40,
-    contentSubTitle: "USed"
+    contentSubTitle: "USed",
+    scroll: false
   },
   {
     selector: ".container1"
   }
 );
 
-// clip.addIncident(introClip, 0);
-// clip.addIncident(SlideOne, 3000);
-// clip.addIncident(SlideTwo, 9000);
-// clip.addIncident(SlideThree, 15000);
-// clip.addIncident(Technologies, 21000);
-// clip.addIncident(Highlights, 27000);
-clip.addIncident(SlideOneSVG, 0);
+const SlideTwoSVG = new Clip.SlideTwoSVG(
+  {
+    width: 1270,
+    height: 720,
+    clientLogo: "img.svg",
+    clientLogoWidth: 150,
+    compLogo: "logo.png",
+    compLogoWidth: "150px",
+    title: "RMIS / University of Zurich",
+    textOne:
+      "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
+    bgColor: "#000c8f",
+    overlayColor: overlay,
+    fontColor: "#fff",
+    contentColor: "#c10000",
+    speed: 2,
+    contentTitle: "Scope",
+    fonSize: 40,
+    app: "./app.png"
+  },
+  {
+    selector: ".container4"
+  }
+);
+
+const SlideThreeSVG = new Clip.SlideThreeSVG(
+  {
+    width: 1270,
+    height: 720,
+    clientLogo: "img.svg",
+    clientLogoWidth: 150,
+    compLogo: "logo.png",
+    compLogoWidth: "150px",
+    title: "RMIS / University of Zurich",
+    textOne:
+      "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
+    bgColor: "#000c8f",
+    overlayColor: overlay,
+    fontColor: "#fff",
+    contentColor: "#c10000",
+    speed: 2,
+    contentTitle: "Scope",
+    fonSize: 40,
+    app: "./app.png"
+  },
+  {
+    selector: ".container3"
+  }
+);
+
+const TechnologiesSVG = new Clip.TechnologiesSVG(
+  {
+    width: 1270,
+    height: 720,
+    clientLogo: "img.svg",
+    clientLogoWidth: 150,
+    compLogo: "logo.png",
+    compLogoWidth: "150px",
+    title: "RMIS / University of Zurich",
+    logos: ["./1.png", "./2.png", "./3.png", "./4.png", "./5.png"],
+    bgColor: "#000c8f",
+    overlayColor: overlay,
+    fontColor: "#fff",
+    contentColor: "#c10000",
+    speed: 2,
+    contentTitle: "Technologies",
+    fonSize: 40,
+    contentSubTitle: "USed"
+  },
+  {
+    selector: ".container2"
+  }
+);
+
+const HighlightsSVG = new Clip.HighlightsSVG(
+  {
+    width: 1270,
+    height: 720,
+    clientLogo: "img.svg",
+    clientLogoWidth: 150,
+    compLogo: "logo.png",
+    compLogoWidth: "150px",
+    title: "RMIS / University of Zurich",
+    app: "./appLong.png",
+    bgColor: "#000c8f",
+    overlayColor: overlay,
+    fontColor: "#fff",
+    contentColor: "#c10000",
+    speed: 2,
+    contentTitle: "Highlights",
+    fonSize: 40,
+    contentSubTitle: "USed",
+    scroll: true
+  },
+  {
+    selector: ".container1"
+  }
+);
+
+clip.addIncident(introClip, 0);
+clip.addIncident(SlideOneSVG, 3000);
+clip.addIncident(SlideTwoSVG, 9000);
+clip.addIncident(SlideThreeSVG, 15000);
+clip.addIncident(TechnologiesSVG, 21000);
+clip.addIncident(HighlightsSVG, 27000);
 
 new Player({ clip });

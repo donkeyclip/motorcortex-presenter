@@ -2,7 +2,7 @@ const MotorCortex = require("@kissmybutton/motorcortex/");
 const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class SlideThree extends MotorCortex.API.Clip {
+class SlideThreeSVG extends MotorCortex.API.Clip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
@@ -66,6 +66,13 @@ class SlideThree extends MotorCortex.API.Clip {
       </div>
 
       <div class="border">
+      <svg height="${this.attrs.width * 0.6}" width="${
+      this.attrs.height
+    }px" xmlns="http://www.w3.org/2000/svg">
+        <rect class="shape2" height="${this.attrs.width * 0.6}" width="${
+      this.attrs.height
+    }px" />
+      </svg>
       </div>
 
       <div class="border1">
@@ -151,17 +158,12 @@ class SlideThree extends MotorCortex.API.Clip {
     }
   
     .border{
-      width: ${this.attrs.width * 0.6}px;
-      height: 100%;
       position: absolute;
       overflow: hidden;
-      top: 100%;
-      left: 7%;
+      top: 15%;
+      left: 10%;
       z-index: 0;
-      border-left: 5px solid;
-      border-top: 5px solid;
-      border-right: 5px solid;
-      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      transform: rotate(-90deg);
     }
 
     .border1{
@@ -193,8 +195,29 @@ class SlideThree extends MotorCortex.API.Clip {
       width: ${this.attrs.width * 0.3}px;
       display: flex;
       justify-content: center;
-      
     }
+
+
+    .svg-wrapper {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0 auto;
+      width: ${this.attrs.width * 0.6}px;
+      height: 100%;
+    }
+    
+    .shape2 {
+      stroke-dasharray: 5000;
+      stroke-width: 10px;
+      fill: transparent;
+      stroke: ${this.attrs.fontColor};
+      border-bottom: 5px solid black;
+      stroke-dashoffset: -5000;
+      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+    }
+
+
 
   `;
   }
@@ -254,16 +277,16 @@ class SlideThree extends MotorCortex.API.Clip {
     const border = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "15%"
+          strokeDashoffset: "-10000"
         },
         initialValues: {
-          top: "100%"
+          strokeDashoffset: "-5000"
         },
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
-        selector: ".border,.border1",
+        duration: 2500 * this.attrs.speed,
+        selector: ".shape2",
         easing: "easeOutCubic"
       }
     );
@@ -325,7 +348,7 @@ class SlideThree extends MotorCortex.API.Clip {
           left: "-100%"
         },
         initialValues: {
-          left: "7%"
+          left: "10%"
         },
         attrs: {}
       },
@@ -363,4 +386,4 @@ class SlideThree extends MotorCortex.API.Clip {
   }
 }
 
-module.exports = SlideThree;
+module.exports = SlideThreeSVG;

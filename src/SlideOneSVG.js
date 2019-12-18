@@ -128,7 +128,7 @@ class SlideOneSVG extends MotorCortex.API.Clip {
       justify-content: center;
       align-content: center;
       align-items: center;
-      background:#c10000;
+      background: ${this.attrs.contentColor};
       z-index: 2;
     }
 
@@ -183,7 +183,6 @@ class SlideOneSVG extends MotorCortex.API.Clip {
       top: 15%;
       left: 10%;
       z-index: 0;
-     
       transform: rotate(-90deg);
     }
 
@@ -217,7 +216,6 @@ class SlideOneSVG extends MotorCortex.API.Clip {
       justify-content: center;
       
     }
-
 
     .svg-wrapper {
       position: relative;
@@ -297,7 +295,7 @@ class SlideOneSVG extends MotorCortex.API.Clip {
     const border = new Anime.Anime(
       {
         animatedAttrs: {
-          strokeDashoffset: "-8000"
+          strokeDashoffset: "-10000"
         },
         initialValues: {
           strokeDashoffset: "-5000"
@@ -305,7 +303,7 @@ class SlideOneSVG extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 2000 * this.attrs.speed,
+        duration: 2500 * this.attrs.speed,
         selector: ".shape2",
         easing: "easeOutCubic"
       }

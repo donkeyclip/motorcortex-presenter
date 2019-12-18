@@ -1,12 +1,12 @@
 {
-  "name": "@kissmybutton/motorcortex-plugin-boilerplate",
+  "name": "@kissmybutton/motorcortex-presenter",
   "version": "0.0.1",
-  "description": "<PLUGIN> plugin for MotorCortex",
+  "description": "Presenter plugin for MotorCortex",
   "main": "./dist/main.js",
   "author": "KissMyButton PC (kissmybutton.gr) <opensource@kissmybutton.gr>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kissmybutton/motorcortex-<plugin>.git"
+    "url": "https://github.com/kissmybutton/motorcortex-presenter.git"
   },
   "license": "MIT",
   "engines": {

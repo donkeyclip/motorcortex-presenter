@@ -2,7 +2,7 @@ const MotorCortex = require("@kissmybutton/motorcortex/");
 const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class Highlights extends MotorCortex.API.Clip {
+class HighlightsSVG extends MotorCortex.API.Clip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
@@ -212,6 +212,7 @@ class Highlights extends MotorCortex.API.Clip {
   }
 
   buildTree() {
+    let scroll = 0;
     const border = new Anime.Anime(
       {
         animatedAttrs: {
@@ -367,12 +368,16 @@ class Highlights extends MotorCortex.API.Clip {
     this.addIncident(content, 0);
     this.addIncident(subtitle, 0);
     this.addIncident(title, 0);
-    this.addIncident(borderOut, 2000 * this.attrs.speed);
-    this.addIncident(contentOut, 2000 * this.attrs.speed);
-    this.addIncident(subtitleOut, 2000 * this.attrs.speed);
-    this.addIncident(titleOut, 2000 * this.attrs.speed);
-    this.addIncident(bgout, 6000 * this.speed);
+    if (this.attrs.scroll) {
+      this.addIncident(appScroll, 2000 * this.attrs.speed);
+      scroll = 2000;
+    }
+    this.addIncident(borderOut, 2000 * this.attrs.speed + scroll);
+    this.addIncident(contentOut, 2000 * this.attrs.speed + scroll);
+    this.addIncident(subtitleOut, 2000 * this.attrs.speed + scroll);
+    this.addIncident(titleOut, 2000 * this.attrs.speed + scroll);
+    this.addIncident(bgout, 3000 * this.attrs.speed + scroll);
   }
 }
 
-module.exports = Highlights;
+module.exports = HighlightsSVG;

@@ -2,7 +2,7 @@ const MotorCortex = require("@kissmybutton/motorcortex/");
 const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class SlideThree extends MotorCortex.API.Clip {
+class TechnologiesSVG extends MotorCortex.API.Clip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
@@ -52,9 +52,8 @@ class SlideThree extends MotorCortex.API.Clip {
       </div>
 
       <div class="content-container">
-        <div class= "content-wrapper" >
-          <p class="text1">${this.attrs.textOne}</p>
-        </div>
+   
+        
       </div>
 
 
@@ -62,23 +61,38 @@ class SlideThree extends MotorCortex.API.Clip {
         <span> ${this.attrs.contentTitle}</span>
       </div>
 
-      <div class="app-holder">
+      <div class="subtitle-holder">
+        <span> ${this.attrs.contentSubTitle}</span>
       </div>
-
       <div class="border">
+      <svg height="${this.attrs.width * 0.6}" width="${
+      this.attrs.height
+    }px" xmlns="http://www.w3.org/2000/svg">
+        <rect class="shape2" height="${this.attrs.width * 0.6}" width="${
+      this.attrs.height
+    }px" />
+      </svg>
       </div>
-
-      <div class="border1">
-      </div>
-
-
-
     </div>
     `;
   }
 
   get css() {
     return `
+
+    .img img{
+      width:80%;
+      -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));
+      filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));
+    }
+
+    .img{
+      display:flex;
+          justify-content: center;
+          align-content: center;
+          align-items: center;
+    }
+
     .bg {
       width: ${this.attrs.width}px;
       height: ${this.attrs.height}px;
@@ -108,79 +122,70 @@ class SlideThree extends MotorCortex.API.Clip {
     }
    
     .content-container{
-      width: ${this.attrs.width * 0.65}px;
-      height: ${this.attrs.height * 0.6}px;
+      width: ${this.attrs.width * 0.84}px;
+      height: ${this.attrs.height * 0.42}px;
       box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
       position: absolute;
-      top : -100%;
-      left : 5%;
+      bottom: 120%;
       display:flex;
-      justify-content: center;
+      justify-content: space-around;
       align-content: center;
       align-items: center;
       background: ${this.attrs.contentColor};
       z-index: 2;
     }
 
-    .content-wrapper{
-      margin: 5%;
-      position: relative;
-      
-    }
-    p{
-      margin: 0;
-      text-transform: uppercase;
-      font-weight: 200;
-    }
- 
-    .text1{
-      font-size: ${this.attrs.fonSize}px;
-      }
+    .img-container{
+      width: ${this.attrs.width * 0.84}px;
+      height: ${this.attrs.height * 0.42}px;
+      display:flex;
+      justify-content: space-around;
+      align-content: center;
+      align-items: center;
 
-    .app-holder{
-      width: ${this.attrs.width * 0.6}px;
-      height: 100%;
-      position: absolute;
-      overflow: hidden;
-      top: 100%;
-      left: 40%;
-      z-index: 1;
-      background: url(${this.attrs.app});
-      background-size: cover;
-      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
     }
   
+   
+
     .border{
-      width: ${this.attrs.width * 0.6}px;
-      height: 100%;
+      
       position: absolute;
       overflow: hidden;
-      top: 100%;
       left: 7%;
       z-index: 0;
-      border-left: 5px solid;
-      border-top: 5px solid;
-      border-right: 5px solid;
-      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      -ms-transform: rotate(-45deg);     
+      -ms-transform-origin: 20% 40%;  
+      -webkit-transform: rotate(-45deg); 
+      -webkit-transform-origin: 69% 83%;
+      transform: rotate(79deg);
     }
 
-    .border1{
-      width: ${this.attrs.width * 0.33}px;
-      height: 100%;
+    .subtitle-holder{
+      font-size: ${this.dinamicFontSize(
+        this.attrs.contentSubTitle.length,
+        this.attrs.width * 0.15
+      )}px;
+      color:${this.attrs.bgColor};
+      background: #c10000;
+      z-index: 3;
+      text-transform: uppercase;
+      box-shadow: -20px 9px 44px rgb(0, 0, 0);
       position: absolute;
-      overflow: hidden;
-      top: 100%;
-      left: 7%;
-      z-index: 2;
-      box-shadow: -23px -4px 23px rgba(0,0,0,0.65);
-      border-left: 5px solid;
-      border-top: 5px solid;
+      top:33%;
+      left:120%;
+      font-weight: 900;
+      width: ${this.attrs.width * 0.2}px;
+      height: ${this.attrs.height * 0.15}px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
 
     .title-holder{
       font-size: ${this.dinamicFontSize(
         this.attrs.contentTitle.length,
-        this.attrs.width * 0.2
+        this.attrs.width * 0.4
       )}px;
       color:${this.attrs.bgColor};
       background: ${this.attrs.fontColor};
@@ -188,39 +193,93 @@ class SlideThree extends MotorCortex.API.Clip {
       text-transform: uppercase;
       box-shadow: -17px 7px 18px rgb(0, 0, 0);
       position: absolute;
-      top: 80%;
-      left: 120%;
-      width: ${this.attrs.width * 0.3}px;
+      top:120%;
+      font-weight: 900;
+      width: ${this.attrs.width * 0.45}px;
+      height: ${this.attrs.height * 0.2}px;
       display: flex;
       justify-content: center;
-      
+      align-items: center;
     }
+
+
+    .svg-wrapper {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0 auto;
+      width: ${this.attrs.width * 0.6}px;
+      height: 100%;
+    }
+    
+    .shape2 {
+      stroke-dasharray: 5000;
+      stroke-width: 10px;
+      fill: transparent;
+      stroke: ${this.attrs.fontColor};
+      border-bottom: 5px solid black;
+      stroke-dashoffset: -5000;
+      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+    }
+
 
   `;
   }
 
   buildTree() {
+    let html3 = "";
+
+    for (let i = 0; i < this.attrs.logos.length; i++) {
+      const html = `<div class="img"> <img src="${this.attrs.logos[i]}" /></div>`;
+      html3 = html3 + html;
+    }
+
+    const word = new MotorCortex.Clip({
+      css: this.css,
+      html: `<div class="img-container"> ${html3} </div>`,
+      selector: ".content-container"
+    });
+
+    this.addIncident(word, 0);
+
+    const border = new Anime.Anime(
+      {
+        animatedAttrs: {
+          strokeDashoffset: "-10000"
+        },
+        initialValues: {
+          strokeDashoffset: "-5000"
+        },
+        attrs: {}
+      },
+      {
+        duration: 2500 * this.attrs.speed,
+        selector: ".shape2",
+        easing: "easeOutCubic"
+      }
+    );
+
     const content = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "25%"
+          bottom: "15%"
         },
         initialValues: {
-          top: "-100%"
+          bottom: "120%"
         },
         attrs: {}
       },
       {
         duration: 1000 * this.attrs.speed,
-        selector: " .content-container",
+        selector: ".content-container",
         easing: "easeOutCubic"
       }
     );
 
-    const titleHolder = new Anime.Anime(
+    const subtitle = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "55%"
+          left: "60%"
         },
         initialValues: {
           left: "120%"
@@ -229,100 +288,34 @@ class SlideThree extends MotorCortex.API.Clip {
       },
       {
         duration: 1000 * this.attrs.speed,
-        selector: " .title-holder",
+        selector: ".subtitle-holder",
         easing: "easeOutCubic"
       }
     );
 
-    const appHolder = new Anime.Anime(
-      {
-        animatedAttrs: {
-          top: "0%"
-        },
-        initialValues: {
-          top: "100%"
-        },
-        attrs: {}
-      },
-      {
-        duration: 1000 * this.attrs.speed,
-        selector: ".app-holder ",
-        easing: "easeOutCubic"
-      }
-    );
-
-    const border = new Anime.Anime(
+    const title = new Anime.Anime(
       {
         animatedAttrs: {
           top: "15%"
         },
         initialValues: {
-          top: "100%"
+          top: "120%"
         },
         attrs: {}
       },
       {
         duration: 1000 * this.attrs.speed,
-        selector: ".border,.border1",
+        selector: ".title-holder",
         easing: "easeOutCubic"
       }
     );
 
-    const contentOut = new Anime.Anime(
-      {
-        animatedAttrs: {
-          left: "120%"
-        },
-        initialValues: {
-          left: "5%"
-        },
-        attrs: {}
-      },
-      {
-        duration: 1000 * this.attrs.speed,
-        selector: " .content-container",
-        easing: "easeInQuart"
-      }
-    );
-
-    const titleHolderOut = new Anime.Anime(
-      {
-        animatedAttrs: {
-          top: "-100%"
-        },
-        initialValues: {
-          top: "80%"
-        },
-        attrs: {}
-      },
-      {
-        duration: 1000 * this.attrs.speed,
-        selector: " .title-holder",
-        easing: "easeInQuart"
-      }
-    );
-
-    const appHolderOut = new Anime.Anime(
-      {
-        animatedAttrs: {
-          top: "-120%"
-        },
-        initialValues: {
-          top: "0%"
-        },
-        attrs: {}
-      },
-      {
-        duration: 1000 * this.attrs.speed,
-        selector: ".app-holder ",
-        easing: "easeInQuart"
-      }
-    );
+    // out
 
     const borderOut = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-100%"
+          left: "150%"
         },
         initialValues: {
           left: "7%"
@@ -331,7 +324,58 @@ class SlideThree extends MotorCortex.API.Clip {
       },
       {
         duration: 1000 * this.attrs.speed,
-        selector: ".border,.border1",
+        selector: ".border",
+        easing: "easeInQuart"
+      }
+    );
+
+    const contentOut = new Anime.Anime(
+      {
+        animatedAttrs: {
+          bottom: "-120%"
+        },
+        initialValues: {
+          bottom: "15%"
+        },
+        attrs: {}
+      },
+      {
+        duration: 1000 * this.attrs.speed,
+        selector: ".content-container",
+        easing: "easeInQuart"
+      }
+    );
+
+    const subtitleOut = new Anime.Anime(
+      {
+        animatedAttrs: {
+          left: "-120%"
+        },
+        initialValues: {
+          left: "60%"
+        },
+        attrs: {}
+      },
+      {
+        duration: 1000 * this.attrs.speed,
+        selector: ".subtitle-holder",
+        easing: "easeInQuart"
+      }
+    );
+
+    const titleOut = new Anime.Anime(
+      {
+        animatedAttrs: {
+          top: "-120%"
+        },
+        initialValues: {
+          top: "15%"
+        },
+        attrs: {}
+      },
+      {
+        duration: 1000 * this.attrs.speed,
+        selector: ".title-holder",
         easing: "easeInQuart"
       }
     );
@@ -351,16 +395,16 @@ class SlideThree extends MotorCortex.API.Clip {
       }
     );
 
-    this.addIncident(titleHolder, 500);
-    this.addIncident(content, 1000);
-    this.addIncident(appHolder, 0);
-    this.addIncident(border, 250);
-    this.addIncident(titleHolderOut, 2000 * this.attrs.speed);
-    this.addIncident(contentOut, 2000 * this.attrs.speed);
-    this.addIncident(appHolderOut, 2000 * this.attrs.speed);
+    this.addIncident(border, 0);
+    this.addIncident(content, 0);
+    this.addIncident(subtitle, 0);
+    this.addIncident(title, 0);
     this.addIncident(borderOut, 2000 * this.attrs.speed);
-    this.addIncident(bgout, 3000 * this.attrs.speed);
+    this.addIncident(contentOut, 2000 * this.attrs.speed);
+    this.addIncident(subtitleOut, 2000 * this.attrs.speed);
+    this.addIncident(titleOut, 2000 * this.attrs.speed);
+    this.addIncident(bgout, 6000 * this.speed);
   }
 }
 
-module.exports = SlideThree;
+module.exports = TechnologiesSVG;

@@ -123,7 +123,7 @@ class Technologies extends MotorCortex.API.Clip {
       justify-content: space-around;
       align-content: center;
       align-items: center;
-      background:#c10000;
+      background: ${this.attrs.contentColor};
       z-index: 2;
     }
 

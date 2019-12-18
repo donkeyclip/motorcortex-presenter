@@ -2,7 +2,7 @@ const MotorCortex = require("@kissmybutton/motorcortex/");
 const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class SlideThree extends MotorCortex.API.Clip {
+class SlideTwoSVG extends MotorCortex.API.Clip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
@@ -66,6 +66,13 @@ class SlideThree extends MotorCortex.API.Clip {
       </div>
 
       <div class="border">
+        <svg height="${this.attrs.width * 0.6}" width="${
+      this.attrs.height
+    }px" xmlns="http://www.w3.org/2000/svg">
+          <rect class="shape2" height="${this.attrs.width * 0.6}" width="${
+      this.attrs.height
+    }px" />
+        </svg>
       </div>
 
       <div class="border1">
@@ -112,8 +119,8 @@ class SlideThree extends MotorCortex.API.Clip {
       height: ${this.attrs.height * 0.6}px;
       box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
       position: absolute;
-      top : -100%;
-      left : 5%;
+      top : 25%;
+      right : 100%;
       display:flex;
       justify-content: center;
       align-content: center;
@@ -123,27 +130,28 @@ class SlideThree extends MotorCortex.API.Clip {
     }
 
     .content-wrapper{
-      margin: 5%;
+      margin: 0;
       position: relative;
-      
+      width: ${this.attrs.width * 0.55}px;
+      height: ${this.attrs.height * 0.5}px;
     }
     p{
       margin: 0;
       text-transform: uppercase;
       font-weight: 200;
     }
- 
     .text1{
-      font-size: ${this.attrs.fonSize}px;
-      }
+    font-size: ${this.attrs.fonSize}px;
+    }
+
 
     .app-holder{
       width: ${this.attrs.width * 0.6}px;
       height: 100%;
       position: absolute;
       overflow: hidden;
-      top: 100%;
-      left: 40%;
+      top: 10%;
+      left: 100%;
       z-index: 1;
       background: url(${this.attrs.app});
       background-size: cover;
@@ -151,30 +159,24 @@ class SlideThree extends MotorCortex.API.Clip {
     }
   
     .border{
+      position: absolute;
+      overflow: hidden;
+      top: 1%;
+      right: 7%;
+      z-index: 0;
+      transform: rotate(-90deg);
+    }
+
+    .border1{
       width: ${this.attrs.width * 0.6}px;
       height: 100%;
       position: absolute;
       overflow: hidden;
-      top: 100%;
-      left: 7%;
-      z-index: 0;
-      border-left: 5px solid;
-      border-top: 5px solid;
-      border-right: 5px solid;
-      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
-    }
-
-    .border1{
-      width: ${this.attrs.width * 0.33}px;
-      height: 100%;
-      position: absolute;
-      overflow: hidden;
-      top: 100%;
-      left: 7%;
+      top: 5%;
+      right:-100%;
       z-index: 2;
-      box-shadow: -23px -4px 23px rgba(0,0,0,0.65);
-      border-left: 5px solid;
-      border-top: 5px solid;
+      box-shadow: 22px 25px 23px rgba(0,0,0,0.65);
+      border-right: 5px solid;
     }
 
     .title-holder{
@@ -188,13 +190,34 @@ class SlideThree extends MotorCortex.API.Clip {
       text-transform: uppercase;
       box-shadow: -17px 7px 18px rgb(0, 0, 0);
       position: absolute;
-      top: 80%;
-      left: 120%;
-      width: ${this.attrs.width * 0.3}px;
+      top: 100%;
+      right: 0%;
+      width: ${this.attrs.width * 0.4}px;
       display: flex;
       justify-content: center;
       
     }
+
+
+    .svg-wrapper {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0 auto;
+      width: ${this.attrs.width * 0.6}px;
+      height: 100%;
+    }
+    
+    .shape2 {
+      stroke-dasharray: 5000;
+      stroke-width: 10px;
+      fill: transparent;
+      stroke: ${this.attrs.fontColor};
+      border-bottom: 5px solid black;
+      stroke-dashoffset: -5000;
+      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+    }
+
 
   `;
   }
@@ -203,10 +226,10 @@ class SlideThree extends MotorCortex.API.Clip {
     const content = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "25%"
+          right: "0%"
         },
         initialValues: {
-          top: "-100%"
+          right: "100%"
         },
         attrs: {}
       },
@@ -220,10 +243,10 @@ class SlideThree extends MotorCortex.API.Clip {
     const titleHolder = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "55%"
+          top: "15%"
         },
         initialValues: {
-          left: "120%"
+          top: "100%"
         },
         attrs: {}
       },
@@ -237,10 +260,10 @@ class SlideThree extends MotorCortex.API.Clip {
     const appHolder = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "0%"
+          left: "0%"
         },
         initialValues: {
-          top: "100%"
+          left: "100%"
         },
         attrs: {}
       },
@@ -254,16 +277,16 @@ class SlideThree extends MotorCortex.API.Clip {
     const border = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "15%"
+          strokeDashoffset: "-10000"
         },
         initialValues: {
-          top: "100%"
+          strokeDashoffset: "-5000"
         },
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
-        selector: ".border,.border1",
+        duration: 2500 * this.attrs.speed,
+        selector: ".shape2",
         easing: "easeOutCubic"
       }
     );
@@ -271,10 +294,10 @@ class SlideThree extends MotorCortex.API.Clip {
     const contentOut = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "120%"
+          top: "-120%"
         },
         initialValues: {
-          left: "5%"
+          top: "25%"
         },
         attrs: {}
       },
@@ -288,10 +311,10 @@ class SlideThree extends MotorCortex.API.Clip {
     const titleHolderOut = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "-100%"
+          top: "100%"
         },
         initialValues: {
-          top: "80%"
+          top: "15%"
         },
         attrs: {}
       },
@@ -305,10 +328,10 @@ class SlideThree extends MotorCortex.API.Clip {
     const appHolderOut = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "-120%"
+          left: "120%"
         },
         initialValues: {
-          top: "0%"
+          left: "0%"
         },
         attrs: {}
       },
@@ -322,16 +345,16 @@ class SlideThree extends MotorCortex.API.Clip {
     const borderOut = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-100%"
+          right: "120%"
         },
         initialValues: {
-          left: "7%"
+          right: "7%"
         },
         attrs: {}
       },
       {
         duration: 1000 * this.attrs.speed,
-        selector: ".border,.border1",
+        selector: ".border",
         easing: "easeInQuart"
       }
     );
@@ -363,4 +386,4 @@ class SlideThree extends MotorCortex.API.Clip {
   }
 }
 
-module.exports = SlideThree;
+module.exports = SlideTwoSVG;

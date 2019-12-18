@@ -63,8 +63,8 @@ class Intro extends MotorCortex.API.Clip {
   get css() {
     return `
     .bg {
-      width: ${this.attrs.width};
-      height: ${this.attrs.height};
+      width: ${this.attrs.width}px;
+      height: ${this.attrs.height}px;
       position: relative;
       background-image: url(${this.attrs.bgUrl});
       background-size: 1270px;
