@@ -1,5 +1,5 @@
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
+const MotorCortex = require("@kissmybutton/motorcortex");
+const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
 class IntroFade extends MotorCortex.API.Clip {
@@ -153,7 +153,7 @@ class IntroFade extends MotorCortex.API.Clip {
     const bgout = new Anime.Anime(
       {
         animatedAttrs: {
-          width: 0,
+          width: "0px",
           opacity: 0
         },
 

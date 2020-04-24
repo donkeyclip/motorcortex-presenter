@@ -1,5 +1,5 @@
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
+const MotorCortex = require("@kissmybutton/motorcortex");
+const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
 class Intro extends MotorCortex.API.Clip {
@@ -16,7 +16,7 @@ class Intro extends MotorCortex.API.Clip {
   }
 
   get font() {
-    [
+    return [
       {
         type: `google-font`,
         src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`

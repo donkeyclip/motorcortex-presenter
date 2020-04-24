@@ -1,6 +1,6 @@
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const Player = require("@kissmybutton/motorcortex-player/");
-const presenter = require("../src/main");
+const MotorCortex = require("@kissmybutton/motorcortex");
+const Player = require("@kissmybutton/motorcortex-player");
+const presenter = require("../dist/motorcortex-presenter.umd.js");
 const Clip = MotorCortex.loadPlugin(presenter);
 const css = `
              
@@ -30,7 +30,7 @@ const containerParams = {
 };
 
 const overlay = ["#0012E2c0", "#101820FF"];
-const main = "#FEE715FF";
+// const main = "#FEE715FF";
 
 const clip = new MotorCortex.Clip({
   css,
@@ -59,30 +59,30 @@ const introClip = new Clip.Intro(
   }
 );
 
-const SlideOne = new Clip.SlideOne(
-  {
-    width: 1270,
-    height: 720,
-    clientLogo: "img.svg",
-    clientLogoWidth: 150,
-    compLogo: "logo.png",
-    compLogoWidth: "150px",
-    title: "RMIS / University of Zurich",
-    textOne: "generic",
-    textTwo: "module-based",
-    textThree: "eHealth platform",
-    bgColor: "#000c8f",
-    contentColor: "#c10000",
-    overlayColor: overlay,
-    fontColor: "#fff",
-    speed: 2,
-    contentTitle: "Scope",
-    app: "./app.png"
-  },
-  {
-    selector: ".container5"
-  }
-);
+// const SlideOne = new Clip.SlideOne(
+//   {
+//     width: 1270,
+//     height: 720,
+//     clientLogo: "img.svg",
+//     clientLogoWidth: 150,
+//     compLogo: "logo.png",
+//     compLogoWidth: "150px",
+//     title: "RMIS / University of Zurich",
+//     textOne: "generic",
+//     textTwo: "module-based",
+//     textThree: "eHealth platform",
+//     bgColor: "#000c8f",
+//     contentColor: "#c10000",
+//     overlayColor: overlay,
+//     fontColor: "#fff",
+//     speed: 2,
+//     contentTitle: "Scope",
+//     app: "./app.png"
+//   },
+//   {
+//     selector: ".container5"
+//   }
+// );
 
 const SlideOneSVG = new Clip.SlideOneSVG(
   {
@@ -109,104 +109,104 @@ const SlideOneSVG = new Clip.SlideOneSVG(
   }
 );
 
-const SlideTwo = new Clip.SlideTwo(
-  {
-    width: 1270,
-    height: 720,
-    clientLogo: "img.svg",
-    clientLogoWidth: 150,
-    compLogo: "logo.png",
-    compLogoWidth: "150px",
-    title: "RMIS / University of Zurich",
-    textOne:
-      "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
-    bgColor: "#000c8f",
-    overlayColor: overlay,
-    fontColor: "#fff",
-    contentColor: "#c10000",
-    speed: 2,
-    contentTitle: "Scope",
-    fonSize: 40,
-    app: "./app.png"
-  },
-  {
-    selector: ".container4"
-  }
-);
+// const SlideTwo = new Clip.SlideTwo(
+//   {
+//     width: 1270,
+//     height: 720,
+//     clientLogo: "img.svg",
+//     clientLogoWidth: 150,
+//     compLogo: "logo.png",
+//     compLogoWidth: "150px",
+//     title: "RMIS / University of Zurich",
+//     textOne:
+//       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
+//     bgColor: "#000c8f",
+//     overlayColor: overlay,
+//     fontColor: "#fff",
+//     contentColor: "#c10000",
+//     speed: 2,
+//     contentTitle: "Scope",
+//     fonSize: 40,
+//     app: "./app.png"
+//   },
+//   {
+//     selector: ".container4"
+//   }
+// );
 
-const SlideThree = new Clip.SlideThree(
-  {
-    width: 1270,
-    height: 720,
-    clientLogo: "img.svg",
-    clientLogoWidth: 150,
-    compLogo: "logo.png",
-    compLogoWidth: "150px",
-    title: "RMIS / University of Zurich",
-    textOne:
-      "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
-    bgColor: "#000c8f",
-    overlayColor: overlay,
-    fontColor: "#fff",
-    contentColor: "#c10000",
-    speed: 2,
-    contentTitle: "Scope",
-    fonSize: 40,
-    app: "./app.png"
-  },
-  {
-    selector: ".container3"
-  }
-);
+// const SlideThree = new Clip.SlideThree(
+//   {
+//     width: 1270,
+//     height: 720,
+//     clientLogo: "img.svg",
+//     clientLogoWidth: 150,
+//     compLogo: "logo.png",
+//     compLogoWidth: "150px",
+//     title: "RMIS / University of Zurich",
+//     textOne:
+//       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
+//     bgColor: "#000c8f",
+//     overlayColor: overlay,
+//     fontColor: "#fff",
+//     contentColor: "#c10000",
+//     speed: 2,
+//     contentTitle: "Scope",
+//     fonSize: 40,
+//     app: "./app.png"
+//   },
+//   {
+//     selector: ".container3"
+//   }
+// );
 
-const Technologies = new Clip.Technologies(
-  {
-    width: 1270,
-    height: 720,
-    clientLogo: "img.svg",
-    clientLogoWidth: 150,
-    compLogo: "logo.png",
-    compLogoWidth: "150px",
-    title: "RMIS / University of Zurich",
-    logos: ["./1.png", "./2.png", "./3.png", "./4.png", "./5.png"],
-    bgColor: "#000c8f",
-    overlayColor: overlay,
-    fontColor: "#fff",
-    contentColor: "#c10000",
-    speed: 2,
-    contentTitle: "Technologies",
-    fonSize: 40,
-    contentSubTitle: "USed"
-  },
-  {
-    selector: ".container2"
-  }
-);
+// const Technologies = new Clip.Technologies(
+//   {
+//     width: 1270,
+//     height: 720,
+//     clientLogo: "img.svg",
+//     clientLogoWidth: 150,
+//     compLogo: "logo.png",
+//     compLogoWidth: "150px",
+//     title: "RMIS / University of Zurich",
+//     logos: ["./1.png", "./2.png", "./3.png", "./4.png", "./5.png"],
+//     bgColor: "#000c8f",
+//     overlayColor: overlay,
+//     fontColor: "#fff",
+//     contentColor: "#c10000",
+//     speed: 2,
+//     contentTitle: "Technologies",
+//     fonSize: 40,
+//     contentSubTitle: "USed"
+//   },
+//   {
+//     selector: ".container2"
+//   }
+// );
 
-const Highlights = new Clip.Highlights(
-  {
-    width: 1270,
-    height: 720,
-    clientLogo: "img.svg",
-    clientLogoWidth: 150,
-    compLogo: "logo.png",
-    compLogoWidth: "150px",
-    title: "RMIS / University of Zurich",
-    app: "./app.png",
-    bgColor: "#000c8f",
-    overlayColor: overlay,
-    fontColor: "#fff",
-    contentColor: "#c10000",
-    speed: 2,
-    contentTitle: "Highlights",
-    fonSize: 40,
-    contentSubTitle: "USed",
-    scroll: false
-  },
-  {
-    selector: ".container1"
-  }
-);
+// const Highlights = new Clip.Highlights(
+//   {
+//     width: 1270,
+//     height: 720,
+//     clientLogo: "img.svg",
+//     clientLogoWidth: 150,
+//     compLogo: "logo.png",
+//     compLogoWidth: "150px",
+//     title: "RMIS / University of Zurich",
+//     app: "./app.png",
+//     bgColor: "#000c8f",
+//     overlayColor: overlay,
+//     fontColor: "#fff",
+//     contentColor: "#c10000",
+//     speed: 2,
+//     contentTitle: "Highlights",
+//     fonSize: 40,
+//     contentSubTitle: "USed",
+//     scroll: false
+//   },
+//   {
+//     selector: ".container1"
+//   }
+// );
 
 const SlideTwoSVG = new Clip.SlideTwoSVG(
   {

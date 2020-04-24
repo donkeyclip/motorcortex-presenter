@@ -1,5 +1,5 @@
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
+const MotorCortex = require("@kissmybutton/motorcortex");
+const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
 class SlideTwo extends MotorCortex.API.Clip {
@@ -16,7 +16,7 @@ class SlideTwo extends MotorCortex.API.Clip {
   }
 
   get font() {
-    [
+    return [
       {
         type: `google-font`,
         src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`
@@ -340,7 +340,7 @@ class SlideTwo extends MotorCortex.API.Clip {
     const bgout = new Anime.Anime(
       {
         animatedAttrs: {
-          width: 0,
+          width: "0px",
           opacity: 0
         },
 

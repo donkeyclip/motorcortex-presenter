@@ -1,5 +1,5 @@
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
+const MotorCortex = require("@kissmybutton/motorcortex");
+const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
 class HighlightsSVG extends MotorCortex.API.Clip {
@@ -16,7 +16,7 @@ class HighlightsSVG extends MotorCortex.API.Clip {
   }
 
   get font() {
-    [
+    return [
       {
         type: `google-font`,
         src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`
@@ -212,7 +212,7 @@ class HighlightsSVG extends MotorCortex.API.Clip {
   }
 
   buildTree() {
-    let scroll = 0;
+    const scroll = 0;
     const border = new Anime.Anime(
       {
         animatedAttrs: {
@@ -352,7 +352,7 @@ class HighlightsSVG extends MotorCortex.API.Clip {
     const bgout = new Anime.Anime(
       {
         animatedAttrs: {
-          width: 0,
+          width: "0px",
           opacity: 0
         },
 
@@ -368,10 +368,11 @@ class HighlightsSVG extends MotorCortex.API.Clip {
     this.addIncident(content, 0);
     this.addIncident(subtitle, 0);
     this.addIncident(title, 0);
-    if (this.attrs.scroll) {
-      this.addIncident(appScroll, 2000 * this.attrs.speed);
-      scroll = 2000;
-    }
+    // where is appScroll is not defined ??
+    // if (this.attrs.scroll) {
+    //   this.addIncident(appScroll, 2000 * this.attrs.speed);
+    //   scroll = 2000;
+    // }
     this.addIncident(borderOut, 2000 * this.attrs.speed + scroll);
     this.addIncident(contentOut, 2000 * this.attrs.speed + scroll);
     this.addIncident(subtitleOut, 2000 * this.attrs.speed + scroll);
