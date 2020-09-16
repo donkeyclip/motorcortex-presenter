@@ -8,6 +8,8 @@ const css = `
   overflow: hidden;
   display: flex;
   position: absolute;
+  width:1280px;
+  height:720px;
 }
 
   `;
@@ -46,7 +48,7 @@ const introClip = new Clip.Intro(
     clientLogo: "img.svg",
     clientLogoWidth: 500,
     compLogo: "logo.png",
-    compLogoWidth: "150px",
+    compLogoWidth: 150,
     title: "RMIS / University of Zurich",
     date: "2019 - Today",
     bgUrl: "./bg.jpg",
@@ -91,7 +93,7 @@ const SlideOneSVG = new Clip.SlideOneSVG(
     clientLogo: "img.svg",
     clientLogoWidth: 150,
     compLogo: "logo.png",
-    compLogoWidth: "150px",
+    compLogoWidth: 150,
     title: "RMIS / University of Zurich",
     textOne: "generic",
     textTwo: "module-based",
@@ -215,7 +217,7 @@ const SlideTwoSVG = new Clip.SlideTwoSVG(
     clientLogo: "img.svg",
     clientLogoWidth: 150,
     compLogo: "logo.png",
-    compLogoWidth: "150px",
+
     title: "RMIS / University of Zurich",
     textOne:
       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
@@ -240,7 +242,7 @@ const SlideThreeSVG = new Clip.SlideThreeSVG(
     clientLogo: "img.svg",
     clientLogoWidth: 150,
     compLogo: "logo.png",
-    compLogoWidth: "150px",
+
     title: "RMIS / University of Zurich",
     textOne:
       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
@@ -265,7 +267,6 @@ const TechnologiesSVG = new Clip.TechnologiesSVG(
     clientLogo: "img.svg",
     clientLogoWidth: 150,
     compLogo: "logo.png",
-    compLogoWidth: "150px",
     title: "RMIS / University of Zurich",
     logos: ["./1.png", "./2.png", "./3.png", "./4.png", "./5.png"],
     bgColor: "#000c8f",
@@ -289,7 +290,6 @@ const HighlightsSVG = new Clip.HighlightsSVG(
     clientLogo: "img.svg",
     clientLogoWidth: 150,
     compLogo: "logo.png",
-    compLogoWidth: "150px",
     title: "RMIS / University of Zurich",
     app: "./appLong.png",
     bgColor: "#000c8f",

@@ -10,57 +10,69 @@ const SlideTwoSVG = require("./SlideTwoSVG");
 const SlideThreeSVG = require("./SlideThreeSVG");
 const TechnologiesSVG = require("./TechnologiesSVG");
 const HighlightsSVG = require("./HighlightsSVG");
-
+const attrs = require("./validation");
 module.exports = {
   npm_name: "@kissmybutton/motorcortex-presenter",
   incidents: [
     {
       exportable: Intro,
-      name: "Intro"
+      name: "Intro",
+      attributesValidationRules: attrs.intro
     },
     {
       exportable: IntroFade,
-      name: "IntroFade"
+      name: "IntroFade",
+
     },
     {
       exportable: SlideOne,
-      name: "SlideOne"
+      name: "SlideOne",
+      attributesValidationRules: attrs.SlideOneSVG
     },
     {
       exportable: SlideOneSVG,
-      name: "SlideOneSVG"
+      name: "SlideOneSVG",
+      attributesValidationRules: attrs.SlideOneSVG
     },
     {
       exportable: SlideTwo,
-      name: "SlideTwo"
+      name: "SlideTwo",
+      attributesValidationRules: attrs.SlideTwo
     },
     {
       exportable: SlideTwoSVG,
-      name: "SlideTwoSVG"
+      name: "SlideTwoSVG",
+      attributesValidationRules: attrs.SlideTwo
     },
     {
       exportable: SlideThree,
-      name: "SlideThree"
+      name: "SlideThree",
+      attributesValidationRules: attrs.SlideTwo
     },
     {
       exportable: SlideThreeSVG,
-      name: "SlideThreeSVG"
+      name: "SlideThreeSVG",
+      attributesValidationRules: attrs.SlideTwo
     },
     {
       exportable: Technologies,
-      name: "Technologies"
+      name: "Technologies",
+      attributesValidationRules: attrs.Technologies
     },
     {
       exportable: TechnologiesSVG,
-      name: "TechnologiesSVG"
+      name: "TechnologiesSVG",
+      attributesValidationRules: attrs.Technologies
     },
     {
       exportable: Highlights,
-      name: "Highlights"
+      name: "Highlights",
+      attributesValidationRules: attrs.Highlights
     },
     {
       exportable: HighlightsSVG,
-      name: "HighlightsSVG"
+      name: "HighlightsSVG",
+      attributesValidationRules: attrs.Highlights
     }
   ]
 };

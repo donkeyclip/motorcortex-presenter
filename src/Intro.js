@@ -90,11 +90,11 @@ class Intro extends MotorCortex.API.Clip {
     }
 
     .logo-client img {
-      width : ${this.attrs.clientLogoWidth}px ;
+      width : ${this.attrs.clientLogoWidth}px;
     }
 
     .logo-comp img {
-      width : ${this.attrs.compLogoWidth}
+      width : ${this.attrs.compLogoWidth}px
     }
 
     .logo-comp,.date{

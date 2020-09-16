@@ -2,9 +2,11 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+var MC = require('@kissmybutton/motorcortex');
 
-var MC = _interopDefault(require('@kissmybutton/motorcortex'));
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var MC__default = /*#__PURE__*/_interopDefaultLegacy(MC);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -26,6 +28,21 @@ function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
 }
 
 function _inherits(subClass, superClass) {
@@ -59,6 +76,19 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -73,6 +103,25 @@ function _possibleConstructorReturn(self, call) {
   }
 
   return _assertThisInitialized(self);
+}
+
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
 }
 
 function _classCallCheck$1(instance, Constructor) {
@@ -97,7 +146,7 @@ function _createClass$1(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-function _defineProperty(obj, key, value) {
+function _defineProperty$1(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -132,7 +181,7 @@ function _objectSpread2(target) {
 
     if (i % 2) {
       ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
+        _defineProperty$1(target, key, source[key]);
       });
     } else if (Object.getOwnPropertyDescriptors) {
       Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
@@ -177,7 +226,7 @@ function _setPrototypeOf$1(o, p) {
   return _setPrototypeOf$1(o, p);
 }
 
-function _isNativeReflectConstruct() {
+function _isNativeReflectConstruct$1() {
   if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
   if (typeof Proxy === "function") return true;
@@ -206,12 +255,12 @@ function _possibleConstructorReturn$1(self, call) {
   return _assertThisInitialized$1(self);
 }
 
-function _createSuper(Derived) {
+function _createSuper$1(Derived) {
   return function () {
     var Super = _getPrototypeOf$1(Derived),
         result;
 
-    if (_isNativeReflectConstruct()) {
+    if (_isNativeReflectConstruct$1()) {
       var NewTarget = _getPrototypeOf$1(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
@@ -1095,12 +1144,10 @@ function getMatrix2D(win, element) {
   return qrDecompone(values);
 }
 
-var Anime =
-/*#__PURE__*/
-function (_MC$API$MonoIncident) {
+var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
   _inherits$1(Anime, _MC$API$MonoIncident);
 
-  var _super = _createSuper(Anime);
+  var _super = _createSuper$1(Anime);
 
   function Anime() {
     _classCallCheck$1(this, Anime);
@@ -1170,7 +1217,7 @@ function (_MC$API$MonoIncident) {
   }]);
 
   return Anime;
-}(MC.API.MonoIncident);
+}(MC__default['default'].API.MonoIncident);
 
 var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
 var ru = ["deg", "rad", "grad", "turn"];
@@ -2047,17 +2094,17 @@ var index = {
   compositeAttributes: compositeAttributes
 };
 
-var Anime$1 = MC.loadPlugin(index);
+var Anime$1 = MC__default['default'].loadPlugin(index);
 
-var Intro =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var Intro = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(Intro, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(Intro);
 
   function Intro() {
     _classCallCheck(this, Intro);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Intro).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(Intro, [{
@@ -2167,26 +2214,26 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "css",
     get: function get() {
-      return "\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background-image: url(").concat(this.attrs.bgUrl, ");\n      background-size: 1270px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n\n    .logo-client img {\n      width : ").concat(this.attrs.clientLogoWidth, "px ;\n    }\n\n    .logo-comp img {\n      width : ").concat(this.attrs.compLogoWidth, "\n    }\n\n    .logo-comp,.date{\n      position: relative;\n      top: 200%;\n    }\n\n    .logo-client{\n      position: relative ;\n      top : -100%;\n    }\n\n    .container-logo{\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      flex: 1;\n      overflow: hidden;\n      position: relative;\n    }\n\n    .date-container{\n      display: flex;\n      align-items: flex-end;\n      margin: 2%;\n      justify-content: space-between;\n      width: 90%;\n      position: relative;\n    }\n \n    .line{\n      border-top: 5px solid ").concat(this.attrs.fontColor, ";\n      width: 100%;\n      position : relative;\n      top: -100%;\n    }\n\n    .pro-name {\n      position : relative;\n      font-size: 50px;\n      overflow: hidden;\n      padding-top: 10%;\n      top: -100%;\n    }\n    .date{\n      font-size: 20px;\n    }\n    \n  \n\n    .wrapper{ \n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      width: 100%;\n      height: 100%;\n\n    }\n\n  \n  ");
+      return "\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background-image: url(").concat(this.attrs.bgUrl, ");\n      background-size: 1270px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n\n    .logo-client img {\n      width : ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .logo-comp img {\n      width : ").concat(this.attrs.compLogoWidth, "px\n    }\n\n    .logo-comp,.date{\n      position: relative;\n      top: 200%;\n    }\n\n    .logo-client{\n      position: relative ;\n      top : -100%;\n    }\n\n    .container-logo{\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      flex: 1;\n      overflow: hidden;\n      position: relative;\n    }\n\n    .date-container{\n      display: flex;\n      align-items: flex-end;\n      margin: 2%;\n      justify-content: space-between;\n      width: 90%;\n      position: relative;\n    }\n \n    .line{\n      border-top: 5px solid ").concat(this.attrs.fontColor, ";\n      width: 100%;\n      position : relative;\n      top: -100%;\n    }\n\n    .pro-name {\n      position : relative;\n      font-size: 50px;\n      overflow: hidden;\n      padding-top: 10%;\n      top: -100%;\n    }\n    .date{\n      font-size: 20px;\n    }\n    \n  \n\n    .wrapper{ \n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      width: 100%;\n      height: 100%;\n\n    }\n\n  \n  ");
     }
   }]);
 
   return Intro;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var Intro_1 = Intro;
 
-var Anime$2 = MC.loadPlugin(index);
+var Anime$2 = MC__default['default'].loadPlugin(index);
 
-var IntroFade =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var IntroFade = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(IntroFade, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(IntroFade);
 
   function IntroFade() {
     _classCallCheck(this, IntroFade);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(IntroFade).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(IntroFade, [{
@@ -2256,21 +2303,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return IntroFade;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var IntroFade_1 = IntroFade;
 
-var Anime$3 = MC.loadPlugin(index);
+var Anime$3 = MC__default['default'].loadPlugin(index);
 
-var SlideOne =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var SlideOne = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(SlideOne, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(SlideOne);
 
   function SlideOne() {
     _classCallCheck(this, SlideOne);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SlideOne).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(SlideOne, [{
@@ -2441,21 +2488,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideOne;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var SlideOne_1 = SlideOne;
 
-var Anime$4 = MC.loadPlugin(index);
+var Anime$4 = MC__default['default'].loadPlugin(index);
 
-var SlideTwo =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var SlideTwo = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(SlideTwo, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(SlideTwo);
 
   function SlideTwo() {
     _classCallCheck(this, SlideTwo);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SlideTwo).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(SlideTwo, [{
@@ -2626,21 +2673,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideTwo;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var SlideTwo_1 = SlideTwo;
 
-var Anime$5 = MC.loadPlugin(index);
+var Anime$5 = MC__default['default'].loadPlugin(index);
 
-var SlideThree =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var SlideThree = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(SlideThree, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(SlideThree);
 
   function SlideThree() {
     _classCallCheck(this, SlideThree);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SlideThree).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(SlideThree, [{
@@ -2811,21 +2858,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideThree;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var SlideThree_1 = SlideThree;
 
-var Anime$6 = MC.loadPlugin(index);
+var Anime$6 = MC__default['default'].loadPlugin(index);
 
-var Technologies =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var Technologies = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(Technologies, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(Technologies);
 
   function Technologies() {
     _classCallCheck(this, Technologies);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Technologies).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(Technologies, [{
@@ -2854,7 +2901,7 @@ function (_MotorCortex$API$Clip) {
         html3 = html3 + html;
       }
 
-      var word = new MC.Clip({
+      var word = new MC__default['default'].Clip({
         css: this.css,
         html: "<div class=\"img-container\"> ".concat(html3, " </div>"),
         selector: ".content-container"
@@ -3010,21 +3057,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return Technologies;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var Technologies_1 = Technologies;
 
-var Anime$7 = MC.loadPlugin(index);
+var Anime$7 = MC__default['default'].loadPlugin(index);
 
-var HighlightsSVG =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(HighlightsSVG, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(HighlightsSVG);
 
   function HighlightsSVG() {
     _classCallCheck(this, HighlightsSVG);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(HighlightsSVG).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(HighlightsSVG, [{
@@ -3201,21 +3248,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return HighlightsSVG;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var Highlights = HighlightsSVG;
 
-var Anime$8 = MC.loadPlugin(index);
+var Anime$8 = MC__default['default'].loadPlugin(index);
 
-var SlideOneSVG =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(SlideOneSVG, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(SlideOneSVG);
 
   function SlideOneSVG() {
     _classCallCheck(this, SlideOneSVG);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SlideOneSVG).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(SlideOneSVG, [{
@@ -3387,21 +3434,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideOneSVG;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var SlideOneSVG_1 = SlideOneSVG;
 
-var Anime$9 = MC.loadPlugin(index);
+var Anime$9 = MC__default['default'].loadPlugin(index);
 
-var SlideTwoSVG =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(SlideTwoSVG, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(SlideTwoSVG);
 
   function SlideTwoSVG() {
     _classCallCheck(this, SlideTwoSVG);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SlideTwoSVG).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(SlideTwoSVG, [{
@@ -3572,21 +3619,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideTwoSVG;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var SlideTwoSVG_1 = SlideTwoSVG;
 
-var Anime$a = MC.loadPlugin(index);
+var Anime$a = MC__default['default'].loadPlugin(index);
 
-var SlideThreeSVG =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(SlideThreeSVG, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(SlideThreeSVG);
 
   function SlideThreeSVG() {
     _classCallCheck(this, SlideThreeSVG);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SlideThreeSVG).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(SlideThreeSVG, [{
@@ -3757,21 +3804,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideThreeSVG;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var SlideThreeSVG_1 = SlideThreeSVG;
 
-var Anime$b = MC.loadPlugin(index);
+var Anime$b = MC__default['default'].loadPlugin(index);
 
-var TechnologiesSVG =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(TechnologiesSVG, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(TechnologiesSVG);
 
   function TechnologiesSVG() {
     _classCallCheck(this, TechnologiesSVG);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(TechnologiesSVG).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(TechnologiesSVG, [{
@@ -3800,7 +3847,7 @@ function (_MotorCortex$API$Clip) {
         html3 = html3 + html;
       }
 
-      var word = new MC.Clip({
+      var word = new MC__default['default'].Clip({
         css: this.css,
         html: "<div class=\"img-container\"> ".concat(html3, " </div>"),
         selector: ".content-container"
@@ -3956,21 +4003,21 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return TechnologiesSVG;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var TechnologiesSVG_1 = TechnologiesSVG;
 
-var Anime$c = MC.loadPlugin(index);
+var Anime$c = MC__default['default'].loadPlugin(index);
 
-var Highlights$1 =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var Highlights$1 = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(Highlights, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(Highlights);
 
   function Highlights() {
     _classCallCheck(this, Highlights);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Highlights).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(Highlights, [{
@@ -4161,48 +4208,467 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return Highlights;
-}(MC.API.Clip);
+}(MC__default['default'].API.Clip);
 
 var HighlightsSVG$1 = Highlights$1;
+
+var _SlideTwo, _Technologies, _Highlights;
+
+var _COLOR$1 = "color";
+var nu$1 = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
+var intro = {
+  $$strict: true,
+  width: {
+    optional: false,
+    type: "number",
+    units: nu$1
+  },
+  height: {
+    optional: false,
+    type: "number",
+    units: nu$1
+  },
+  clientLogo: {
+    optional: false,
+    type: "string"
+  },
+  clientLogoWidth: {
+    optional: false,
+    type: "number",
+    units: nu$1
+  },
+  compLogo: {
+    optional: false,
+    type: "string"
+  },
+  compLogoWidth: {
+    optional: false,
+    type: "number",
+    units: nu$1
+  },
+  title: {
+    optional: true,
+    type: "string"
+  },
+  date: {
+    optional: false,
+    type: "string"
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    items: {
+      type: _COLOR$1
+    }
+  },
+  bgUrl: {
+    optional: true,
+    type: "string"
+  },
+  fontColor: {
+    optional: true,
+    type: _COLOR$1
+  },
+  mainColor: {
+    optional: true,
+    type: _COLOR$1
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  }
+};
+var SlideOneSVG$1 = {
+  $$strict: true,
+  width: {
+    optional: false,
+    type: "number",
+    units: nu$1
+  },
+  height: {
+    optional: false,
+    type: "number",
+    units: nu$1
+  },
+  mainColor: {
+    optional: true,
+    type: _COLOR$1
+  },
+  clientLogo: {
+    optional: false,
+    type: "string"
+  },
+  clientLogoWidth: {
+    optional: false,
+    type: "number",
+    units: nu$1
+  },
+  compLogo: {
+    optional: false,
+    type: "string"
+  },
+  compLogoWidth: {
+    optional: false,
+    type: "number",
+    units: nu$1
+  },
+  title: {
+    optional: true,
+    type: "string"
+  },
+  bgUrl: {
+    optional: true,
+    type: "string"
+  },
+  textOne: {
+    optional: false,
+    type: "string"
+  },
+  textTwo: {
+    optional: false,
+    type: "string"
+  },
+  textThree: {
+    optional: false,
+    type: "string"
+  },
+  contentColor: {
+    optional: true,
+    type: _COLOR$1
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    items: {
+      type: _COLOR$1
+    }
+  },
+  bgColor: {
+    optional: true,
+    type: _COLOR$1
+  },
+  fontColor: {
+    optional: true,
+    type: _COLOR$1
+  },
+  contentTitle: {
+    optional: false,
+    type: "string"
+  },
+  app: {
+    optional: false,
+    type: "string"
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  }
+};
+var SlideTwo$1 = (_SlideTwo = {
+  $$strict: true,
+  width: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  height: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  clientLogo: {
+    optional: false,
+    type: "string"
+  },
+  clientLogoWidth: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  compLogo: {
+    optional: false,
+    type: "string"
+  },
+  compLogoWidth: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  title: {
+    optional: false,
+    type: "string"
+  },
+  textOne: {
+    optional: false,
+    type: "string"
+  },
+  bgColor: {
+    type: _COLOR$1
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    items: {
+      type: _COLOR$1
+    }
+  },
+  fontColor: {
+    type: _COLOR$1
+  },
+  contentColor: {
+    type: _COLOR$1
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  contentTitle: {
+    optional: false,
+    type: "string"
+  },
+  fonSize: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  app: {
+    optional: false,
+    type: "string"
+  }
+}, _defineProperty(_SlideTwo, "bgColor", {
+  optional: true,
+  type: _COLOR$1
+}), _defineProperty(_SlideTwo, "bgUrl", {
+  optional: true,
+  type: "string"
+}), _defineProperty(_SlideTwo, "mainColor", {
+  optional: true,
+  type: _COLOR$1
+}), _SlideTwo);
+var Technologies$1 = (_Technologies = {
+  $$strict: true,
+  width: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  height: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  clientLogo: {
+    optional: true,
+    type: "string"
+  },
+  clientLogoWidth: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  compLogo: {
+    optional: true,
+    type: "string"
+  },
+  title: {
+    optional: true,
+    type: "string"
+  },
+  logos: {
+    optional: true,
+    type: "array",
+    items: {
+      type: "string"
+    }
+  },
+  bgColor: {
+    optional: true,
+    type: "string"
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    items: {
+      type: _COLOR$1
+    }
+  },
+  fontColor: {
+    type: _COLOR$1
+  },
+  contentColor: {
+    optional: true,
+    type: "string"
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  contentTitle: {
+    optional: true,
+    type: "string"
+  },
+  fonSize: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  contentSubTitle: {
+    optional: true,
+    type: "string"
+  }
+}, _defineProperty(_Technologies, "bgColor", {
+  optional: true,
+  type: _COLOR$1
+}), _defineProperty(_Technologies, "bgUrl", {
+  optional: true,
+  type: "string"
+}), _defineProperty(_Technologies, "mainColor", {
+  optional: true,
+  type: _COLOR$1
+}), _Technologies);
+var Highlights$2 = (_Highlights = {
+  $$strict: true,
+  width: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  height: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  clientLogo: {
+    optional: true,
+    type: "string"
+  },
+  clientLogoWidth: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  compLogo: {
+    optional: true,
+    type: "string"
+  },
+  title: {
+    optional: true,
+    type: "string"
+  },
+  app: {
+    optional: false,
+    type: "string"
+  },
+  bgColor: {
+    type: _COLOR$1
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    items: {
+      type: _COLOR$1
+    }
+  },
+  fontColor: {
+    type: _COLOR$1
+  },
+  contentColor: {
+    type: _COLOR$1
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  contentTitle: {
+    optional: true,
+    type: "string"
+  },
+  fonSize: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  contentSubTitle: {
+    optional: true,
+    type: "string"
+  },
+  scroll: {
+    type: "boolean"
+  }
+}, _defineProperty(_Highlights, "bgColor", {
+  optional: true,
+  type: _COLOR$1
+}), _defineProperty(_Highlights, "bgUrl", {
+  optional: true,
+  type: "string"
+}), _defineProperty(_Highlights, "mainColor", {
+  optional: true,
+  type: _COLOR$1
+}), _Highlights);
+
+var validation = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  intro: intro,
+  SlideOneSVG: SlideOneSVG$1,
+  SlideTwo: SlideTwo$1,
+  Technologies: Technologies$1,
+  Highlights: Highlights$2
+});
 
 var src = {
   npm_name: "@kissmybutton/motorcortex-presenter",
   incidents: [{
     exportable: Intro_1,
-    name: "Intro"
+    name: "Intro",
+    attributesValidationRules: validation.intro
   }, {
     exportable: IntroFade_1,
     name: "IntroFade"
   }, {
     exportable: SlideOne_1,
-    name: "SlideOne"
+    name: "SlideOne",
+    attributesValidationRules: validation.SlideOneSVG
   }, {
     exportable: SlideOneSVG_1,
-    name: "SlideOneSVG"
+    name: "SlideOneSVG",
+    attributesValidationRules: validation.SlideOneSVG
   }, {
     exportable: SlideTwo_1,
-    name: "SlideTwo"
+    name: "SlideTwo",
+    attributesValidationRules: validation.SlideTwo
   }, {
     exportable: SlideTwoSVG_1,
-    name: "SlideTwoSVG"
+    name: "SlideTwoSVG",
+    attributesValidationRules: validation.SlideTwo
   }, {
     exportable: SlideThree_1,
-    name: "SlideThree"
+    name: "SlideThree",
+    attributesValidationRules: validation.SlideTwo
   }, {
     exportable: SlideThreeSVG_1,
-    name: "SlideThreeSVG"
+    name: "SlideThreeSVG",
+    attributesValidationRules: validation.SlideTwo
   }, {
     exportable: Technologies_1,
-    name: "Technologies"
+    name: "Technologies",
+    attributesValidationRules: validation.Technologies
   }, {
     exportable: TechnologiesSVG_1,
-    name: "TechnologiesSVG"
+    name: "TechnologiesSVG",
+    attributesValidationRules: validation.Technologies
   }, {
     exportable: Highlights,
-    name: "Highlights"
+    name: "Highlights",
+    attributesValidationRules: validation.Highlights
   }, {
     exportable: HighlightsSVG$1,
-    name: "HighlightsSVG"
+    name: "HighlightsSVG",
+    attributesValidationRules: validation.Highlights
   }]
 };
 var src_1 = src.npm_name;
