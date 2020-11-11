@@ -2,7 +2,7 @@ const MotorCortex = require("@kissmybutton/motorcortex");
 const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class Highlights extends MotorCortex.API.Clip {
+class Highlights extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);

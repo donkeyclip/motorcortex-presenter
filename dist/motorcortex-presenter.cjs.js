@@ -273,7 +273,7 @@ function _createSuper$1(Derived) {
 }
 /*
  * anime.js v3.1.0
- * (c) 2019 Julian Garnier
+ * (c) 2020 Julian Garnier
  * Released under the MIT license
  * animejs.com
  */
@@ -1094,6 +1094,151 @@ function anime(params) {
 
   instance.reset();
   return instance;
+} // getTotalLength() equivalent for circle, rect, polyline, polygon and line shapes
+// adapted from https://gist.github.com/SebLambla/3e0550c496c236709744
+
+
+function getDistance(p1, p2) {
+  return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+}
+
+function getCircleLength(el) {
+  return Math.PI * 2 * getAttribute(el, 'r');
+}
+
+function getRectLength(el) {
+  return getAttribute(el, 'width') * 2 + getAttribute(el, 'height') * 2;
+}
+
+function getLineLength(el) {
+  return getDistance({
+    x: getAttribute(el, 'x1'),
+    y: getAttribute(el, 'y1')
+  }, {
+    x: getAttribute(el, 'x2'),
+    y: getAttribute(el, 'y2')
+  });
+}
+
+function getPolylineLength(el) {
+  var points = el.points;
+  var totalLength = 0;
+  var previousPos;
+
+  for (var i = 0; i < points.numberOfItems; i++) {
+    var currentPos = points.getItem(i);
+
+    if (i > 0) {
+      totalLength += getDistance(previousPos, currentPos);
+    }
+
+    previousPos = currentPos;
+  }
+
+  return totalLength;
+}
+
+function getPolygonLength(el) {
+  var points = el.points;
+  return getPolylineLength(el) + getDistance(points.getItem(points.numberOfItems - 1), points.getItem(0));
+} // Path animation
+
+
+function getTotalLength(el) {
+  if (el.getTotalLength) {
+    return el.getTotalLength();
+  }
+
+  switch (el.tagName.toLowerCase()) {
+    case 'circle':
+      return getCircleLength(el);
+
+    case 'rect':
+      return getRectLength(el);
+
+    case 'line':
+      return getLineLength(el);
+
+    case 'polyline':
+      return getPolylineLength(el);
+
+    case 'polygon':
+      return getPolygonLength(el);
+  }
+} // Motion path
+
+
+function getParentSvgEl(el) {
+  var parentEl = el.parentNode;
+
+  while (is.svg(parentEl)) {
+    if (!is.svg(parentEl.parentNode)) {
+      break;
+    }
+
+    parentEl = parentEl.parentNode;
+  }
+
+  return parentEl;
+}
+
+function getParentSvg(pathEl, svgData) {
+  var svg = svgData || {};
+  var parentSvgEl = svg.el || getParentSvgEl(pathEl);
+  var rect = parentSvgEl.getBoundingClientRect();
+  var viewBoxAttr = getAttribute(parentSvgEl, 'viewBox');
+  var width = rect.width;
+  var height = rect.height;
+  var viewBox = svg.viewBox || (viewBoxAttr ? viewBoxAttr.split(' ') : [0, 0, width, height]);
+  return {
+    el: parentSvgEl,
+    viewBox: viewBox,
+    x: viewBox[0] / 1,
+    y: viewBox[1] / 1,
+    w: width,
+    h: height,
+    vW: viewBox[2],
+    vH: viewBox[3]
+  };
+}
+
+function getPath(path, percent) {
+  var pathEl = is.str(path) ? selectString(path)[0] : path;
+  var p = percent || 100;
+  return function (property) {
+    return {
+      property: property,
+      el: pathEl,
+      svg: getParentSvg(pathEl),
+      totalLength: getTotalLength(pathEl) * (p / 100)
+    };
+  };
+}
+
+function getPathProgress(path, progress, isPathTargetInsideSVG) {
+  function point(offset) {
+    if (offset === void 0) offset = 0;
+    var l = progress + offset >= 1 ? progress + offset : 0;
+    return path.el.getPointAtLength(l);
+  }
+
+  var svg = getParentSvg(path.el, path.svg);
+  var p = point();
+  var p0 = point(-1);
+  var p1 = point(+1);
+  var scaleX = isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
+  var scaleY = isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+
+  switch (path.property) {
+    case 'x':
+      return (p.x - svg.x) * scaleX;
+
+    case 'y':
+      return (p.y - svg.y) * scaleY;
+
+    case 'angle':
+      return Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI;
+  }
 }
 
 anime.version = '3.1.0';
@@ -1101,6 +1246,8 @@ anime.get = getOriginalTargetValue;
 anime.set = setTargetsValue;
 anime.convertPx = convertPxToUnit;
 anime.penner = penner;
+anime.path = getPath;
+anime.getPathProgress = getPathProgress;
 var transform = ["translateX", "translateY", "translateZ", "rotate", "rotateX", "rotateY", "rotateZ", "scale", "scaleX", "scaleY", "scaleZ", "skewX", "skewY", "perspective"];
 var compositeAttributes = {
   transform: transform
@@ -1144,8 +1291,8 @@ function getMatrix2D(win, element) {
   return qrDecompone(values);
 }
 
-var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
-  _inherits$1(Anime, _MC$API$MonoIncident);
+var Anime = /*#__PURE__*/function (_MC$Effect) {
+  _inherits$1(Anime, _MC$Effect);
 
   var _super = _createSuper$1(Anime);
 
@@ -1159,7 +1306,6 @@ var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
     key: "onGetContext",
     value: function onGetContext() {
       var options = {};
-      var initialize = {};
 
       if (Object.prototype.hasOwnProperty.call(compositeAttributes, this.attributeKey)) {
         var compoAttribute = compositeAttributes[this.attributeKey];
@@ -1170,11 +1316,9 @@ var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
           }
 
           options[compoAttribute[i]] = [this.getInitialValue()[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
-          initialize[compoAttribute[i]] = [this.getScratchValue(), this.targetValue[compoAttribute[i]]];
         }
       } else {
         options[this.attributeKey] = [this.getInitialValue(), this.targetValue];
-        initialize[this.targetValue] = [this.getScratchValue(), this.targetValue];
       }
 
       this.target = anime(_objectSpread2({
@@ -1217,7 +1361,7 @@ var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
   }]);
 
   return Anime;
-}(MC__default['default'].API.MonoIncident);
+}(MC__default['default'].Effect);
 
 var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
 var ru = ["deg", "rad", "grad", "turn"];
@@ -2096,8 +2240,8 @@ var index = {
 
 var Anime$1 = MC__default['default'].loadPlugin(index);
 
-var Intro = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(Intro, _MotorCortex$API$Clip);
+var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(Intro, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(Intro);
 
@@ -2219,14 +2363,14 @@ var Intro = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return Intro;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var Intro_1 = Intro;
 
 var Anime$2 = MC__default['default'].loadPlugin(index);
 
-var IntroFade = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(IntroFade, _MotorCortex$API$Clip);
+var IntroFade = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(IntroFade, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(IntroFade);
 
@@ -2303,14 +2447,14 @@ var IntroFade = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return IntroFade;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var IntroFade_1 = IntroFade;
 
 var Anime$3 = MC__default['default'].loadPlugin(index);
 
-var SlideOne = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(SlideOne, _MotorCortex$API$Clip);
+var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(SlideOne, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(SlideOne);
 
@@ -2488,14 +2632,14 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideOne;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var SlideOne_1 = SlideOne;
 
 var Anime$4 = MC__default['default'].loadPlugin(index);
 
-var SlideTwo = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(SlideTwo, _MotorCortex$API$Clip);
+var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(SlideTwo, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(SlideTwo);
 
@@ -2673,14 +2817,14 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideTwo;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var SlideTwo_1 = SlideTwo;
 
 var Anime$5 = MC__default['default'].loadPlugin(index);
 
-var SlideThree = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(SlideThree, _MotorCortex$API$Clip);
+var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(SlideThree, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(SlideThree);
 
@@ -2858,14 +3002,14 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideThree;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var SlideThree_1 = SlideThree;
 
 var Anime$6 = MC__default['default'].loadPlugin(index);
 
-var Technologies = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(Technologies, _MotorCortex$API$Clip);
+var Technologies = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(Technologies, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(Technologies);
 
@@ -2901,7 +3045,7 @@ var Technologies = /*#__PURE__*/function (_MotorCortex$API$Clip) {
         html3 = html3 + html;
       }
 
-      var word = new MC__default['default'].Clip({
+      var word = new MC__default['default'].HTMLClip({
         css: this.css,
         html: "<div class=\"img-container\"> ".concat(html3, " </div>"),
         selector: ".content-container"
@@ -3057,14 +3201,14 @@ var Technologies = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return Technologies;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var Technologies_1 = Technologies;
 
 var Anime$7 = MC__default['default'].loadPlugin(index);
 
-var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(HighlightsSVG, _MotorCortex$API$Clip);
+var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(HighlightsSVG, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(HighlightsSVG);
 
@@ -3248,14 +3392,14 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return HighlightsSVG;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var Highlights = HighlightsSVG;
 
 var Anime$8 = MC__default['default'].loadPlugin(index);
 
-var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(SlideOneSVG, _MotorCortex$API$Clip);
+var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(SlideOneSVG, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(SlideOneSVG);
 
@@ -3434,14 +3578,14 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideOneSVG;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var SlideOneSVG_1 = SlideOneSVG;
 
 var Anime$9 = MC__default['default'].loadPlugin(index);
 
-var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(SlideTwoSVG, _MotorCortex$API$Clip);
+var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(SlideTwoSVG, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(SlideTwoSVG);
 
@@ -3619,14 +3763,14 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideTwoSVG;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var SlideTwoSVG_1 = SlideTwoSVG;
 
 var Anime$a = MC__default['default'].loadPlugin(index);
 
-var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(SlideThreeSVG, _MotorCortex$API$Clip);
+var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(SlideThreeSVG, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(SlideThreeSVG);
 
@@ -3804,14 +3948,14 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideThreeSVG;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var SlideThreeSVG_1 = SlideThreeSVG;
 
 var Anime$b = MC__default['default'].loadPlugin(index);
 
-var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(TechnologiesSVG, _MotorCortex$API$Clip);
+var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(TechnologiesSVG, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(TechnologiesSVG);
 
@@ -3847,7 +3991,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
         html3 = html3 + html;
       }
 
-      var word = new MC__default['default'].Clip({
+      var word = new MC__default['default'].HTMLClip({
         css: this.css,
         html: "<div class=\"img-container\"> ".concat(html3, " </div>"),
         selector: ".content-container"
@@ -4003,14 +4147,14 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return TechnologiesSVG;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var TechnologiesSVG_1 = TechnologiesSVG;
 
 var Anime$c = MC__default['default'].loadPlugin(index);
 
-var Highlights$1 = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(Highlights, _MotorCortex$API$Clip);
+var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(Highlights, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(Highlights);
 
@@ -4208,7 +4352,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return Highlights;
-}(MC__default['default'].API.Clip);
+}(MC__default['default'].HTMLClip);
 
 var HighlightsSVG$1 = Highlights$1;
 
