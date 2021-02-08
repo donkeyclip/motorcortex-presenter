@@ -1,23 +1,27 @@
-const Intro = require("./Intro");
-const IntroFade = require("./IntroFade");
-const SlideOne = require("./SlideOne");
-const SlideTwo = require("./SlideTwo");
-const SlideThree = require("./SlideThree");
-const Technologies = require("./Technologies");
-const Highlights = require("./Highlights");
-const SlideOneSVG = require("./SlideOneSVG");
-const SlideTwoSVG = require("./SlideTwoSVG");
-const SlideThreeSVG = require("./SlideThreeSVG");
-const TechnologiesSVG = require("./TechnologiesSVG");
-const HighlightsSVG = require("./HighlightsSVG");
-const attrs = require("./validation");
-module.exports = {
-  npm_name: "@kissmybutton/motorcortex-presenter",
+import Intro from "./Intro"
+import IntroFade from "./IntroFade"
+import SlideOne from "./SlideOne"
+import SlideTwo from "./SlideTwo"
+import SlideThree from "./SlideThree"
+import Technologies from "./Technologies"
+import Highlights from "./Highlights"
+import SlideOneSVG from "./SlideOneSVG"
+import SlideTwoSVG from "./SlideTwoSVG"
+import SlideThreeSVG from "./SlideThreeSVG"
+import TechnologiesSVG from "./TechnologiesSVG"
+import HighlightsSVG from "./HighlightsSVG"
+
+import {introVal,SlideOneSVGVal,SlideTwoVal,TechnologiesVal,HighlightsVal} from "./validation"
+const pkg = require("../package.json");
+
+export default {
+  npm_name: pkg.name,
+  version: pkg.version,
   incidents: [
     {
       exportable: Intro,
       name: "Intro",
-      attributesValidationRules: attrs.intro
+      attributesValidationRules: introVal
     },
     {
       exportable: IntroFade,
@@ -27,52 +31,52 @@ module.exports = {
     {
       exportable: SlideOne,
       name: "SlideOne",
-      attributesValidationRules: attrs.SlideOneSVG
+      attributesValidationRules: SlideOneSVGVal
     },
     {
       exportable: SlideOneSVG,
       name: "SlideOneSVG",
-      attributesValidationRules: attrs.SlideOneSVG
+      attributesValidationRules: SlideOneSVGVal
     },
     {
       exportable: SlideTwo,
       name: "SlideTwo",
-      attributesValidationRules: attrs.SlideTwo
+      attributesValidationRules: SlideTwoVal
     },
     {
       exportable: SlideTwoSVG,
       name: "SlideTwoSVG",
-      attributesValidationRules: attrs.SlideTwo
+      attributesValidationRules: SlideTwoVal
     },
     {
       exportable: SlideThree,
       name: "SlideThree",
-      attributesValidationRules: attrs.SlideTwo
+      attributesValidationRules: SlideTwoVal
     },
     {
       exportable: SlideThreeSVG,
       name: "SlideThreeSVG",
-      attributesValidationRules: attrs.SlideTwo
+      attributesValidationRules: SlideTwoVal
     },
     {
       exportable: Technologies,
       name: "Technologies",
-      attributesValidationRules: attrs.Technologies
+      attributesValidationRules: TechnologiesVal
     },
     {
       exportable: TechnologiesSVG,
       name: "TechnologiesSVG",
-      attributesValidationRules: attrs.Technologies
+      attributesValidationRules: TechnologiesVal
     },
     {
       exportable: Highlights,
       name: "Highlights",
-      attributesValidationRules: attrs.Highlights
+      attributesValidationRules: HighlightsVal
     },
     {
       exportable: HighlightsSVG,
       name: "HighlightsSVG",
-      attributesValidationRules: attrs.Highlights
+      attributesValidationRules: HighlightsVal
     }
   ]
 };

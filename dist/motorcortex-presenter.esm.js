@@ -264,8 +264,8 @@ function _createSuper$1(Derived) {
   };
 }
 /*
- * anime.js v3.1.4
- * (c) 2020 Julian Garnier
+ * anime.js v3.1.5
+ * (c) 2021 Julian Garnier
  * Released under the MIT license
  * animejs.com
  */
@@ -1230,8 +1230,10 @@ function getPathProgress(path, progress, isPathTargetInsideSVG) {
   var p = point();
   var p0 = point(-1);
   var p1 = point(+1);
-  var scaleX = isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
-  var scaleY = isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+  var scaleX = 1; //isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
+
+  var scaleY = 1; //isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+
   return {
     x: (p.x - svg.x) * scaleX,
     y: (p.y - svg.y) * scaleY,
@@ -1388,6 +1390,8 @@ var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
   _createClass$1(MotionPath, [{
     key: "onGetContext",
     value: function onGetContext() {
+      this.pixelsAccuracy = this.attrs.pixelsAccuracy || 4;
+      this.calculatedPoints = [];
       var svgEl = this.context.getElements(this.targetValue.pathElement)[0];
       this.path = anime_es.path(svgEl);
       this.isPathTargetInsideSVG = this.element instanceof SVGElement;
@@ -1395,9 +1399,18 @@ var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
   }, {
     key: "onProgress",
     value: function onProgress(f) {
-      var position = anime_es.getPathProgress(this.path, f, this.isPathTargetInsideSVG); // console.log(position);
+      var toSet;
+      var distance = Math.round(this.path.totalLength / this.pixelsAccuracy * f) * this.pixelsAccuracy;
 
-      var toSet = "\n            translateX(".concat(position.x, "px) \n            translateY(").concat(position.y, "px) \n            rotate(").concat(position.angle, "deg)\n        ");
+      if (this.calculatedPoints[distance] !== null && this.calculatedPoints[distance] !== undefined) {
+        toSet = this.calculatedPoints[distance];
+      } else {
+        var position = anime_es.getPathProgress(this.path, distance / this.path.totalLength, this.isPathTargetInsideSVG); // console.log(position);
+
+        toSet = "\n            translateX(".concat(position.x, "px)\n            translateY(").concat(position.y, "px)\n            rotate(").concat(position.angle, "deg)\n        ");
+        this.calculatedPoints[distance] = toSet;
+      }
+
       this.element.style.transform = toSet;
     }
   }]);
@@ -2268,8 +2281,12 @@ var animatedAttrs = {
     min: 0
   }
 };
+
+var pkg = require('../package.json');
+
 var index = {
-  npm_name: "@kissmybutton/motorcortex-anime",
+  npm_name: pkg.name,
+  version: pkg.version,
   incidents: [{
     exportable: Anime,
     name: "Anime",
@@ -4416,11 +4433,11 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
 
 var HighlightsSVG$1 = Highlights$1;
 
-var _SlideTwo, _Technologies, _Highlights;
+var _SlideTwoVal, _TechnologiesVal, _HighlightsVal;
 
 var _COLOR$1 = "color";
 var nu$1 = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
-var intro = {
+var introVal = {
   $$strict: true,
   width: {
     optional: false,
@@ -4483,7 +4500,7 @@ var intro = {
     min: 0
   }
 };
-var SlideOneSVG$1 = {
+var SlideOneSVGVal = {
   $$strict: true,
   width: {
     optional: false,
@@ -4570,7 +4587,7 @@ var SlideOneSVG$1 = {
     min: 0
   }
 };
-var SlideTwo$1 = (_SlideTwo = {
+var SlideTwoVal = (_SlideTwoVal = {
   $$strict: true,
   width: {
     optional: true,
@@ -4642,17 +4659,17 @@ var SlideTwo$1 = (_SlideTwo = {
     optional: false,
     type: "string"
   }
-}, _defineProperty(_SlideTwo, "bgColor", {
+}, _defineProperty(_SlideTwoVal, "bgColor", {
   optional: true,
   type: _COLOR$1
-}), _defineProperty(_SlideTwo, "bgUrl", {
+}), _defineProperty(_SlideTwoVal, "bgUrl", {
   optional: true,
   type: "string"
-}), _defineProperty(_SlideTwo, "mainColor", {
+}), _defineProperty(_SlideTwoVal, "mainColor", {
   optional: true,
   type: _COLOR$1
-}), _SlideTwo);
-var Technologies$1 = (_Technologies = {
+}), _SlideTwoVal);
+var TechnologiesVal = (_TechnologiesVal = {
   $$strict: true,
   width: {
     optional: true,
@@ -4724,17 +4741,17 @@ var Technologies$1 = (_Technologies = {
     optional: true,
     type: "string"
   }
-}, _defineProperty(_Technologies, "bgColor", {
+}, _defineProperty(_TechnologiesVal, "bgColor", {
   optional: true,
   type: _COLOR$1
-}), _defineProperty(_Technologies, "bgUrl", {
+}), _defineProperty(_TechnologiesVal, "bgUrl", {
   optional: true,
   type: "string"
-}), _defineProperty(_Technologies, "mainColor", {
+}), _defineProperty(_TechnologiesVal, "mainColor", {
   optional: true,
   type: _COLOR$1
-}), _Technologies);
-var Highlights$2 = (_Highlights = {
+}), _TechnologiesVal);
+var HighlightsVal = (_HighlightsVal = {
   $$strict: true,
   width: {
     optional: true,
@@ -4804,79 +4821,70 @@ var Highlights$2 = (_Highlights = {
   scroll: {
     type: "boolean"
   }
-}, _defineProperty(_Highlights, "bgColor", {
+}, _defineProperty(_HighlightsVal, "bgColor", {
   optional: true,
   type: _COLOR$1
-}), _defineProperty(_Highlights, "bgUrl", {
+}), _defineProperty(_HighlightsVal, "bgUrl", {
   optional: true,
   type: "string"
-}), _defineProperty(_Highlights, "mainColor", {
+}), _defineProperty(_HighlightsVal, "mainColor", {
   optional: true,
   type: _COLOR$1
-}), _Highlights);
+}), _HighlightsVal);
 
-var validation = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  intro: intro,
-  SlideOneSVG: SlideOneSVG$1,
-  SlideTwo: SlideTwo$1,
-  Technologies: Technologies$1,
-  Highlights: Highlights$2
-});
+var pkg$1 = require("../package.json");
 
-var src = {
-  npm_name: "@kissmybutton/motorcortex-presenter",
+var index$1 = {
+  npm_name: pkg$1.name,
+  version: pkg$1.version,
   incidents: [{
     exportable: Intro_1,
     name: "Intro",
-    attributesValidationRules: validation.intro
+    attributesValidationRules: introVal
   }, {
     exportable: IntroFade_1,
     name: "IntroFade"
   }, {
     exportable: SlideOne_1,
     name: "SlideOne",
-    attributesValidationRules: validation.SlideOneSVG
+    attributesValidationRules: SlideOneSVGVal
   }, {
     exportable: SlideOneSVG_1,
     name: "SlideOneSVG",
-    attributesValidationRules: validation.SlideOneSVG
+    attributesValidationRules: SlideOneSVGVal
   }, {
     exportable: SlideTwo_1,
     name: "SlideTwo",
-    attributesValidationRules: validation.SlideTwo
+    attributesValidationRules: SlideTwoVal
   }, {
     exportable: SlideTwoSVG_1,
     name: "SlideTwoSVG",
-    attributesValidationRules: validation.SlideTwo
+    attributesValidationRules: SlideTwoVal
   }, {
     exportable: SlideThree_1,
     name: "SlideThree",
-    attributesValidationRules: validation.SlideTwo
+    attributesValidationRules: SlideTwoVal
   }, {
     exportable: SlideThreeSVG_1,
     name: "SlideThreeSVG",
-    attributesValidationRules: validation.SlideTwo
+    attributesValidationRules: SlideTwoVal
   }, {
     exportable: Technologies_1,
     name: "Technologies",
-    attributesValidationRules: validation.Technologies
+    attributesValidationRules: TechnologiesVal
   }, {
     exportable: TechnologiesSVG_1,
     name: "TechnologiesSVG",
-    attributesValidationRules: validation.Technologies
+    attributesValidationRules: TechnologiesVal
   }, {
     exportable: Highlights,
     name: "Highlights",
-    attributesValidationRules: validation.Highlights
+    attributesValidationRules: HighlightsVal
   }, {
     exportable: HighlightsSVG$1,
     name: "HighlightsSVG",
-    attributesValidationRules: validation.Highlights
+    attributesValidationRules: HighlightsVal
   }]
 };
-var src_1 = src.npm_name;
-var src_2 = src.incidents;
 
-export default src;
-export { src_2 as incidents, src_1 as npm_name };
+export default index$1;

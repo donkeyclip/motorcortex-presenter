@@ -18,7 +18,7 @@ const nu = [
 ];
 const _MEASUREMENT = "measurement";
 
-export const intro = {
+export const introVal = {
   $$strict: true,
   width: {
     optional: false,
@@ -80,7 +80,7 @@ export const intro = {
   }
 };
 
-export const SlideOneSVG = {
+export const SlideOneSVGVal = {
 
   $$strict: true,
   width: {
@@ -169,7 +169,7 @@ export const SlideOneSVG = {
 
 
 
-export const SlideTwo = {
+export const SlideTwoVal = {
   $$strict: true,
   width: {
     optional: true,
@@ -249,7 +249,7 @@ export const SlideTwo = {
 };
 
 
-export const Technologies = {
+export const TechnologiesVal = {
   $$strict: true,
   width: {
     optional: true,
@@ -330,7 +330,7 @@ export const Technologies = {
 };
 
 
-export const Highlights = {
+export const HighlightsVal = {
   $$strict: true,
   width: {
     optional: true,
