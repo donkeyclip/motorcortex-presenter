@@ -4832,7 +4832,7 @@ var HighlightsVal = (_HighlightsVal = {
 }), _HighlightsVal);
 
 var name$1 = "@kissmybutton/motorcortex-presenter";
-var version$1 = "1.0.8";
+var version$1 = "1.0.9";
 
 var index$1 = {
   npm_name: name$1,
