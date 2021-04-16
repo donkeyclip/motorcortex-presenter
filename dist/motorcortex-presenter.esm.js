@@ -1,120 +1,4 @@
-import MotorCortex from '@kissmybutton/motorcortex';
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (typeof call === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized(self);
-}
-
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct();
-
-  return function _createSuperInternal() {
-    var Super = _getPrototypeOf(Derived),
-        result;
-
-    if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
-    } else {
-      result = Super.apply(this, arguments);
-    }
-
-    return _possibleConstructorReturn(this, result);
-  };
-}
+import MotorCortex$1, { loadPlugin, HTMLClip } from '@kissmybutton/motorcortex';
 
 function _classCallCheck$1(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -151,40 +35,6 @@ function _defineProperty$1(obj, key, value) {
   }
 
   return obj;
-}
-
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-    if (enumerableOnly) symbols = symbols.filter(function (sym) {
-      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-    });
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty$1(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
 }
 
 function _inherits$1(subClass, superClass) {
@@ -224,7 +74,7 @@ function _isNativeReflectConstruct$1() {
   if (typeof Proxy === "function") return true;
 
   try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
     return true;
   } catch (e) {
     return false;
@@ -248,11 +98,13 @@ function _possibleConstructorReturn$1(self, call) {
 }
 
 function _createSuper$1(Derived) {
-  return function () {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct$1();
+
+  return function _createSuperInternal() {
     var Super = _getPrototypeOf$1(Derived),
         result;
 
-    if (_isNativeReflectConstruct$1()) {
+    if (hasNativeReflectConstruct) {
       var NewTarget = _getPrototypeOf$1(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
@@ -261,6 +113,156 @@ function _createSuper$1(Derived) {
     }
 
     return _possibleConstructorReturn$1(this, result);
+  };
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf(subClass, superClass);
+}
+
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized(self);
+}
+
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
   };
 }
 /*
@@ -948,7 +950,7 @@ function anime(params) {
   }
 
   var instance = createNewInstance(params);
-  var promise = makePromise(instance);
+  makePromise(instance);
 
   function seekChild(time, child) {
     if (child) {
@@ -1017,7 +1019,7 @@ function anime(params) {
         progress = strings[0];
 
         for (var s = 0; s < stringsLength; s++) {
-          var a = strings[s];
+          strings[s];
           var b = strings[s + 1];
           var n$1 = numbers[s];
 
@@ -1062,7 +1064,7 @@ function anime(params) {
 
         if (!instance.passThrough && 'Promise' in window) {
           resolve();
-          promise = makePromise(instance);
+          makePromise(instance);
         }
       }
     }
@@ -1292,18 +1294,18 @@ function getMatrix2D(win, element) {
   return qrDecompone(values);
 }
 
-var Anime = /*#__PURE__*/function (_MotorCortex$Effect) {
-  _inherits$1(Anime, _MotorCortex$Effect);
+var Anime$c = /*#__PURE__*/function (_MotorCortex$Effect) {
+  _inherits(Anime, _MotorCortex$Effect);
 
-  var _super = _createSuper$1(Anime);
+  var _super = _createSuper(Anime);
 
   function Anime() {
-    _classCallCheck$1(this, Anime);
+    _classCallCheck(this, Anime);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(Anime, [{
+  _createClass(Anime, [{
     key: "onGetContext",
     value: function onGetContext() {
       var options = {};
@@ -1316,39 +1318,35 @@ var Anime = /*#__PURE__*/function (_MotorCortex$Effect) {
             continue;
           }
 
-          options[compoAttribute[i]] = [this.getInitialValue()[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
+          options[compoAttribute[i]] = [this.initialValue[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
         }
       } else {
-        options[this.attributeKey] = [this.getInitialValue(), this.targetValue];
+        options[this.attributeKey] = [this.initialValue, this.targetValue];
       }
 
-      this.target = anime_es(_objectSpread2({
+      this.target = anime_es(_objectSpread2(_objectSpread2({
         autoplay: false,
         duration: this.props.duration,
         easing: "linear",
         targets: this.element
-      }, (this.attrs || {}).attrs || {}, {}, options)); // handle first render initial values
+      }, (this.attrs || {}).attrs || {}), options)); // handle first render initial values
     }
   }, {
     key: "getScratchValue",
     value: function getScratchValue() {
-      if (this.attributeKey === "transform") {
-        var obj = {};
-        var transform = compositeAttributes[this.attributeKey];
-        var currentTransform = getMatrix2D(this.context.window, this.element);
-
-        for (var i = 0; i < transform.length; i++) {
-          if (Object.prototype.hasOwnProperty.call(currentTransform, transform[i])) {
-            obj[transform[i]] = currentTransform[transform[i]];
-          } else {
-            obj[transform[i]] = anime_es.get(this.element, transform[i]);
-          }
-        }
-
-        return obj;
+      if (this.attributeKey !== "transform") {
+        return anime_es.get(this.element, this.attributeKey);
       }
 
-      return anime_es.get(this.element, this.attributeKey);
+      var obj = {};
+      var transform = compositeAttributes[this.attributeKey];
+      var currentTransform = getMatrix2D(this.context.window, this.element);
+
+      for (var i = 0; i < transform.length; i++) {
+        obj[transform[i]] = Object.prototype.hasOwnProperty.call(currentTransform, transform[i]) ? currentTransform[transform[i]] : anime_es.get(this.element, transform[i]);
+      }
+
+      return obj;
     }
     /**
      * @param {number} f
@@ -1362,7 +1360,7 @@ var Anime = /*#__PURE__*/function (_MotorCortex$Effect) {
   }]);
 
   return Anime;
-}(MotorCortex.Effect);
+}(MotorCortex$1.Effect);
 /**
  * Takes as attributes:
  * {
@@ -1377,17 +1375,17 @@ var Anime = /*#__PURE__*/function (_MotorCortex$Effect) {
 
 
 var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
-  _inherits$1(MotionPath, _MotorCortex$Effect);
+  _inherits(MotionPath, _MotorCortex$Effect);
 
-  var _super = _createSuper$1(MotionPath);
+  var _super = _createSuper(MotionPath);
 
   function MotionPath() {
-    _classCallCheck$1(this, MotionPath);
+    _classCallCheck(this, MotionPath);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$1(MotionPath, [{
+  _createClass(MotionPath, [{
     key: "onGetContext",
     value: function onGetContext() {
       this.pixelsAccuracy = this.attrs.pixelsAccuracy || 4;
@@ -1416,23 +1414,23 @@ var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
   }]);
 
   return MotionPath;
-}(MotorCortex.Effect);
+}(MotorCortex$1.Effect);
 
-var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
+var nu$1 = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
 var ru = ["deg", "rad", "grad", "turn"];
 var _MEASUREMENT = "measurement";
-var _COLOR = "color";
+var _COLOR$1 = "color";
 var animatedAttrs = {
   type: "object",
   // strict : true,
   props: {
     background: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     backgroundColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     backgroundPosition: {
       optional: true,
@@ -1452,53 +1450,53 @@ var animatedAttrs = {
     },
     borderBottomColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderBottomLeftRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderBottomRightRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderBottomWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderEndEndRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderEndStartRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderImageOutset: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     borderImageSlice: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     borderImageWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     borderLeft: {
@@ -1507,17 +1505,17 @@ var animatedAttrs = {
     },
     borderLeftColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderLeftWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderRight: {
       optional: true,
@@ -1525,22 +1523,22 @@ var animatedAttrs = {
     },
     borderRightColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderRightWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderStartEndRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderStartStartRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderTop: {
       optional: true,
@@ -1548,32 +1546,32 @@ var animatedAttrs = {
     },
     borderTopColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderTopLeftRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderTopRightRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderTopWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     borderWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     bottom: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     boxShadow: {
       optional: true,
@@ -1581,11 +1579,11 @@ var animatedAttrs = {
     },
     caretColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     color: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     columnCount: {
       optional: true,
@@ -1596,7 +1594,7 @@ var animatedAttrs = {
     columnGap: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     columnRule: {
       optional: true,
@@ -1604,12 +1602,12 @@ var animatedAttrs = {
     },
     columnRuleColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     columnRuleWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     columns: {
       optional: true,
@@ -1620,7 +1618,7 @@ var animatedAttrs = {
     columnWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     flex: {
       optional: true,
@@ -1631,7 +1629,7 @@ var animatedAttrs = {
     flexBasis: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     flexGrow: {
       optional: true,
@@ -1652,12 +1650,12 @@ var animatedAttrs = {
     fontSize: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     fontSizeAdjust: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     fontStretch: {
@@ -1672,84 +1670,84 @@ var animatedAttrs = {
     gap: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     gridColumnGap: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     gridGap: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     gridRowGap: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     gridTemplateColumns: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     gridTemplateRows: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     height: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     inset: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     insetBlock: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     insetBlockEnd: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     insetBlockStart: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     insetInline: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     insetInlineEnd: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     insetInlineStart: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     left: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     letterSpacing: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     lineClamp: {
       optional: true,
@@ -1760,7 +1758,7 @@ var animatedAttrs = {
     lineHeight: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     margin: {
@@ -1770,27 +1768,27 @@ var animatedAttrs = {
     marginBottom: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     marginLeft: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     marginRight: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     marginTop: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     maskBorder: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     maskPosition: {
@@ -1804,13 +1802,13 @@ var animatedAttrs = {
     maxHeight: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     maxWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu,
+      units: nu$1,
       min: 0
     },
     objectPosition: {
@@ -1820,7 +1818,7 @@ var animatedAttrs = {
     offset: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     offsetAnchor: {
       optional: true,
@@ -1829,7 +1827,7 @@ var animatedAttrs = {
     offsetDistance: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     offsetPath: {
       optional: true,
@@ -1861,72 +1859,72 @@ var animatedAttrs = {
     },
     outlineColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     outlineOffset: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     outlineRadius: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     outlineRadiusBottomleft: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     outlineRadiusBottomright: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     outlineRadiusTopleft: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     outlineRadiusTopright: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     outlineWidth: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     padding: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     paddingBottom: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     paddingLeft: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     paddingRight: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     paddingTop: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     perspective: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     perspectiveOrigin: {
       optional: true,
@@ -1935,7 +1933,7 @@ var animatedAttrs = {
     right: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     rotate: {
       optional: true,
@@ -1945,7 +1943,7 @@ var animatedAttrs = {
     rowGap: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scale: {
       optional: true,
@@ -1954,117 +1952,117 @@ var animatedAttrs = {
     },
     scrollbarColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     scrollMargin: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginBlock: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginBlockEnd: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginBlockStart: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginBottom: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginInline: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginInlineEnd: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginInlineStart: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginLeft: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginRight: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollMarginTop: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPadding: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingBlock: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingBlockEnd: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingBlockStart: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingBottom: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingInline: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingInlineEnd: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingInlineStart: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingLeft: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingRight: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollPaddingTop: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     scrollSnapCoordinate: {
       optional: true,
@@ -2073,7 +2071,7 @@ var animatedAttrs = {
     scrollSnapDestination: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     shapeImageThreshold: {
       optional: true,
@@ -2082,7 +2080,7 @@ var animatedAttrs = {
     shapeMargin: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     shapeOutside: {
       optional: true,
@@ -2098,12 +2096,12 @@ var animatedAttrs = {
     },
     textDecorationColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     textDecorationThickness: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     textEmphasis: {
       optional: true,
@@ -2111,16 +2109,16 @@ var animatedAttrs = {
     },
     textEmphasisColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     textFillColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     textIndent: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     textShadow: {
       optional: true,
@@ -2132,17 +2130,17 @@ var animatedAttrs = {
     },
     textStrokeColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     textUnderlineOffset: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     top: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     transform: {
       optional: true,
@@ -2150,17 +2148,17 @@ var animatedAttrs = {
       props: {
         translateX: {
           type: _MEASUREMENT,
-          units: nu,
+          units: nu$1,
           optional: true
         },
         translateY: {
           type: _MEASUREMENT,
-          units: nu,
+          units: nu$1,
           optional: true
         },
         translateZ: {
           type: _MEASUREMENT,
-          units: nu,
+          units: nu$1,
           optional: true
         },
         rotate: {
@@ -2215,7 +2213,7 @@ var animatedAttrs = {
         },
         perspective: {
           type: _MEASUREMENT,
-          units: nu,
+          units: nu$1,
           optional: true
         }
       }
@@ -2235,12 +2233,12 @@ var animatedAttrs = {
     width: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     wordSpacing: {
       optional: true,
       type: _MEASUREMENT,
-      units: nu
+      units: nu$1
     },
     zIndex: {
       optional: true,
@@ -2265,11 +2263,11 @@ var animatedAttrs = {
   },
   width: {
     type: _MEASUREMENT,
-    units: nu
+    units: nu$1
   },
   wordSpacing: {
     type: _MEASUREMENT,
-    units: nu
+    units: nu$1
   },
   zIndex: {
     type: "number",
@@ -2281,13 +2279,13 @@ var animatedAttrs = {
     min: 0
   }
 };
-var name = "@kissmybutton/motorcortex-anime";
-var version = "2.1.11";
-var index = {
-  npm_name: name,
-  version: version,
+var name$1 = "@kissmybutton/motorcortex-anime";
+var version$1 = "2.1.14";
+var index$1 = {
+  npm_name: name$1,
+  version: version$1,
   incidents: [{
-    exportable: Anime,
+    exportable: Anime$c,
     name: "Anime",
     attributesValidationRules: {
       animatedAttrs: animatedAttrs
@@ -2314,20 +2312,20 @@ var index = {
   compositeAttributes: compositeAttributes
 };
 
-var Anime$1 = MotorCortex.loadPlugin(index);
+var Anime$b = loadPlugin(index$1);
 
-var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(Intro, _MotorCortex$HTMLClip);
+var Intro = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(Intro, _HTMLClip);
 
-  var _super = _createSuper(Intro);
+  var _super = _createSuper$1(Intro);
 
   function Intro() {
-    _classCallCheck(this, Intro);
+    _classCallCheck$1(this, Intro);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Intro, [{
+  _createClass$1(Intro, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -2344,9 +2342,32 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"wrapper\">\n          <div class=\"container-logo\">\n            <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n            <div class=\"line\"> </div>\n            <div class=\"pro-name\">\n              <span> ").concat(this.attrs.title, "</span>\n            </div>\n          </div>\n          <div class=\"date-container\">\n            <div class=\"logo-comp\"><img src=\"").concat(this.attrs.compLogo, "\"></div>\n            <div class=\"date\">Date : ").concat(this.attrs.date, "</div>\n          </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1270px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .logo-client img {\n        width : ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .logo-comp img {\n        width : ").concat(this.attrs.compLogoWidth, "px\n      }\n\n      .logo-comp,.date{\n        position: relative;\n        top: 200%;\n      }\n\n      .logo-client{\n        position: relative ;\n        top : -100%;\n      }\n\n      .container-logo{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        flex: 1;\n        overflow: hidden;\n        position: relative;\n      }\n\n      .date-container{\n        display: flex;\n        align-items: flex-end;\n        margin: 2%;\n        justify-content: space-between;\n        width: 90%;\n        position: relative;\n      }\n   \n      .line{\n        border-top: 5px solid ").concat(this.attrs.fontColor, ";\n        width: 100%;\n        position : relative;\n        top: -100%;\n      }\n\n      .pro-name {\n        position : relative;\n        font-size: 50px;\n        overflow: hidden;\n        padding-top: 10%;\n        top: -100%;\n      }\n\n      .date{\n        font-size: 20px;\n      }\n      \n      .wrapper{ \n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        width: 100%;\n        height: 100%;\n\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var logoIn = new Anime$1.Anime({
+      var logoIn = new Anime$b.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2359,7 +2380,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".logo-client",
         easing: "easeOutQuart"
       });
-      var lineIn = new Anime$1.Anime({
+      var lineIn = new Anime$b.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2372,7 +2393,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".line ",
         easing: "easeOutQuart"
       });
-      var proIn = new Anime$1.Anime({
+      var proIn = new Anime$b.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2385,7 +2406,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".pro-name ",
         easing: "easeOutQuart"
       });
-      var logoCompIn = new Anime$1.Anime({
+      var logoCompIn = new Anime$b.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2397,9 +2418,8 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 1000 * this.attrs.speed,
         selector: ".logo-comp,.date",
         easing: "easeOutQuart"
-      }); //
-
-      var bgout = new Anime$1.Anime({
+      });
+      var bgout = new Anime$b.Anime({
         animatedAttrs: {
           opacity: 0
         },
@@ -2414,49 +2434,25 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(logoCompIn, 0);
       this.addIncident(bgout, 1500 * this.attrs.speed);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n    <div class=\"wrapper\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n      <div class=\"date-container\">\n        <div class=\"logo-comp\"><img src=\"").concat(this.attrs.compLogo, "\"></div>\n        <div class=\"date\">Date : ").concat(this.attrs.date, "</div>\n      </div>\n      </div>\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background-image: url(").concat(this.attrs.bgUrl, ");\n      background-size: 1270px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n\n    .logo-client img {\n      width : ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .logo-comp img {\n      width : ").concat(this.attrs.compLogoWidth, "px\n    }\n\n    .logo-comp,.date{\n      position: relative;\n      top: 200%;\n    }\n\n    .logo-client{\n      position: relative ;\n      top : -100%;\n    }\n\n    .container-logo{\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      flex: 1;\n      overflow: hidden;\n      position: relative;\n    }\n\n    .date-container{\n      display: flex;\n      align-items: flex-end;\n      margin: 2%;\n      justify-content: space-between;\n      width: 90%;\n      position: relative;\n    }\n \n    .line{\n      border-top: 5px solid ").concat(this.attrs.fontColor, ";\n      width: 100%;\n      position : relative;\n      top: -100%;\n    }\n\n    .pro-name {\n      position : relative;\n      font-size: 50px;\n      overflow: hidden;\n      padding-top: 10%;\n      top: -100%;\n    }\n    .date{\n      font-size: 20px;\n    }\n    \n  \n\n    .wrapper{ \n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      width: 100%;\n      height: 100%;\n\n    }\n\n  \n  ");
-    }
   }]);
 
   return Intro;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var Intro_1 = Intro;
+var Anime$a = loadPlugin(index$1);
 
-var Anime$2 = MotorCortex.loadPlugin(index);
+var IntroFade = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(IntroFade, _HTMLClip);
 
-var IntroFade = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(IntroFade, _MotorCortex$HTMLClip);
-
-  var _super = _createSuper(IntroFade);
+  var _super = _createSuper$1(IntroFade);
 
   function IntroFade() {
-    _classCallCheck(this, IntroFade);
+    _classCallCheck$1(this, IntroFade);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(IntroFade, [{
+  _createClass$1(IntroFade, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -2473,9 +2469,24 @@ var IntroFade = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"wrapper\">\n          <div class=\"container-logo\">\n            <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n            <div class=\"pro-name\">\n              <span> ").concat(this.attrs.title, "</span>\n            </div>\n          </div>\n          <div class=\"date-container\">\n            <div class=\"logo-comp\"><img src=\"").concat(this.attrs.compLogo, "\"></div>\n            <div class=\"date\">Date : ").concat(this.attrs.date, "</div>\n          </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: ".concat(this.attrs.width, ";\n        height: ").concat(this.attrs.height, ";\n        position: relative;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1270px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .logo-client img {\n        width : ").concat(this.attrs.clientLogoWidth, " ;\n      }\n\n      .logo-comp img {\n        width : ").concat(this.attrs.compLogoWidth, "\n      }\n\n      .container-logo{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        flex: 1 ;\n      }\n\n      .date-container{\n        display: flex;\n        align-items: flex-end;\n        margin: 2%;\n        justify-content: space-between;\n        width: 90%;\n      }\n\n      .pro-name {\n        font-size: 50px;\n        border-top: 5px solid #fff;\n        padding-top: 5%;\n      }\n      .date{\n        font-size: 20px;\n      }\n      \n      .wrapper{ \n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        width: 100%;\n        height: 100%;\n        transform: scale(2);\n        opacity: 0;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var fadeIn = new Anime$2.Anime({
+      var fadeIn = new Anime$a.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -2493,7 +2504,7 @@ var IntroFade = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 1000,
         selector: ".wrapper"
       });
-      var bgout = new Anime$2.Anime({
+      var bgout = new Anime$a.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -2506,41 +2517,25 @@ var IntroFade = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(fadeIn, 0);
       this.addIncident(bgout, 2000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n    <div class=\"wrapper\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n      <div class=\"date-container\">\n        <div class=\"logo-comp\"><img src=\"").concat(this.attrs.compLogo, "\"></div>\n        <div class=\"date\">Date : ").concat(this.attrs.date, "</div>\n      </div>\n      </div>\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: ".concat(this.attrs.width, ";\n      height: ").concat(this.attrs.height, ";\n      position: relative;\n      background-image: url(").concat(this.attrs.bgUrl, ");\n      background-size: 1270px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n\n    .logo-client img {\n      width : ").concat(this.attrs.clientLogoWidth, " ;\n    }\n\n    .logo-comp img {\n      width : ").concat(this.attrs.compLogoWidth, "\n    }\n\n    .container-logo{\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      flex: 1 ;\n    }\n\n    .date-container{\n      display: flex;\n      align-items: flex-end;\n      margin: 2%;\n      justify-content: space-between;\n      width: 90%;\n    }\n\n    .pro-name {\n      font-size: 50px;\n      border-top: 5px solid #fff;\n      padding-top: 5%;\n    }\n    .date{\n      font-size: 20px;\n    }\n    \n    \n    .wrapper{ \n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      width: 100%;\n      height: 100%;\n      transform: scale(2);\n      opacity: 0;\n    }\n\n  \n  ");
-    }
   }]);
 
   return IntroFade;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var IntroFade_1 = IntroFade;
+var Anime$9 = loadPlugin(index$1);
 
-var Anime$3 = MotorCortex.loadPlugin(index);
+var SlideOne = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(SlideOne, _HTMLClip);
 
-var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(SlideOne, _MotorCortex$HTMLClip);
-
-  var _super = _createSuper(SlideOne);
+  var _super = _createSuper$1(SlideOne);
 
   function SlideOne() {
-    _classCallCheck(this, SlideOne);
+    _classCallCheck$1(this, SlideOne);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SlideOne, [{
+  _createClass$1(SlideOne, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -2557,9 +2552,32 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"></div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\" >\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n            <p class=\"text2\"> ").concat(this.attrs.textTwo, "</p>\n            <p class=\"text3\" > ").concat(this.attrs.textThree, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\"></div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : 100%;\n        left : 5%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 0;\n        position: relative;\n        \n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n\n      .text1{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textOne.length, this.attrs.width * 0.55), "px;\n      }\n\n      .text2{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textTwo.length, this.attrs.width * 0.5), "px;\n      }\n\n      .text3{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textThree.length, this.attrs.width * 0.5), "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 40%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 0;\n        border-left: 5px solid;\n        border-top: 5px solid;\n        border-right: 5px solid;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 2;\n        box-shadow: -21px 25px 23px rgba(0,0,0,0.65);\n        border-left: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 100%;\n        left: 55%;\n        width: ").concat(this.attrs.width * 0.3, "px;\n        display: flex;\n        justify-content: center;\n        \n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var content = new Anime$3.Anime({
+      var content = new Anime$9.Anime({
         animatedAttrs: {
           top: "25%"
         },
@@ -2572,7 +2590,7 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeOutCubic"
       });
-      var titleHolder = new Anime$3.Anime({
+      var titleHolder = new Anime$9.Anime({
         animatedAttrs: {
           top: "15%"
         },
@@ -2585,7 +2603,7 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
-      var appHolder = new Anime$3.Anime({
+      var appHolder = new Anime$9.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2598,7 +2616,7 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
-      var border = new Anime$3.Anime({
+      var border = new Anime$9.Anime({
         animatedAttrs: {
           top: "15%"
         },
@@ -2611,7 +2629,7 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border,.border1",
         easing: "easeOutCubic"
       });
-      var contentOut = new Anime$3.Anime({
+      var contentOut = new Anime$9.Anime({
         animatedAttrs: {
           left: "120%"
         },
@@ -2624,7 +2642,7 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeInQuart"
       });
-      var titleHolderOut = new Anime$3.Anime({
+      var titleHolderOut = new Anime$9.Anime({
         animatedAttrs: {
           top: "100%"
         },
@@ -2637,7 +2655,7 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeInQuart"
       });
-      var appHolderOut = new Anime$3.Anime({
+      var appHolderOut = new Anime$9.Anime({
         animatedAttrs: {
           top: "-120%"
         },
@@ -2650,7 +2668,7 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
-      var borderOut = new Anime$3.Anime({
+      var borderOut = new Anime$9.Anime({
         animatedAttrs: {
           left: "-100%"
         },
@@ -2663,7 +2681,7 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
-      var bgout = new Anime$3.Anime({
+      var bgout = new Anime$9.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -2683,49 +2701,25 @@ var SlideOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(borderOut, 2000 * this.attrs.speed);
       this.addIncident(bgout, 3000 * this.attrs.speed);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n        <div class= \"content-wrapper\" >\n          <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          <p class=\"text2\"> ").concat(this.attrs.textTwo, "</p>\n          <p class=\"text3\" > ").concat(this.attrs.textThree, "</p>\n        </div>\n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"app-holder\">\n      </div>\n\n      <div class=\"border\">\n      </div>\n\n      <div class=\"border1\">\n      </div>\n\n\n\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.65, "px;\n      height: ").concat(this.attrs.height * 0.6, "px;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      position: absolute;\n      top : 100%;\n      left : 5%;\n      display:flex;\n      justify-content: center;\n      align-content: center;\n      align-items: center;\n      background: ").concat(this.attrs.contentColor, ";\n      z-index: 2;\n    }\n\n    .content-wrapper{\n      margin: 0;\n      position: relative;\n      \n    }\n    p{\n      margin: 0;\n      text-transform: uppercase;\n      font-weight: 200;\n    }\n    .text1{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.textOne.length, this.attrs.width * 0.55), "px;\n    }\n\n    .text2{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.textTwo.length, this.attrs.width * 0.5), "px;\n    }\n\n    .text3{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.textThree.length, this.attrs.width * 0.5), "px;\n    }\n\n    .app-holder{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 40%;\n      z-index: 1;\n      background: url(").concat(this.attrs.app, ");\n      background-size: cover;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n    }\n  \n    .border{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 7%;\n      z-index: 0;\n      border-left: 5px solid;\n      border-top: 5px solid;\n      border-right: 5px solid;\n      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n    }\n\n    .border1{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 7%;\n      z-index: 2;\n      box-shadow: -21px 25px 23px rgba(0,0,0,0.65);\n      border-left: 5px solid;\n    }\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top: 100%;\n      left: 55%;\n      width: ").concat(this.attrs.width * 0.3, "px;\n      display: flex;\n      justify-content: center;\n      \n    }\n\n\n  ");
-    }
   }]);
 
   return SlideOne;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var SlideOne_1 = SlideOne;
+var Anime$8 = loadPlugin(index$1);
 
-var Anime$4 = MotorCortex.loadPlugin(index);
+var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(SlideTwo, _HTMLClip);
 
-var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(SlideTwo, _MotorCortex$HTMLClip);
-
-  var _super = _createSuper(SlideTwo);
+  var _super = _createSuper$1(SlideTwo);
 
   function SlideTwo() {
-    _classCallCheck(this, SlideTwo);
+    _classCallCheck$1(this, SlideTwo);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SlideTwo, [{
+  _createClass$1(SlideTwo, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -2742,9 +2736,32 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\" >\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\"></div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : 25%;\n        right : 100%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 0;\n        position: relative;\n        width: ").concat(this.attrs.width * 0.55, "px;\n        height: ").concat(this.attrs.height * 0.5, "px;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n\n      .text1{\n        font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 10%;\n        left: 100%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 5%;\n        right: 100%;\n        z-index: 0;\n        border-left: 5px solid;\n        border-top: 5px solid;\n        border-left: 5px solid;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 5%;\n        right:-100%;\n        z-index: 2;\n        box-shadow: 22px 25px 23px rgba(0,0,0,0.65);\n        border-right: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 100%;\n        right: 0%;\n        width: ").concat(this.attrs.width * 0.4, "px;\n        display: flex;\n        justify-content: center;\n        \n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var content = new Anime$4.Anime({
+      var content = new Anime$8.Anime({
         animatedAttrs: {
           right: "0%"
         },
@@ -2757,7 +2774,7 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeOutCubic"
       });
-      var titleHolder = new Anime$4.Anime({
+      var titleHolder = new Anime$8.Anime({
         animatedAttrs: {
           top: "15%"
         },
@@ -2770,7 +2787,7 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
-      var appHolder = new Anime$4.Anime({
+      var appHolder = new Anime$8.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2783,7 +2800,7 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
-      var border = new Anime$4.Anime({
+      var border = new Anime$8.Anime({
         animatedAttrs: {
           right: "5%"
         },
@@ -2796,7 +2813,7 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border,.border1",
         easing: "easeOutCubic"
       });
-      var contentOut = new Anime$4.Anime({
+      var contentOut = new Anime$8.Anime({
         animatedAttrs: {
           top: "-120%"
         },
@@ -2809,7 +2826,7 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeInQuart"
       });
-      var titleHolderOut = new Anime$4.Anime({
+      var titleHolderOut = new Anime$8.Anime({
         animatedAttrs: {
           top: "100%"
         },
@@ -2822,7 +2839,7 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeInQuart"
       });
-      var appHolderOut = new Anime$4.Anime({
+      var appHolderOut = new Anime$8.Anime({
         animatedAttrs: {
           left: "120%"
         },
@@ -2835,7 +2852,7 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
-      var borderOut = new Anime$4.Anime({
+      var borderOut = new Anime$8.Anime({
         animatedAttrs: {
           right: "120%"
         },
@@ -2848,7 +2865,7 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
-      var bgout = new Anime$4.Anime({
+      var bgout = new Anime$8.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -2868,49 +2885,25 @@ var SlideTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(borderOut, 2000 * this.attrs.speed);
       this.addIncident(bgout, 3000 * this.attrs.speed);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n        <div class= \"content-wrapper\" >\n          <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n        </div>\n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"app-holder\">\n      </div>\n\n      <div class=\"border\">\n      </div>\n\n      <div class=\"border1\">\n      </div>\n\n\n\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.65, "px;\n      height: ").concat(this.attrs.height * 0.6, "px;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      position: absolute;\n      top : 25%;\n      right : 100%;\n      display:flex;\n      justify-content: center;\n      align-content: center;\n      align-items: center;\n      background: ").concat(this.attrs.contentColor, ";\n      z-index: 2;\n    }\n\n    .content-wrapper{\n      margin: 0;\n      position: relative;\n      width: ").concat(this.attrs.width * 0.55, "px;\n      height: ").concat(this.attrs.height * 0.5, "px;\n    }\n    p{\n      margin: 0;\n      text-transform: uppercase;\n      font-weight: 200;\n    }\n    .text1{\n    font-size: ").concat(this.attrs.fonSize, "px;\n    }\n\n\n    .app-holder{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 10%;\n      left: 100%;\n      z-index: 1;\n      background: url(").concat(this.attrs.app, ");\n      background-size: cover;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n    }\n  \n    .border{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 5%;\n      right: 100%;\n      z-index: 0;\n      border-left: 5px solid;\n      border-top: 5px solid;\n      border-left: 5px solid;\n      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n    }\n\n    .border1{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 5%;\n      right:-100%;\n      z-index: 2;\n      box-shadow: 22px 25px 23px rgba(0,0,0,0.65);\n      border-right: 5px solid;\n    }\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top: 100%;\n      right: 0%;\n      width: ").concat(this.attrs.width * 0.4, "px;\n      display: flex;\n      justify-content: center;\n      \n    }\n\n\n  ");
-    }
   }]);
 
   return SlideTwo;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var SlideTwo_1 = SlideTwo;
+var Anime$7 = loadPlugin(index$1);
 
-var Anime$5 = MotorCortex.loadPlugin(index);
+var SlideThree = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(SlideThree, _HTMLClip);
 
-var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(SlideThree, _MotorCortex$HTMLClip);
-
-  var _super = _createSuper(SlideThree);
+  var _super = _createSuper$1(SlideThree);
 
   function SlideThree() {
-    _classCallCheck(this, SlideThree);
+    _classCallCheck$1(this, SlideThree);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SlideThree, [{
+  _createClass$1(SlideThree, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -2927,9 +2920,32 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\">\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\"></div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : -100%;\n        left : 5%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 5%;\n        position: relative;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n   \n      .text1{\n        font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 40%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 0;\n        border-left: 5px solid;\n        border-top: 5px solid;\n        border-right: 5px solid;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.33, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 2;\n        box-shadow: -23px -4px 23px rgba(0,0,0,0.65);\n        border-left: 5px solid;\n        border-top: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 80%;\n        left: 120%;\n        width: ").concat(this.attrs.width * 0.3, "px;\n        display: flex;\n        justify-content: center;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var content = new Anime$5.Anime({
+      var content = new Anime$7.Anime({
         animatedAttrs: {
           top: "25%"
         },
@@ -2942,7 +2958,7 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeOutCubic"
       });
-      var titleHolder = new Anime$5.Anime({
+      var titleHolder = new Anime$7.Anime({
         animatedAttrs: {
           left: "55%"
         },
@@ -2955,7 +2971,7 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
-      var appHolder = new Anime$5.Anime({
+      var appHolder = new Anime$7.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2968,7 +2984,7 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
-      var border = new Anime$5.Anime({
+      var border = new Anime$7.Anime({
         animatedAttrs: {
           top: "15%"
         },
@@ -2981,7 +2997,7 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border,.border1",
         easing: "easeOutCubic"
       });
-      var contentOut = new Anime$5.Anime({
+      var contentOut = new Anime$7.Anime({
         animatedAttrs: {
           left: "120%"
         },
@@ -2994,7 +3010,7 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeInQuart"
       });
-      var titleHolderOut = new Anime$5.Anime({
+      var titleHolderOut = new Anime$7.Anime({
         animatedAttrs: {
           top: "-100%"
         },
@@ -3007,7 +3023,7 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeInQuart"
       });
-      var appHolderOut = new Anime$5.Anime({
+      var appHolderOut = new Anime$7.Anime({
         animatedAttrs: {
           top: "-120%"
         },
@@ -3020,7 +3036,7 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
-      var borderOut = new Anime$5.Anime({
+      var borderOut = new Anime$7.Anime({
         animatedAttrs: {
           left: "-100%"
         },
@@ -3033,7 +3049,7 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
-      var bgout = new Anime$5.Anime({
+      var bgout = new Anime$7.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -3053,49 +3069,25 @@ var SlideThree = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(borderOut, 2000 * this.attrs.speed);
       this.addIncident(bgout, 3000 * this.attrs.speed);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n        <div class= \"content-wrapper\" >\n          <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n        </div>\n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"app-holder\">\n      </div>\n\n      <div class=\"border\">\n      </div>\n\n      <div class=\"border1\">\n      </div>\n\n\n\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.65, "px;\n      height: ").concat(this.attrs.height * 0.6, "px;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      position: absolute;\n      top : -100%;\n      left : 5%;\n      display:flex;\n      justify-content: center;\n      align-content: center;\n      align-items: center;\n      background: ").concat(this.attrs.contentColor, ";\n      z-index: 2;\n    }\n\n    .content-wrapper{\n      margin: 5%;\n      position: relative;\n      \n    }\n    p{\n      margin: 0;\n      text-transform: uppercase;\n      font-weight: 200;\n    }\n \n    .text1{\n      font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n    .app-holder{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 40%;\n      z-index: 1;\n      background: url(").concat(this.attrs.app, ");\n      background-size: cover;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n    }\n  \n    .border{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 7%;\n      z-index: 0;\n      border-left: 5px solid;\n      border-top: 5px solid;\n      border-right: 5px solid;\n      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n    }\n\n    .border1{\n      width: ").concat(this.attrs.width * 0.33, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 7%;\n      z-index: 2;\n      box-shadow: -23px -4px 23px rgba(0,0,0,0.65);\n      border-left: 5px solid;\n      border-top: 5px solid;\n    }\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top: 80%;\n      left: 120%;\n      width: ").concat(this.attrs.width * 0.3, "px;\n      display: flex;\n      justify-content: center;\n      \n    }\n\n  ");
-    }
   }]);
 
   return SlideThree;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var SlideThree_1 = SlideThree;
+var Anime$6 = loadPlugin(index$1);
 
-var Anime$6 = MotorCortex.loadPlugin(index);
+var Technologies = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(Technologies, _HTMLClip);
 
-var Technologies = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(Technologies, _MotorCortex$HTMLClip);
-
-  var _super = _createSuper(Technologies);
+  var _super = _createSuper$1(Technologies);
 
   function Technologies() {
-    _classCallCheck(this, Technologies);
+    _classCallCheck$1(this, Technologies);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Technologies, [{
+  _createClass$1(Technologies, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3112,18 +3104,40 @@ var Technologies = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\"> </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .img img{\n        width:80%;\n        -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n        filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n      }\n\n      .img{\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n      }\n\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        bottom: 120%;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .img-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.5, "px;\n        height: 200%;\n        position: absolute;  \n        overflow: hidden;      \n        bottom: -150%;    \n        left: 7%;     \n        z-index: 0;     \n        border-left: 5px solid;     \n        border: 5px solid;    \n        box-shadow: -8px -3px 23px\n        rgba(0,0,0,0.65);   \n        -ms-transform: rotate(-45deg);     \n        -ms-transform-origin: 20% 40%;  \n        -webkit-transform: rotate(-45deg); \n        -webkit-transform-origin: 69% 83%;\n        transform: rotate(79deg);\n      }\n\n      .subtitle-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: #c10000;\n        z-index: 3;\n        text-transform: uppercase;\n        box-shadow: -20px 9px 44px rgb(0, 0, 0);\n        position: absolute;\n        top:33%;\n        left:120%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.2, "px;\n        height: ").concat(this.attrs.height * 0.15, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top:120%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.2, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var html3 = "";
+      var html = "";
 
       for (var i = 0; i < this.attrs.logos.length; i++) {
-        var html = "<div class=\"img\"> <img src=\"".concat(this.attrs.logos[i], "\" /></div>");
-        html3 = html3 + html;
+        html += "<div class=\"img\"><img src=\"".concat(this.attrs.logos[i], "\"/></div>");
       }
 
       var word = new MotorCortex.HTMLClip({
         css: this.css,
-        html: "<div class=\"img-container\"> ".concat(html3, " </div>"),
+        html: "<div class=\"img-container\">".concat(html, "</div>"),
         selector: ".content-container"
       });
       this.addIncident(word, 0);
@@ -3178,8 +3192,7 @@ var Technologies = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 1000 * this.attrs.speed,
         selector: ".title-holder",
         easing: "easeOutCubic"
-      }); // out
-
+      });
       var borderOut = new Anime$6.Anime({
         animatedAttrs: {
           bottom: "150%"
@@ -3252,49 +3265,25 @@ var Technologies = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(titleOut, 2000 * this.attrs.speed);
       this.addIncident(bgout, 6000 * this.speed);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n   \n        \n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"subtitle-holder\">\n        <span> ").concat(this.attrs.contentSubTitle, "</span>\n      </div>\n      <div class=\"border\"> </div>\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n\n    .img img{\n      width:80%;\n      -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n      filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n    }\n\n    .img{\n      display:flex;\n          justify-content: center;\n          align-content: center;\n          align-items: center;\n    }\n\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.84, "px;\n      height: ").concat(this.attrs.height * 0.42, "px;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      position: absolute;\n      bottom: 120%;\n      display:flex;\n      justify-content: space-around;\n      align-content: center;\n      align-items: center;\n      background: ").concat(this.attrs.contentColor, ";\n      z-index: 2;\n    }\n\n    .img-container{\n      width: ").concat(this.attrs.width * 0.84, "px;\n      height: ").concat(this.attrs.height * 0.42, "px;\n      display:flex;\n      justify-content: space-around;\n      align-content: center;\n      align-items: center;\n\n    }\n  \n    .border{\n      width: ").concat(this.attrs.width * 0.5, "px;\n      height: 200%;\n      position: absolute;  \n      overflow: hidden;      \n      bottom: -150%;    \n      left: 7%;     \n      z-index: 0;     \n      border-left: 5px solid;     \n      border: 5px solid;    \n      box-shadow: -8px -3px 23px\n      rgba(0,0,0,0.65);   \n      -ms-transform: rotate(-45deg);     \n      -ms-transform-origin: 20% 40%;  \n      -webkit-transform: rotate(-45deg); \n      -webkit-transform-origin: 69% 83%;\n      transform: rotate(79deg);\n    }\n\n    \n\n    .subtitle-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: #c10000;\n      z-index: 3;\n      text-transform: uppercase;\n      box-shadow: -20px 9px 44px rgb(0, 0, 0);\n      position: absolute;\n      top:33%;\n      left:120%;\n      font-weight: 900;\n      width: ").concat(this.attrs.width * 0.2, "px;\n      height: ").concat(this.attrs.height * 0.15, "px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top:120%;\n      font-weight: 900;\n      width: ").concat(this.attrs.width * 0.45, "px;\n      height: ").concat(this.attrs.height * 0.2, "px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n\n\n  ");
-    }
   }]);
 
   return Technologies;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var Technologies_1 = Technologies;
+var Anime$5 = loadPlugin(index$1);
 
-var Anime$7 = MotorCortex.loadPlugin(index);
+var Highlights = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(Highlights, _HTMLClip);
 
-var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(HighlightsSVG, _MotorCortex$HTMLClip);
+  var _super = _createSuper$1(Highlights);
 
-  var _super = _createSuper(HighlightsSVG);
-
-  function HighlightsSVG() {
-    _classCallCheck(this, HighlightsSVG);
+  function Highlights() {
+    _classCallCheck$1(this, Highlights);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(HighlightsSVG, [{
+  _createClass$1(Highlights, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3311,10 +3300,34 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      this.attrs.bgUrl = this.attrs.bgUrl;
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\"></div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .app-img{\n        height: 101%;\n        object-fit: cover;\n      }\n\n      .img{\n        object-fit: cover;\n      }\n\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.82, "px;\n        position: absolute;\n        bottom: 120%;\n        right: 7%;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n        background: url(").concat(this.attrs.app, ");\n        z-index: 2;\n        transform: skew(-18deg, 0deg) rotateX(6deg);\n        filter: drop-shadow(31px 35px 53px\n        rgb(0, 0, 0));\n        background-size: cover;\n      }\n\n      .img-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.5, "px;\n        height: 200%;\n        position: absolute;  \n        overflow: hidden;      \n        bottom: -150%;    \n        left: 7%;     \n        z-index: 0;     \n        border-left: 5px solid;     \n        border: 5px solid;    \n        box-shadow: -8px -3px 23px\n        rgba(0,0,0,0.65);   \n        -ms-transform: rotate(-45deg);     \n        -ms-transform-origin: 20% 40%;  \n        -webkit-transform: rotate(-45deg); \n        -webkit-transform-origin: 69% 83%;\n        transform: rotate(79deg);\n      }\n\n      .subtitle-holder,.title-holder{\n        -ms-transform-origin: 30% 180%;\n        -webkit-transform: rotate(-10deg);\n        -webkit-transform-origin: 30% 180%;\n        transform: rotate(-10deg);\n      }\n      \n      .subtitle-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: #c10000;\n        z-index: 3;\n        text-transform: uppercase;\n        box-shadow: -20px 9px 44px rgb(0, 0, 0);\n        position: absolute;\n        top:60%;\n        left:-100%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.2, "px;\n        height: ").concat(this.attrs.height * 0.15, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top:40%;\n        left: -100%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.2, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
       var scroll = 0;
-      var border = new Anime$7.Anime({
+      var border = new Anime$5.Anime({
         animatedAttrs: {
           bottom: "0%"
         },
@@ -3327,7 +3340,7 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border",
         easing: "easeOutCubic"
       });
-      var content = new Anime$7.Anime({
+      var content = new Anime$5.Anime({
         animatedAttrs: {
           bottom: "15%"
         },
@@ -3340,7 +3353,7 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".content-container",
         easing: "easeOutCubic"
       });
-      var subtitle = new Anime$7.Anime({
+      var subtitle = new Anime$5.Anime({
         animatedAttrs: {
           left: "10%"
         },
@@ -3353,7 +3366,7 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".subtitle-holder",
         easing: "easeOutCubic"
       });
-      var title = new Anime$7.Anime({
+      var title = new Anime$5.Anime({
         animatedAttrs: {
           left: "5%"
         },
@@ -3366,7 +3379,7 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".title-holder",
         easing: "easeOutCubic"
       });
-      var borderOut = new Anime$7.Anime({
+      var borderOut = new Anime$5.Anime({
         animatedAttrs: {
           bottom: "150%"
         },
@@ -3379,7 +3392,7 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border",
         easing: "easeInQuart"
       });
-      var contentOut = new Anime$7.Anime({
+      var contentOut = new Anime$5.Anime({
         animatedAttrs: {
           bottom: "-120%"
         },
@@ -3392,7 +3405,7 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".content-container",
         easing: "easeInQuart"
       });
-      var subtitleOut = new Anime$7.Anime({
+      var subtitleOut = new Anime$5.Anime({
         animatedAttrs: {
           left: "-120%"
         },
@@ -3405,7 +3418,7 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".subtitle-holder",
         easing: "easeInQuart"
       });
-      var titleOut = new Anime$7.Anime({
+      var titleOut = new Anime$5.Anime({
         animatedAttrs: {
           top: "-120%"
         },
@@ -3418,7 +3431,7 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".title-holder",
         easing: "easeInQuart"
       });
-      var bgout = new Anime$7.Anime({
+      var bgout = new Anime$5.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -3431,61 +3444,32 @@ var HighlightsSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(border, 0);
       this.addIncident(content, 0);
       this.addIncident(subtitle, 0);
-      this.addIncident(title, 0); // where is appScroll is not defined ??
-      // if (this.attrs.scroll) {
-      //   this.addIncident(appScroll, 2000 * this.attrs.speed);
-      //   scroll = 2000;
-      // }
-
+      this.addIncident(title, 0);
       this.addIncident(borderOut, 2000 * this.attrs.speed + scroll);
       this.addIncident(contentOut, 2000 * this.attrs.speed + scroll);
       this.addIncident(subtitleOut, 2000 * this.attrs.speed + scroll);
       this.addIncident(titleOut, 2000 * this.attrs.speed + scroll);
       this.addIncident(bgout, 3000 * this.attrs.speed + scroll);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n       \n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"subtitle-holder\">\n        <span> ").concat(this.attrs.contentSubTitle, "</span>\n      </div>\n      <div class=\"border\"> </div>\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n\n    .app-img{\n      height: 101%;\n      object-fit: cover;\n    }\n\n    .img{\n      object-fit: cover;\n    }\n\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.45, "px;\n      height: ").concat(this.attrs.height * 0.82, "px;\n      position: absolute;\n      bottom: 120%;\n      right: 7%;\n      display:flex;\n      justify-content: space-around;\n      align-content: center;\n      align-items: center;\n      background: url(").concat(this.attrs.app, ");\n      z-index: 2;\n      transform: skew(-18deg, 0deg) rotateX(6deg);\n      filter: drop-shadow(31px 35px 53px\n      rgb(0, 0, 0));\n      background-size: cover;\n    }\n\n    .img-container{\n      width: ").concat(this.attrs.width * 0.84, "px;\n      height: ").concat(this.attrs.height * 0.42, "px;\n      display:flex;\n      justify-content: space-around;\n      align-content: center;\n      align-items: center;\n\n    }\n  \n    .border{\n      width: ").concat(this.attrs.width * 0.5, "px;\n      height: 200%;\n      position: absolute;  \n      overflow: hidden;      \n      bottom: -150%;    \n      left: 7%;     \n      z-index: 0;     \n      border-left: 5px solid;     \n      border: 5px solid;    \n      box-shadow: -8px -3px 23px\n      rgba(0,0,0,0.65);   \n      -ms-transform: rotate(-45deg);     \n      -ms-transform-origin: 20% 40%;  \n      -webkit-transform: rotate(-45deg); \n      -webkit-transform-origin: 69% 83%;\n      transform: rotate(79deg);\n    }\n\n\n    .subtitle-holder,.title-holder{\n      -ms-transform-origin: 30% 180%;\n      -webkit-transform: rotate(-10deg);\n      -webkit-transform-origin: 30% 180%;\n      transform: rotate(-10deg);\n    }\n    \n\n    .subtitle-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: #c10000;\n      z-index: 3;\n      text-transform: uppercase;\n      box-shadow: -20px 9px 44px rgb(0, 0, 0);\n      position: absolute;\n      top:60%;\n      left:-100%;\n      font-weight: 900;\n      width: ").concat(this.attrs.width * 0.2, "px;\n      height: ").concat(this.attrs.height * 0.15, "px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top:40%;\n      left: -100%;\n      font-weight: 900;\n      width: ").concat(this.attrs.width * 0.45, "px;\n      height: ").concat(this.attrs.height * 0.2, "px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n\n\n  ");
-    }
   }]);
 
-  return HighlightsSVG;
-}(MotorCortex.HTMLClip);
+  return Highlights;
+}(HTMLClip);
 
-var Highlights = HighlightsSVG;
+var Anime$4 = loadPlugin(index$1);
 
-var Anime$8 = MotorCortex.loadPlugin(index);
+var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(SlideOneSVG, _HTMLClip);
 
-var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(SlideOneSVG, _MotorCortex$HTMLClip);
-
-  var _super = _createSuper(SlideOneSVG);
+  var _super = _createSuper$1(SlideOneSVG);
 
   function SlideOneSVG() {
-    _classCallCheck(this, SlideOneSVG);
+    _classCallCheck$1(this, SlideOneSVG);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SlideOneSVG, [{
+  _createClass$1(SlideOneSVG, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3502,10 +3486,32 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"></div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\" >\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n            <p class=\"text2\"> ").concat(this.attrs.textTwo, "</p>\n            <p class=\"text3\" > ").concat(this.attrs.textThree, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : 100%;\n        left : 5%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 0;\n        position: relative;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n\n      .text1{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textOne.length, this.attrs.width * 0.55), "px;\n      }\n\n      .text2{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textTwo.length, this.attrs.width * 0.5), "px;\n      }\n\n      .text3{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textThree.length, this.attrs.width * 0.5), "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 40%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        position: absolute;\n        overflow: hidden;\n        top: 15%;\n        left: 10%;\n        z-index: 0;\n        transform: rotate(-90deg);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 2;\n        box-shadow: -21px 25px 23px rgba(0,0,0,0.65);\n        border-left: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 100%;\n        left: 55%;\n        width: ").concat(this.attrs.width * 0.3, "px;\n        display: flex;\n        justify-content: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
-    //stroke-dasharray: 1120;
     value: function buildTree() {
-      var content = new Anime$8.Anime({
+      var content = new Anime$4.Anime({
         animatedAttrs: {
           top: "25%"
         },
@@ -3518,7 +3524,7 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeOutCubic"
       });
-      var titleHolder = new Anime$8.Anime({
+      var titleHolder = new Anime$4.Anime({
         animatedAttrs: {
           top: "15%"
         },
@@ -3531,7 +3537,7 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
-      var appHolder = new Anime$8.Anime({
+      var appHolder = new Anime$4.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3544,7 +3550,7 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
-      var border = new Anime$8.Anime({
+      var border = new Anime$4.Anime({
         animatedAttrs: {
           strokeDashoffset: "-10000"
         },
@@ -3557,7 +3563,7 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".shape2",
         easing: "easeOutCubic"
       });
-      var contentOut = new Anime$8.Anime({
+      var contentOut = new Anime$4.Anime({
         animatedAttrs: {
           left: "120%"
         },
@@ -3570,7 +3576,7 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeInQuart"
       });
-      var titleHolderOut = new Anime$8.Anime({
+      var titleHolderOut = new Anime$4.Anime({
         animatedAttrs: {
           top: "100%"
         },
@@ -3583,7 +3589,7 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeInQuart"
       });
-      var appHolderOut = new Anime$8.Anime({
+      var appHolderOut = new Anime$4.Anime({
         animatedAttrs: {
           top: "-120%"
         },
@@ -3596,7 +3602,7 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
-      var borderOut = new Anime$8.Anime({
+      var borderOut = new Anime$4.Anime({
         animatedAttrs: {
           left: "-100%"
         },
@@ -3609,7 +3615,7 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
-      var bgout = new Anime$8.Anime({
+      var bgout = new Anime$4.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -3629,49 +3635,25 @@ var SlideOneSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(borderOut, 2000 * this.attrs.speed);
       this.addIncident(bgout, 3000 * this.attrs.speed);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n        <div class= \"content-wrapper\" >\n          <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          <p class=\"text2\"> ").concat(this.attrs.textTwo, "</p>\n          <p class=\"text3\" > ").concat(this.attrs.textThree, "</p>\n        </div>\n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"app-holder\">\n      </div>\n\n      <div class=\"border\">\n      <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n        <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n      </svg>\n      </div>\n\n      <div class=\"border1\">\n        \n      </div>\n\n\n\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.65, "px;\n      height: ").concat(this.attrs.height * 0.6, "px;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      position: absolute;\n      top : 100%;\n      left : 5%;\n      display:flex;\n      justify-content: center;\n      align-content: center;\n      align-items: center;\n      background: ").concat(this.attrs.contentColor, ";\n      z-index: 2;\n    }\n\n    .content-wrapper{\n      margin: 0;\n      position: relative;\n      \n    }\n    p{\n      margin: 0;\n      text-transform: uppercase;\n      font-weight: 200;\n    }\n    .text1{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.textOne.length, this.attrs.width * 0.55), "px;\n    }\n\n    .text2{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.textTwo.length, this.attrs.width * 0.5), "px;\n    }\n\n    .text3{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.textThree.length, this.attrs.width * 0.5), "px;\n    }\n\n    .app-holder{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 40%;\n      z-index: 1;\n      background: url(").concat(this.attrs.app, ");\n      background-size: cover;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n    }\n  \n    .border{\n      \n      position: absolute;\n      overflow: hidden;\n      top: 15%;\n      left: 10%;\n      z-index: 0;\n      transform: rotate(-90deg);\n    }\n\n    .border1{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 7%;\n      z-index: 2;\n      box-shadow: -21px 25px 23px rgba(0,0,0,0.65);\n      border-left: 5px solid;\n    }\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top: 100%;\n      left: 55%;\n      width: ").concat(this.attrs.width * 0.3, "px;\n      display: flex;\n      justify-content: center;\n      \n    }\n\n    .svg-wrapper {\n      position: relative;\n      top: 50%;\n      transform: translateY(-50%);\n      margin: 0 auto;\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n    }\n    \n    .shape2 {\n      stroke-dasharray: 5000;\n      stroke-width: 10px;\n      fill: transparent;\n      stroke: ").concat(this.attrs.fontColor, ";\n      border-bottom: 5px solid black;\n      stroke-dashoffset: -5000;\n      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n    }\n\n\n  ");
-    }
   }]);
 
   return SlideOneSVG;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var SlideOneSVG_1 = SlideOneSVG;
+var Anime$3 = loadPlugin(index$1);
 
-var Anime$9 = MotorCortex.loadPlugin(index);
+var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(SlideTwoSVG, _HTMLClip);
 
-var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(SlideTwoSVG, _MotorCortex$HTMLClip);
-
-  var _super = _createSuper(SlideTwoSVG);
+  var _super = _createSuper$1(SlideTwoSVG);
 
   function SlideTwoSVG() {
-    _classCallCheck(this, SlideTwoSVG);
+    _classCallCheck$1(this, SlideTwoSVG);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SlideTwoSVG, [{
+  _createClass$1(SlideTwoSVG, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3688,9 +3670,32 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\">\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : 25%;\n        right : 100%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 0;\n        position: relative;\n        width: ").concat(this.attrs.width * 0.55, "px;\n        height: ").concat(this.attrs.height * 0.5, "px;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n\n      .text1{\n        font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 10%;\n        left: 100%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        position: absolute;\n        overflow: hidden;\n        top: 1%;\n        right: 7%;\n        z-index: 0;\n        transform: rotate(-90deg);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 5%;\n        right:-100%;\n        z-index: 2;\n        box-shadow: 22px 25px 23px rgba(0,0,0,0.65);\n        border-right: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 100%;\n        right: 0%;\n        width: ").concat(this.attrs.width * 0.4, "px;\n        display: flex;\n        justify-content: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var content = new Anime$9.Anime({
+      var content = new Anime$3.Anime({
         animatedAttrs: {
           right: "0%"
         },
@@ -3703,7 +3708,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeOutCubic"
       });
-      var titleHolder = new Anime$9.Anime({
+      var titleHolder = new Anime$3.Anime({
         animatedAttrs: {
           top: "15%"
         },
@@ -3716,7 +3721,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
-      var appHolder = new Anime$9.Anime({
+      var appHolder = new Anime$3.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3729,7 +3734,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
-      var border = new Anime$9.Anime({
+      var border = new Anime$3.Anime({
         animatedAttrs: {
           strokeDashoffset: "-10000px"
         },
@@ -3742,7 +3747,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".shape2",
         easing: "easeOutCubic"
       });
-      var contentOut = new Anime$9.Anime({
+      var contentOut = new Anime$3.Anime({
         animatedAttrs: {
           top: "-120%"
         },
@@ -3755,7 +3760,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeInQuart"
       });
-      var titleHolderOut = new Anime$9.Anime({
+      var titleHolderOut = new Anime$3.Anime({
         animatedAttrs: {
           top: "100%"
         },
@@ -3768,7 +3773,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeInQuart"
       });
-      var appHolderOut = new Anime$9.Anime({
+      var appHolderOut = new Anime$3.Anime({
         animatedAttrs: {
           left: "120%"
         },
@@ -3781,7 +3786,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
-      var borderOut = new Anime$9.Anime({
+      var borderOut = new Anime$3.Anime({
         animatedAttrs: {
           right: "120%"
         },
@@ -3794,7 +3799,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border",
         easing: "easeInQuart"
       });
-      var bgout = new Anime$9.Anime({
+      var bgout = new Anime$3.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -3814,49 +3819,25 @@ var SlideTwoSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(borderOut, 2000 * this.attrs.speed);
       this.addIncident(bgout, 3000 * this.attrs.speed);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n        <div class= \"content-wrapper\" >\n          <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n        </div>\n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"app-holder\">\n      </div>\n\n      <div class=\"border\">\n        <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n          <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n        </svg>\n      </div>\n\n      <div class=\"border1\">\n      </div>\n\n\n\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.65, "px;\n      height: ").concat(this.attrs.height * 0.6, "px;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      position: absolute;\n      top : 25%;\n      right : 100%;\n      display:flex;\n      justify-content: center;\n      align-content: center;\n      align-items: center;\n      background: ").concat(this.attrs.contentColor, ";\n      z-index: 2;\n    }\n\n    .content-wrapper{\n      margin: 0;\n      position: relative;\n      width: ").concat(this.attrs.width * 0.55, "px;\n      height: ").concat(this.attrs.height * 0.5, "px;\n    }\n    p{\n      margin: 0;\n      text-transform: uppercase;\n      font-weight: 200;\n    }\n    .text1{\n    font-size: ").concat(this.attrs.fonSize, "px;\n    }\n\n\n    .app-holder{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 10%;\n      left: 100%;\n      z-index: 1;\n      background: url(").concat(this.attrs.app, ");\n      background-size: cover;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n    }\n  \n    .border{\n      position: absolute;\n      overflow: hidden;\n      top: 1%;\n      right: 7%;\n      z-index: 0;\n      transform: rotate(-90deg);\n    }\n\n    .border1{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 5%;\n      right:-100%;\n      z-index: 2;\n      box-shadow: 22px 25px 23px rgba(0,0,0,0.65);\n      border-right: 5px solid;\n    }\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top: 100%;\n      right: 0%;\n      width: ").concat(this.attrs.width * 0.4, "px;\n      display: flex;\n      justify-content: center;\n      \n    }\n\n\n    .svg-wrapper {\n      position: relative;\n      top: 50%;\n      transform: translateY(-50%);\n      margin: 0 auto;\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n    }\n    \n    .shape2 {\n      stroke-dasharray: 5000;\n      stroke-width: 10px;\n      fill: transparent;\n      stroke: ").concat(this.attrs.fontColor, ";\n      border-bottom: 5px solid black;\n      stroke-dashoffset: -5000;\n      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n    }\n\n\n  ");
-    }
   }]);
 
   return SlideTwoSVG;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var SlideTwoSVG_1 = SlideTwoSVG;
+var Anime$2 = loadPlugin(index$1);
 
-var Anime$a = MotorCortex.loadPlugin(index);
+var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(SlideThreeSVG, _HTMLClip);
 
-var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(SlideThreeSVG, _MotorCortex$HTMLClip);
-
-  var _super = _createSuper(SlideThreeSVG);
+  var _super = _createSuper$1(SlideThreeSVG);
 
   function SlideThreeSVG() {
-    _classCallCheck(this, SlideThreeSVG);
+    _classCallCheck$1(this, SlideThreeSVG);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SlideThreeSVG, [{
+  _createClass$1(SlideThreeSVG, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3873,9 +3854,32 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\">\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : -100%;\n        left : 5%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 5%;\n        position: relative;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n   \n      .text1{\n        font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 40%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        position: absolute;\n        overflow: hidden;\n        top: 15%;\n        left: 10%;\n        z-index: 0;\n        transform: rotate(-90deg);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.33, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 2;\n        box-shadow: -23px -4px 23px rgba(0,0,0,0.65);\n        border-left: 5px solid;\n        border-top: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 80%;\n        left: 120%;\n        width: ").concat(this.attrs.width * 0.3, "px;\n        display: flex;\n        justify-content: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var content = new Anime$a.Anime({
+      var content = new Anime$2.Anime({
         animatedAttrs: {
           top: "25%"
         },
@@ -3888,7 +3892,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeOutCubic"
       });
-      var titleHolder = new Anime$a.Anime({
+      var titleHolder = new Anime$2.Anime({
         animatedAttrs: {
           left: "55%"
         },
@@ -3901,7 +3905,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
-      var appHolder = new Anime$a.Anime({
+      var appHolder = new Anime$2.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3914,7 +3918,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
-      var border = new Anime$a.Anime({
+      var border = new Anime$2.Anime({
         animatedAttrs: {
           strokeDashoffset: "-10000px"
         },
@@ -3927,7 +3931,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".shape2",
         easing: "easeOutCubic"
       });
-      var contentOut = new Anime$a.Anime({
+      var contentOut = new Anime$2.Anime({
         animatedAttrs: {
           left: "120%"
         },
@@ -3940,7 +3944,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .content-container",
         easing: "easeInQuart"
       });
-      var titleHolderOut = new Anime$a.Anime({
+      var titleHolderOut = new Anime$2.Anime({
         animatedAttrs: {
           top: "-100%"
         },
@@ -3953,7 +3957,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: " .title-holder",
         easing: "easeInQuart"
       });
-      var appHolderOut = new Anime$a.Anime({
+      var appHolderOut = new Anime$2.Anime({
         animatedAttrs: {
           top: "-120%"
         },
@@ -3966,7 +3970,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
-      var borderOut = new Anime$a.Anime({
+      var borderOut = new Anime$2.Anime({
         animatedAttrs: {
           left: "-100%"
         },
@@ -3979,7 +3983,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
-      var bgout = new Anime$a.Anime({
+      var bgout = new Anime$2.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -3999,49 +4003,25 @@ var SlideThreeSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(borderOut, 2000 * this.attrs.speed);
       this.addIncident(bgout, 3000 * this.attrs.speed);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n        <div class= \"content-wrapper\" >\n          <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n        </div>\n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"app-holder\">\n      </div>\n\n      <div class=\"border\">\n      <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n        <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n      </svg>\n      </div>\n\n      <div class=\"border1\">\n      </div>\n\n\n\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.65, "px;\n      height: ").concat(this.attrs.height * 0.6, "px;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      position: absolute;\n      top : -100%;\n      left : 5%;\n      display:flex;\n      justify-content: center;\n      align-content: center;\n      align-items: center;\n      background: ").concat(this.attrs.contentColor, ";\n      z-index: 2;\n    }\n\n    .content-wrapper{\n      margin: 5%;\n      position: relative;\n      \n    }\n    p{\n      margin: 0;\n      text-transform: uppercase;\n      font-weight: 200;\n    }\n \n    .text1{\n      font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n    .app-holder{\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 40%;\n      z-index: 1;\n      background: url(").concat(this.attrs.app, ");\n      background-size: cover;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n    }\n  \n    .border{\n      position: absolute;\n      overflow: hidden;\n      top: 15%;\n      left: 10%;\n      z-index: 0;\n      transform: rotate(-90deg);\n    }\n\n    .border1{\n      width: ").concat(this.attrs.width * 0.33, "px;\n      height: 100%;\n      position: absolute;\n      overflow: hidden;\n      top: 100%;\n      left: 7%;\n      z-index: 2;\n      box-shadow: -23px -4px 23px rgba(0,0,0,0.65);\n      border-left: 5px solid;\n      border-top: 5px solid;\n    }\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top: 80%;\n      left: 120%;\n      width: ").concat(this.attrs.width * 0.3, "px;\n      display: flex;\n      justify-content: center;\n    }\n\n\n    .svg-wrapper {\n      position: relative;\n      top: 50%;\n      transform: translateY(-50%);\n      margin: 0 auto;\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n    }\n    \n    .shape2 {\n      stroke-dasharray: 5000;\n      stroke-width: 10px;\n      fill: transparent;\n      stroke: ").concat(this.attrs.fontColor, ";\n      border-bottom: 5px solid black;\n      stroke-dashoffset: -5000;\n      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n    }\n\n\n\n  ");
-    }
   }]);
 
   return SlideThreeSVG;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var SlideThreeSVG_1 = SlideThreeSVG;
+var Anime$1 = loadPlugin(index$1);
 
-var Anime$b = MotorCortex.loadPlugin(index);
+var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(TechnologiesSVG, _HTMLClip);
 
-var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(TechnologiesSVG, _MotorCortex$HTMLClip);
-
-  var _super = _createSuper(TechnologiesSVG);
+  var _super = _createSuper$1(TechnologiesSVG);
 
   function TechnologiesSVG() {
-    _classCallCheck(this, TechnologiesSVG);
+    _classCallCheck$1(this, TechnologiesSVG);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(TechnologiesSVG, [{
+  _createClass$1(TechnologiesSVG, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -4058,22 +4038,44 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .img img{\n        width:80%;\n        -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n        filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n      }\n\n      .img{\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n      }\n\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        bottom: 120%;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .img-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n      }\n\n      .border{\n        position: absolute;\n        overflow: hidden;\n        left: 7%;\n        z-index: 0;\n        -ms-transform: rotate(-45deg);     \n        -ms-transform-origin: 20% 40%;  \n        -webkit-transform: rotate(-45deg); \n        -webkit-transform-origin: 69% 83%;\n        transform: rotate(79deg);\n      }\n\n      .subtitle-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: #c10000;\n        z-index: 3;\n        text-transform: uppercase;\n        box-shadow: -20px 9px 44px rgb(0, 0, 0);\n        position: absolute;\n        top:33%;\n        left:120%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.2, "px;\n        height: ").concat(this.attrs.height * 0.15, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top:120%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.2, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var html3 = "";
+      var html = "";
 
       for (var i = 0; i < this.attrs.logos.length; i++) {
-        var html = "<div class=\"img\"> <img src=\"".concat(this.attrs.logos[i], "\" /></div>");
-        html3 = html3 + html;
+        html += "<div class=\"img\"><img src=\"".concat(this.attrs.logos[i], "\"/></div>");
       }
 
-      var word = new MotorCortex.HTMLClip({
+      var word = new HTMLClip({
         css: this.css,
-        html: "<div class=\"img-container\"> ".concat(html3, " </div>"),
+        html: "<div class=\"img-container\">".concat(html, "</div>"),
         selector: ".content-container"
       });
       this.addIncident(word, 0);
-      var border = new Anime$b.Anime({
+      var border = new Anime$1.Anime({
         animatedAttrs: {
           strokeDashoffset: "-10000px"
         },
@@ -4086,7 +4088,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".shape2",
         easing: "easeOutCubic"
       });
-      var content = new Anime$b.Anime({
+      var content = new Anime$1.Anime({
         animatedAttrs: {
           bottom: "15%"
         },
@@ -4099,7 +4101,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".content-container",
         easing: "easeOutCubic"
       });
-      var subtitle = new Anime$b.Anime({
+      var subtitle = new Anime$1.Anime({
         animatedAttrs: {
           left: "60%"
         },
@@ -4112,7 +4114,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".subtitle-holder",
         easing: "easeOutCubic"
       });
-      var title = new Anime$b.Anime({
+      var title = new Anime$1.Anime({
         animatedAttrs: {
           top: "15%"
         },
@@ -4124,9 +4126,8 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 1000 * this.attrs.speed,
         selector: ".title-holder",
         easing: "easeOutCubic"
-      }); // out
-
-      var borderOut = new Anime$b.Anime({
+      });
+      var borderOut = new Anime$1.Anime({
         animatedAttrs: {
           left: "150%"
         },
@@ -4139,7 +4140,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border",
         easing: "easeInQuart"
       });
-      var contentOut = new Anime$b.Anime({
+      var contentOut = new Anime$1.Anime({
         animatedAttrs: {
           bottom: "-120%"
         },
@@ -4152,7 +4153,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".content-container",
         easing: "easeInQuart"
       });
-      var subtitleOut = new Anime$b.Anime({
+      var subtitleOut = new Anime$1.Anime({
         animatedAttrs: {
           left: "-120%"
         },
@@ -4165,7 +4166,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".subtitle-holder",
         easing: "easeInQuart"
       });
-      var titleOut = new Anime$b.Anime({
+      var titleOut = new Anime$1.Anime({
         animatedAttrs: {
           top: "-120%"
         },
@@ -4178,7 +4179,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".title-holder",
         easing: "easeInQuart"
       });
-      var bgout = new Anime$b.Anime({
+      var bgout = new Anime$1.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -4198,49 +4199,25 @@ var TechnologiesSVG = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(titleOut, 2000 * this.attrs.speed);
       this.addIncident(bgout, 6000 * this.speed);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n   \n        \n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"subtitle-holder\">\n        <span> ").concat(this.attrs.contentSubTitle, "</span>\n      </div>\n      <div class=\"border\">\n      <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n        <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n      </svg>\n      </div>\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n\n    .img img{\n      width:80%;\n      -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n      filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n    }\n\n    .img{\n      display:flex;\n          justify-content: center;\n          align-content: center;\n          align-items: center;\n    }\n\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.84, "px;\n      height: ").concat(this.attrs.height * 0.42, "px;\n      box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      position: absolute;\n      bottom: 120%;\n      display:flex;\n      justify-content: space-around;\n      align-content: center;\n      align-items: center;\n      background: ").concat(this.attrs.contentColor, ";\n      z-index: 2;\n    }\n\n    .img-container{\n      width: ").concat(this.attrs.width * 0.84, "px;\n      height: ").concat(this.attrs.height * 0.42, "px;\n      display:flex;\n      justify-content: space-around;\n      align-content: center;\n      align-items: center;\n\n    }\n  \n   \n\n    .border{\n      \n      position: absolute;\n      overflow: hidden;\n      left: 7%;\n      z-index: 0;\n      -ms-transform: rotate(-45deg);     \n      -ms-transform-origin: 20% 40%;  \n      -webkit-transform: rotate(-45deg); \n      -webkit-transform-origin: 69% 83%;\n      transform: rotate(79deg);\n    }\n\n    .subtitle-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: #c10000;\n      z-index: 3;\n      text-transform: uppercase;\n      box-shadow: -20px 9px 44px rgb(0, 0, 0);\n      position: absolute;\n      top:33%;\n      left:120%;\n      font-weight: 900;\n      width: ").concat(this.attrs.width * 0.2, "px;\n      height: ").concat(this.attrs.height * 0.15, "px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top:120%;\n      font-weight: 900;\n      width: ").concat(this.attrs.width * 0.45, "px;\n      height: ").concat(this.attrs.height * 0.2, "px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n\n\n    .svg-wrapper {\n      position: relative;\n      top: 50%;\n      transform: translateY(-50%);\n      margin: 0 auto;\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n    }\n    \n    .shape2 {\n      stroke-dasharray: 5000;\n      stroke-width: 10px;\n      fill: transparent;\n      stroke: ").concat(this.attrs.fontColor, ";\n      border-bottom: 5px solid black;\n      stroke-dashoffset: -5000;\n      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n    }\n\n\n  ");
-    }
   }]);
 
   return TechnologiesSVG;
-}(MotorCortex.HTMLClip);
+}(HTMLClip);
 
-var TechnologiesSVG_1 = TechnologiesSVG;
+var Anime = loadPlugin(index$1);
 
-var Anime$c = MotorCortex.loadPlugin(index);
+var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
+  _inherits$1(HighlightsSVG, _HTMLClip);
 
-var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(Highlights, _MotorCortex$HTMLClip);
+  var _super = _createSuper$1(HighlightsSVG);
 
-  var _super = _createSuper(Highlights);
-
-  function Highlights() {
-    _classCallCheck(this, Highlights);
+  function HighlightsSVG() {
+    _classCallCheck$1(this, HighlightsSVG);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Highlights, [{
+  _createClass$1(HighlightsSVG, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -4257,10 +4234,33 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "font",
+    get: function get() {
+      return [{
+        type: "google-font",
+        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+      }];
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+
+      (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
+      (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
+      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
+      return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .app-img{\n        height: 101%;\n        object-fit: cover;\n      }\n     \n      .img{\n        object-fit: cover;\n      }\n     \n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.82, "px;\n        position: absolute;\n        bottom: 120%;\n        right: 7%;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n        background: url(").concat(this.attrs.app, ");\n        z-index: 2;\n        transform: skew(-18deg, 0deg) rotateX(6deg);\n        filter: drop-shadow(31px 35px 53px\n        rgb(0, 0, 0));\n        background-size: cover;\n        background-position-y: 0%;\n      }\n\n      .img-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n      }\n    \n      .border{\n        position: absolute;\n        overflow: hidden;\n        left: 7%;\n        z-index: 0;\n        -ms-transform: rotate(-45deg);     \n        -ms-transform-origin: 20% 40%;  \n        -webkit-transform: rotate(-45deg); \n        -webkit-transform-origin: 69% 83%;\n        transform: rotate(79deg);\n      }\n\n      .subtitle-holder,.title-holder{\n        -ms-transform-origin: 30% 180%;\n        -webkit-transform: rotate(-10deg);\n        -webkit-transform-origin: 30% 180%;\n        transform: rotate(-10deg);\n      }\n\n      .subtitle-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: #c10000;\n        z-index: 3;\n        text-transform: uppercase;\n        box-shadow: -20px 9px 44px rgb(0, 0, 0);\n        position: absolute;\n        top:60%;\n        left:-100%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.2, "px;\n        height: ").concat(this.attrs.height * 0.15, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top:40%;\n        left: -100%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.2, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }  \n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
       var scroll = 0;
-      var border = new Anime$c.Anime({
+      var border = new Anime.Anime({
         animatedAttrs: {
           strokeDashoffset: "-10000px"
         },
@@ -4273,7 +4273,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".shape2",
         easing: "easeOutCubic"
       });
-      var content = new Anime$c.Anime({
+      var content = new Anime.Anime({
         animatedAttrs: {
           bottom: "15%"
         },
@@ -4286,7 +4286,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".content-container",
         easing: "easeOutCubic"
       });
-      var appScroll = new Anime$c.Anime({
+      var appScroll = new Anime.Anime({
         animatedAttrs: {
           backgroundPositionY: "100%"
         },
@@ -4299,7 +4299,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".content-container",
         easing: "easeOutCubic"
       });
-      var subtitle = new Anime$c.Anime({
+      var subtitle = new Anime.Anime({
         animatedAttrs: {
           left: "10%"
         },
@@ -4312,7 +4312,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".subtitle-holder",
         easing: "easeOutCubic"
       });
-      var title = new Anime$c.Anime({
+      var title = new Anime.Anime({
         animatedAttrs: {
           left: "5%"
         },
@@ -4325,7 +4325,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".title-holder",
         easing: "easeOutCubic"
       });
-      var borderOut = new Anime$c.Anime({
+      var borderOut = new Anime.Anime({
         animatedAttrs: {
           left: "150%"
         },
@@ -4338,7 +4338,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".border",
         easing: "easeInQuart"
       });
-      var contentOut = new Anime$c.Anime({
+      var contentOut = new Anime.Anime({
         animatedAttrs: {
           bottom: "-120%"
         },
@@ -4351,7 +4351,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".content-container",
         easing: "easeInQuart"
       });
-      var subtitleOut = new Anime$c.Anime({
+      var subtitleOut = new Anime.Anime({
         animatedAttrs: {
           left: "-120%"
         },
@@ -4364,7 +4364,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".subtitle-holder",
         easing: "easeInQuart"
       });
-      var titleOut = new Anime$c.Anime({
+      var titleOut = new Anime.Anime({
         animatedAttrs: {
           top: "-120%"
         },
@@ -4377,7 +4377,7 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".title-holder",
         easing: "easeInQuart"
       });
-      var bgout = new Anime$c.Anime({
+      var bgout = new Anime.Anime({
         animatedAttrs: {
           width: "0px",
           opacity: 0
@@ -4403,50 +4403,26 @@ var Highlights$1 = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(titleOut, 2000 * this.attrs.speed + scroll);
       this.addIncident(bgout, 3000 * this.attrs.speed + scroll);
     }
-  }, {
-    key: "font",
-    get: function get() {
-      return [{
-        type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
-      }];
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n      <div class=\"container-logo\">\n        <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n        <div class=\"line\"> </div>\n        <div class=\"pro-name\">\n          <span> ").concat(this.attrs.title, "</span>\n        </div>\n      </div>\n\n      <div class=\"content-container\">\n       \n      </div>\n\n\n      <div class=\"title-holder\">\n        <span> ").concat(this.attrs.contentTitle, "</span>\n      </div>\n\n      <div class=\"subtitle-holder\">\n        <span> ").concat(this.attrs.contentSubTitle, "</span>\n      </div>\n      \n      <div class=\"border\">\n      <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n        <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n      </svg>\n      </div>\n\n\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n\n    .app-img{\n      height: 101%;\n      object-fit: cover;\n    }\n\n    .img{\n      object-fit: cover;\n    }\n\n    .bg {\n      width: ".concat(this.attrs.width, "px;\n      height: ").concat(this.attrs.height, "px;\n      position: relative;\n      background: ").concat(this.attrs.bgColor, ";\n      background-position: center;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      color: ").concat(this.attrs.fontColor, ";\n      font-family: lato;\n    }\n\n    .container-logo{\n      position: absolute;\n      top : 3%;\n      left: 2%;\n    }\n\n    .logo-client img{\n      width: ").concat(this.attrs.clientLogoWidth, "px;\n    }\n\n    .pro-name{\n      font-size: 80%;\n    }\n   \n    .content-container{\n      width: ").concat(this.attrs.width * 0.45, "px;\n      height: ").concat(this.attrs.height * 0.82, "px;\n      position: absolute;\n      bottom: 120%;\n      right: 7%;\n      display:flex;\n      justify-content: space-around;\n      align-content: center;\n      align-items: center;\n      background: url(").concat(this.attrs.app, ");\n      z-index: 2;\n      transform: skew(-18deg, 0deg) rotateX(6deg);\n      filter: drop-shadow(31px 35px 53px\n      rgb(0, 0, 0));\n      background-size: cover;\n      background-position-y: 0%;\n    }\n\n    .img-container{\n      width: ").concat(this.attrs.width * 0.84, "px;\n      height: ").concat(this.attrs.height * 0.42, "px;\n      display:flex;\n      justify-content: space-around;\n      align-content: center;\n      align-items: center;\n\n    }\n  \n    .border{\n      \n      position: absolute;\n      overflow: hidden;\n      left: 7%;\n      z-index: 0;\n      -ms-transform: rotate(-45deg);     \n      -ms-transform-origin: 20% 40%;  \n      -webkit-transform: rotate(-45deg); \n      -webkit-transform-origin: 69% 83%;\n      transform: rotate(79deg);\n    }\n\n\n    .subtitle-holder,.title-holder{\n      -ms-transform-origin: 30% 180%;\n      -webkit-transform: rotate(-10deg);\n      -webkit-transform-origin: 30% 180%;\n      transform: rotate(-10deg);\n    }\n    \n\n    .subtitle-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: #c10000;\n      z-index: 3;\n      text-transform: uppercase;\n      box-shadow: -20px 9px 44px rgb(0, 0, 0);\n      position: absolute;\n      top:60%;\n      left:-100%;\n      font-weight: 900;\n      width: ").concat(this.attrs.width * 0.2, "px;\n      height: ").concat(this.attrs.height * 0.15, "px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n\n\n    .title-holder{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n      color:").concat(this.attrs.bgColor, ";\n      background: ").concat(this.attrs.fontColor, ";\n      z-index: 4;\n      text-transform: uppercase;\n      box-shadow: -17px 7px 18px rgb(0, 0, 0);\n      position: absolute;\n      top:40%;\n      left: -100%;\n      font-weight: 900;\n      width: ").concat(this.attrs.width * 0.45, "px;\n      height: ").concat(this.attrs.height * 0.2, "px;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n\n\n    .svg-wrapper {\n      position: relative;\n      top: 50%;\n      transform: translateY(-50%);\n      margin: 0 auto;\n      width: ").concat(this.attrs.width * 0.6, "px;\n      height: 100%;\n    }\n    \n    .shape2 {\n      stroke-dasharray: 5000;\n      stroke-width: 10px;\n      fill: transparent;\n      stroke: ").concat(this.attrs.fontColor, ";\n      border-bottom: 5px solid black;\n      stroke-dashoffset: -5000;\n      box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n    }\n\n\n\n\n  ");
-    }
   }]);
 
-  return Highlights;
-}(MotorCortex.HTMLClip);
-
-var HighlightsSVG$1 = Highlights$1;
+  return HighlightsSVG;
+}(HTMLClip);
 
 var _SlideTwoVal, _TechnologiesVal, _HighlightsVal;
 
-var _COLOR$1 = "color";
-var nu$1 = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
+var _COLOR = "color";
+var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
 var introVal = {
   $$strict: true,
   width: {
     optional: false,
     type: "number",
-    units: nu$1
+    units: nu
   },
   height: {
     optional: false,
     type: "number",
-    units: nu$1
+    units: nu
   },
   clientLogo: {
     optional: false,
@@ -4455,7 +4431,7 @@ var introVal = {
   clientLogoWidth: {
     optional: false,
     type: "number",
-    units: nu$1
+    units: nu
   },
   compLogo: {
     optional: false,
@@ -4464,7 +4440,7 @@ var introVal = {
   compLogoWidth: {
     optional: false,
     type: "number",
-    units: nu$1
+    units: nu
   },
   title: {
     optional: true,
@@ -4478,7 +4454,7 @@ var introVal = {
     optional: true,
     type: "array",
     items: {
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   bgUrl: {
@@ -4487,11 +4463,11 @@ var introVal = {
   },
   fontColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   mainColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   speed: {
     optional: true,
@@ -4504,16 +4480,16 @@ var SlideOneSVGVal = {
   width: {
     optional: false,
     type: "number",
-    units: nu$1
+    units: nu
   },
   height: {
     optional: false,
     type: "number",
-    units: nu$1
+    units: nu
   },
   mainColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   clientLogo: {
     optional: false,
@@ -4522,7 +4498,7 @@ var SlideOneSVGVal = {
   clientLogoWidth: {
     optional: false,
     type: "number",
-    units: nu$1
+    units: nu
   },
   compLogo: {
     optional: false,
@@ -4531,7 +4507,7 @@ var SlideOneSVGVal = {
   compLogoWidth: {
     optional: false,
     type: "number",
-    units: nu$1
+    units: nu
   },
   title: {
     optional: true,
@@ -4555,22 +4531,22 @@ var SlideOneSVGVal = {
   },
   contentColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   overlayColor: {
     optional: true,
     type: "array",
     items: {
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   bgColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   fontColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   contentTitle: {
     optional: false,
@@ -4625,20 +4601,20 @@ var SlideTwoVal = (_SlideTwoVal = {
     type: "string"
   },
   bgColor: {
-    type: _COLOR$1
+    type: _COLOR
   },
   overlayColor: {
     optional: true,
     type: "array",
     items: {
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   fontColor: {
-    type: _COLOR$1
+    type: _COLOR
   },
   contentColor: {
-    type: _COLOR$1
+    type: _COLOR
   },
   speed: {
     optional: true,
@@ -4658,15 +4634,15 @@ var SlideTwoVal = (_SlideTwoVal = {
     optional: false,
     type: "string"
   }
-}, _defineProperty(_SlideTwoVal, "bgColor", {
+}, _defineProperty$1(_SlideTwoVal, "bgColor", {
   optional: true,
-  type: _COLOR$1
-}), _defineProperty(_SlideTwoVal, "bgUrl", {
+  type: _COLOR
+}), _defineProperty$1(_SlideTwoVal, "bgUrl", {
   optional: true,
   type: "string"
-}), _defineProperty(_SlideTwoVal, "mainColor", {
+}), _defineProperty$1(_SlideTwoVal, "mainColor", {
   optional: true,
-  type: _COLOR$1
+  type: _COLOR
 }), _SlideTwoVal);
 var TechnologiesVal = (_TechnologiesVal = {
   $$strict: true,
@@ -4712,11 +4688,11 @@ var TechnologiesVal = (_TechnologiesVal = {
     optional: true,
     type: "array",
     items: {
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   fontColor: {
-    type: _COLOR$1
+    type: _COLOR
   },
   contentColor: {
     optional: true,
@@ -4740,15 +4716,15 @@ var TechnologiesVal = (_TechnologiesVal = {
     optional: true,
     type: "string"
   }
-}, _defineProperty(_TechnologiesVal, "bgColor", {
+}, _defineProperty$1(_TechnologiesVal, "bgColor", {
   optional: true,
-  type: _COLOR$1
-}), _defineProperty(_TechnologiesVal, "bgUrl", {
+  type: _COLOR
+}), _defineProperty$1(_TechnologiesVal, "bgUrl", {
   optional: true,
   type: "string"
-}), _defineProperty(_TechnologiesVal, "mainColor", {
+}), _defineProperty$1(_TechnologiesVal, "mainColor", {
   optional: true,
-  type: _COLOR$1
+  type: _COLOR
 }), _TechnologiesVal);
 var HighlightsVal = (_HighlightsVal = {
   $$strict: true,
@@ -4784,20 +4760,20 @@ var HighlightsVal = (_HighlightsVal = {
     type: "string"
   },
   bgColor: {
-    type: _COLOR$1
+    type: _COLOR
   },
   overlayColor: {
     optional: true,
     type: "array",
     items: {
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   fontColor: {
-    type: _COLOR$1
+    type: _COLOR
   },
   contentColor: {
-    type: _COLOR$1
+    type: _COLOR
   },
   speed: {
     optional: true,
@@ -4820,60 +4796,60 @@ var HighlightsVal = (_HighlightsVal = {
   scroll: {
     type: "boolean"
   }
-}, _defineProperty(_HighlightsVal, "bgColor", {
+}, _defineProperty$1(_HighlightsVal, "bgColor", {
   optional: true,
-  type: _COLOR$1
-}), _defineProperty(_HighlightsVal, "bgUrl", {
+  type: _COLOR
+}), _defineProperty$1(_HighlightsVal, "bgUrl", {
   optional: true,
   type: "string"
-}), _defineProperty(_HighlightsVal, "mainColor", {
+}), _defineProperty$1(_HighlightsVal, "mainColor", {
   optional: true,
-  type: _COLOR$1
+  type: _COLOR
 }), _HighlightsVal);
 
-var name$1 = "@kissmybutton/motorcortex-presenter";
-var version$1 = "1.0.9";
+var name = "@kissmybutton/motorcortex-presenter";
+var version = "1.0.9";
 
-var index$1 = {
-  npm_name: name$1,
-  version: version$1,
+var index = {
+  npm_name: name,
+  version: version,
   incidents: [{
-    exportable: Intro_1,
+    exportable: Intro,
     name: "Intro",
     attributesValidationRules: introVal
   }, {
-    exportable: IntroFade_1,
+    exportable: IntroFade,
     name: "IntroFade"
   }, {
-    exportable: SlideOne_1,
+    exportable: SlideOne,
     name: "SlideOne",
     attributesValidationRules: SlideOneSVGVal
   }, {
-    exportable: SlideOneSVG_1,
+    exportable: SlideOneSVG,
     name: "SlideOneSVG",
     attributesValidationRules: SlideOneSVGVal
   }, {
-    exportable: SlideTwo_1,
+    exportable: SlideTwo,
     name: "SlideTwo",
     attributesValidationRules: SlideTwoVal
   }, {
-    exportable: SlideTwoSVG_1,
+    exportable: SlideTwoSVG,
     name: "SlideTwoSVG",
     attributesValidationRules: SlideTwoVal
   }, {
-    exportable: SlideThree_1,
+    exportable: SlideThree,
     name: "SlideThree",
     attributesValidationRules: SlideTwoVal
   }, {
-    exportable: SlideThreeSVG_1,
+    exportable: SlideThreeSVG,
     name: "SlideThreeSVG",
     attributesValidationRules: SlideTwoVal
   }, {
-    exportable: Technologies_1,
+    exportable: Technologies,
     name: "Technologies",
     attributesValidationRules: TechnologiesVal
   }, {
-    exportable: TechnologiesSVG_1,
+    exportable: TechnologiesSVG,
     name: "TechnologiesSVG",
     attributesValidationRules: TechnologiesVal
   }, {
@@ -4881,10 +4857,10 @@ var index$1 = {
     name: "Highlights",
     attributesValidationRules: HighlightsVal
   }, {
-    exportable: HighlightsSVG$1,
+    exportable: HighlightsSVG,
     name: "HighlightsSVG",
     attributesValidationRules: HighlightsVal
   }]
 };
 
-export default index$1;
+export default index;

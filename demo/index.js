@@ -1,57 +1,49 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const Player = require("@kissmybutton/motorcortex-player");
-const presenter = require("../dist/motorcortex-presenter.umd.js");
-const Clip = MotorCortex.loadPlugin(presenter);
-const css = `
-             
-.container {
-  overflow: hidden;
-  display: flex;
-  position: absolute;
-  width:1280px;
-  height:720px;
-}
+import { HTMLClip, loadPlugin } from "@kissmybutton/motorcortex";
+import Player from "@kissmybutton/motorcortex-player";
+import presenter from "../dist/motorcortex-presenter.umd.js";
 
-  `;
-const html = ` 
-  <div class="container container1"></div>
-  <div class="container container2"></div>
-  <div class="container container3"></div>
-  <div class="container container4"></div>
-  <div class="container container5"></div>
-  <div class="container container6"></div>
- 
-  
-  `;
-
-const host = document.getElementById("clip");
-
-const containerParams = {
-  width: "100%",
-  height: "100%"
-};
-
+const Clip = loadPlugin(presenter);
 const overlay = ["#0012E2c0", "#101820FF"];
-// const main = "#FEE715FF";
 
-const clip = new MotorCortex.HTMLClip({
-  css,
-  html,
-  host,
-  containerParams,
-  id: "root"
+const clip = new HTMLClip({
+  css: `
+    .container {
+      overflow: hidden;
+      display: flex;
+      position: absolute;
+      width:1280px;
+      height:720px;
+    }
+  `,
+  html: ` 
+    <div class="container container1"></div>
+    <div class="container container2"></div>
+    <div class="container container3"></div>
+    <div class="container container4"></div>
+    <div class="container container5"></div>
+    <div class="container container6"></div>
+  `,
+  host: document.getElementById("clip"),
+  containerParams: {
+    width: "1270px",
+    height: "720px"
+  }
 });
+
 const introClip = new Clip.Intro(
   {
     width: 1270,
     height: 720,
-    clientLogo: "img.svg",
+    clientLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 500,
-    compLogo: "logo.png",
+    compLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
     compLogoWidth: 150,
     title: "RMIS / University of Zurich",
     date: "2019 - Today",
-    bgUrl: "./bg.jpg",
+    bgUrl:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/bg.jpg",
     overlayColor: overlay,
     fontColor: "#fff",
     speed: 2
@@ -61,38 +53,15 @@ const introClip = new Clip.Intro(
   }
 );
 
-// const SlideOne = new Clip.SlideOne(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo: "img.svg",
-//     clientLogoWidth: 150,
-//     compLogo: "logo.png",
-//     compLogoWidth: "150px",
-//     title: "RMIS / University of Zurich",
-//     textOne: "generic",
-//     textTwo: "module-based",
-//     textThree: "eHealth platform",
-//     bgColor: "#000c8f",
-//     contentColor: "#c10000",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     speed: 2,
-//     contentTitle: "Scope",
-//     app: "./app.png"
-//   },
-//   {
-//     selector: ".container5"
-//   }
-// );
-
 const SlideOneSVG = new Clip.SlideOneSVG(
   {
     width: 1270,
     height: 720,
-    clientLogo: "img.svg",
+    clientLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
-    compLogo: "logo.png",
+    compLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
     compLogoWidth: 150,
     title: "RMIS / University of Zurich",
     textOne: "generic",
@@ -104,119 +73,23 @@ const SlideOneSVG = new Clip.SlideOneSVG(
     contentColor: "#c10000",
     speed: 2,
     contentTitle: "Scope",
-    app: "./app.png"
+    app:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
   },
   {
     selector: ".container5"
   }
 );
 
-// const SlideTwo = new Clip.SlideTwo(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo: "img.svg",
-//     clientLogoWidth: 150,
-//     compLogo: "logo.png",
-//     compLogoWidth: "150px",
-//     title: "RMIS / University of Zurich",
-//     textOne:
-//       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
-//     bgColor: "#000c8f",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     contentColor: "#c10000",
-//     speed: 2,
-//     contentTitle: "Scope",
-//     fonSize: 40,
-//     app: "./app.png"
-//   },
-//   {
-//     selector: ".container4"
-//   }
-// );
-
-// const SlideThree = new Clip.SlideThree(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo: "img.svg",
-//     clientLogoWidth: 150,
-//     compLogo: "logo.png",
-//     compLogoWidth: "150px",
-//     title: "RMIS / University of Zurich",
-//     textOne:
-//       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
-//     bgColor: "#000c8f",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     contentColor: "#c10000",
-//     speed: 2,
-//     contentTitle: "Scope",
-//     fonSize: 40,
-//     app: "./app.png"
-//   },
-//   {
-//     selector: ".container3"
-//   }
-// );
-
-// const Technologies = new Clip.Technologies(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo: "img.svg",
-//     clientLogoWidth: 150,
-//     compLogo: "logo.png",
-//     compLogoWidth: "150px",
-//     title: "RMIS / University of Zurich",
-//     logos: ["./1.png", "./2.png", "./3.png", "./4.png", "./5.png"],
-//     bgColor: "#000c8f",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     contentColor: "#c10000",
-//     speed: 2,
-//     contentTitle: "Technologies",
-//     fonSize: 40,
-//     contentSubTitle: "USed"
-//   },
-//   {
-//     selector: ".container2"
-//   }
-// );
-
-// const Highlights = new Clip.Highlights(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo: "img.svg",
-//     clientLogoWidth: 150,
-//     compLogo: "logo.png",
-//     compLogoWidth: "150px",
-//     title: "RMIS / University of Zurich",
-//     app: "./app.png",
-//     bgColor: "#000c8f",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     contentColor: "#c10000",
-//     speed: 2,
-//     contentTitle: "Highlights",
-//     fonSize: 40,
-//     contentSubTitle: "USed",
-//     scroll: false
-//   },
-//   {
-//     selector: ".container1"
-//   }
-// );
-
 const SlideTwoSVG = new Clip.SlideTwoSVG(
   {
     width: 1270,
     height: 720,
-    clientLogo: "img.svg",
+    clientLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
-    compLogo: "logo.png",
+    compLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
 
     title: "RMIS / University of Zurich",
     textOne:
@@ -228,7 +101,8 @@ const SlideTwoSVG = new Clip.SlideTwoSVG(
     speed: 2,
     contentTitle: "Scope",
     fonSize: 40,
-    app: "./app.png"
+    app:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
   },
   {
     selector: ".container4"
@@ -239,9 +113,11 @@ const SlideThreeSVG = new Clip.SlideThreeSVG(
   {
     width: 1270,
     height: 720,
-    clientLogo: "https://kissmybutton.github.io/motorcortex-presenter/demo/img.svg",
+    clientLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
-    compLogo: "https://kissmybutton.github.io/motorcortex-presenter/demo/logo.png",
+    compLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
 
     title: "RMIS / University of Zurich",
     textOne:
@@ -253,7 +129,8 @@ const SlideThreeSVG = new Clip.SlideThreeSVG(
     speed: 2,
     contentTitle: "Scope",
     fonSize: 40,
-    app: "./app.png"
+    app:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
   },
   {
     selector: ".container3"
@@ -264,15 +141,19 @@ const TechnologiesSVG = new Clip.TechnologiesSVG(
   {
     width: 1270,
     height: 720,
-    clientLogo: "https://kissmybutton.github.io/motorcortex-presenter/demo/img.svg",
+    clientLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
-    compLogo: "logo.png",
+    compLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
     title: "RMIS / University of Zurich",
-    logos: ["https://kissmybutton.github.io/motorcortex-presenter/demo/1.png", 
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/2.png",
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/3.png", 
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/4.png", 
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/5.png"],
+    logos: [
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/1.png",
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/2.png",
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/3.png",
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/4.png",
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/5.png"
+    ],
     bgColor: "#000c8f",
     overlayColor: overlay,
     fontColor: "#fff",
@@ -291,11 +172,14 @@ const HighlightsSVG = new Clip.HighlightsSVG(
   {
     width: 1270,
     height: 720,
-    clientLogo: "https://kissmybutton.github.io/motorcortex-presenter/demo/img.svg",
+    clientLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
-    compLogo: "https://kissmybutton.github.io/motorcortex-presenter/demo/logo.png",
+    compLogo:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
     title: "RMIS / University of Zurich",
-    app: "https://kissmybutton.github.io/motorcortex-presenter/demo/appLong.png",
+    app:
+      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/appLong.png",
     bgColor: "#000c8f",
     overlayColor: overlay,
     fontColor: "#fff",

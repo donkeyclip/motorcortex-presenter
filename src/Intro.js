@@ -1,8 +1,8 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import { HTMLClip, loadPlugin } from "@kissmybutton/motorcortex";
+import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+const Anime = loadPlugin(AnimeDefinition);
 
-class Intro extends MotorCortex.HTMLClip {
+export default class Intro extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -25,139 +25,125 @@ class Intro extends MotorCortex.HTMLClip {
   }
 
   get html() {
-    this.attrs.bgUrl = !this.attrs.bgUrl
-      ? (this.attrs.bgUrl = "./kissmybutonbg.jpg")
-      : this.attrs.bgUrl;
-
-    this.attrs.overlayColor = !this.attrs.overlayColor
-      ? (this.attrs.overlayColor = "#ff00b34d")
-      : this.attrs.overlayColor;
-
-    this.attrs.mainColor = !this.attrs.mainColor
-      ? (this.attrs.mainColor = "#00ff40")
-      : this.attrs.mainColor;
-
-    this.attrs.speed = !this.attrs.speed
-      ? (this.attrs.speed = 2)
-      : this.attrs.speed;
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    this.attrs.speed ??= 2;
 
     return `
-    <div class="bg">
-    <div class="wrapper">
-      <div class="container-logo">
-        <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
-        <div class="line"> </div>
-        <div class="pro-name">
-          <span> ${this.attrs.title}</span>
+      <div class="bg">
+        <div class="wrapper">
+          <div class="container-logo">
+            <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+            <div class="line"> </div>
+            <div class="pro-name">
+              <span> ${this.attrs.title}</span>
+            </div>
+          </div>
+          <div class="date-container">
+            <div class="logo-comp"><img src="${this.attrs.compLogo}"></div>
+            <div class="date">Date : ${this.attrs.date}</div>
+          </div>
         </div>
       </div>
-      <div class="date-container">
-        <div class="logo-comp"><img src="${this.attrs.compLogo}"></div>
-        <div class="date">Date : ${this.attrs.date}</div>
-      </div>
-      </div>
-    </div>
     `;
   }
 
   get css() {
     return `
-    .bg {
-      width: ${this.attrs.width}px;
-      height: ${this.attrs.height}px;
-      position: relative;
-      background-image: url(${this.attrs.bgUrl});
-      background-size: 1270px;
-      background-position: center;
-      transform: scale(1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: ${this.attrs.fontColor};
-      font-family: lato;
-    }
-    .bg:after {
-      content: "";
-      display: block;
-      background: linear-gradient(${this.attrs.overlayColor});
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      z-index: -1;
-    }
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background-image: url(${this.attrs.bgUrl});
+        background-size: 1270px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
 
-    .logo-client img {
-      width : ${this.attrs.clientLogoWidth}px;
-    }
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
 
-    .logo-comp img {
-      width : ${this.attrs.compLogoWidth}px
-    }
+      .logo-client img {
+        width : ${this.attrs.clientLogoWidth}px;
+      }
 
-    .logo-comp,.date{
-      position: relative;
-      top: 200%;
-    }
+      .logo-comp img {
+        width : ${this.attrs.compLogoWidth}px
+      }
 
-    .logo-client{
-      position: relative ;
-      top : -100%;
-    }
+      .logo-comp,.date{
+        position: relative;
+        top: 200%;
+      }
 
-    .container-logo{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      flex: 1;
-      overflow: hidden;
-      position: relative;
-    }
+      .logo-client{
+        position: relative ;
+        top : -100%;
+      }
 
-    .date-container{
-      display: flex;
-      align-items: flex-end;
-      margin: 2%;
-      justify-content: space-between;
-      width: 90%;
-      position: relative;
-    }
- 
-    .line{
-      border-top: 5px solid ${this.attrs.fontColor};
-      width: 100%;
-      position : relative;
-      top: -100%;
-    }
+      .container-logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+      }
 
-    .pro-name {
-      position : relative;
-      font-size: 50px;
-      overflow: hidden;
-      padding-top: 10%;
-      top: -100%;
-    }
-    .date{
-      font-size: 20px;
-    }
-    
-  
+      .date-container{
+        display: flex;
+        align-items: flex-end;
+        margin: 2%;
+        justify-content: space-between;
+        width: 90%;
+        position: relative;
+      }
+   
+      .line{
+        border-top: 5px solid ${this.attrs.fontColor};
+        width: 100%;
+        position : relative;
+        top: -100%;
+      }
 
-    .wrapper{ 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
+      .pro-name {
+        position : relative;
+        font-size: 50px;
+        overflow: hidden;
+        padding-top: 10%;
+        top: -100%;
+      }
 
-    }
+      .date{
+        font-size: 20px;
+      }
+      
+      .wrapper{ 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
 
-  
-  `;
+      }
+    `;
   }
 
   buildTree() {
@@ -229,8 +215,6 @@ class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    //
-
     const bgout = new Anime.Anime(
       {
         animatedAttrs: {
@@ -252,5 +236,3 @@ class Intro extends MotorCortex.HTMLClip {
     this.addIncident(bgout, 1500 * this.attrs.speed);
   }
 }
-
-module.exports = Intro;

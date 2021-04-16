@@ -16,7 +16,6 @@ const nu = [
   "vmax",
   "%"
 ];
-const _MEASUREMENT = "measurement";
 
 export const introVal = {
   $$strict: true,
@@ -81,7 +80,6 @@ export const introVal = {
 };
 
 export const SlideOneSVGVal = {
-
   $$strict: true,
   width: {
     optional: false,
@@ -167,8 +165,6 @@ export const SlideOneSVGVal = {
   }
 };
 
-
-
 export const SlideTwoVal = {
   $$strict: true,
   width: {
@@ -203,12 +199,10 @@ export const SlideTwoVal = {
     optional: false,
     type: "string"
   },
-  textOne:
-  {
+  textOne: {
     optional: false,
     type: "string"
   },
-  bgColor: { type: _COLOR },
   overlayColor: {
     optional: true,
     type: "array",
@@ -245,9 +239,8 @@ export const SlideTwoVal = {
   mainColor: {
     optional: true,
     type: _COLOR
-  },
+  }
 };
-
 
 export const TechnologiesVal = {
   $$strict: true,
@@ -282,10 +275,6 @@ export const TechnologiesVal = {
     optional: true,
     type: "array",
     items: { type: "string" }
-  },
-  bgColor: {
-    optional: true,
-    type: "string"
   },
   overlayColor: {
     optional: true,
@@ -326,9 +315,8 @@ export const TechnologiesVal = {
   mainColor: {
     optional: true,
     type: _COLOR
-  },
+  }
 };
-
 
 export const HighlightsVal = {
   $$strict: true,
@@ -364,7 +352,6 @@ export const HighlightsVal = {
     optional: false,
     type: "string"
   },
-  bgColor: { type: _COLOR },
   overlayColor: {
     optional: true,
     type: "array",
@@ -403,4 +390,4 @@ export const HighlightsVal = {
     optional: true,
     type: _COLOR
   }
-}
+};
