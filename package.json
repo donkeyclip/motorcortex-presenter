@@ -1,6 +1,6 @@
 {
   "name": "@kissmybutton/motorcortex-presenter",
-  "version": "1.0.9",
+  "version": "1.0.0",
   "description": "Presenter plugin for MotorCortex",
   "main": "dist/motorcortex-presenter.cjs.js",
   "module": "dist/motorcortex-presenter.esm.js",
