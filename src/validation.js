@@ -108,11 +108,6 @@ export const SlideOneSVGVal = {
     optional: false,
     type: "string"
   },
-  compLogoWidth: {
-    optional: false,
-    type: "number",
-    units: nu
-  },
   title: {
     optional: true,
     type: "string"
@@ -189,11 +184,6 @@ export const SlideTwoVal = {
   compLogo: {
     optional: false,
     type: "string"
-  },
-  compLogoWidth: {
-    optional: true,
-    type: "number",
-    min: 0
   },
   title: {
     optional: false,

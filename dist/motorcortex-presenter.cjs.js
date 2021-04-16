@@ -1,10 +1,10 @@
 'use strict';
 
-var MotorCortex$1 = require('@kissmybutton/motorcortex');
+var MotorCortex = require('@kissmybutton/motorcortex');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var MotorCortex__default = /*#__PURE__*/_interopDefaultLegacy(MotorCortex$1);
+var MotorCortex__default = /*#__PURE__*/_interopDefaultLegacy(MotorCortex);
 
 function _classCallCheck$1(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -26,21 +26,6 @@ function _createClass$1(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties$1(Constructor, staticProps);
   return Constructor;
-}
-
-function _defineProperty$1(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
 }
 
 function _inherits$1(subClass, superClass) {
@@ -2318,7 +2303,7 @@ var index$1 = {
   compositeAttributes: compositeAttributes
 };
 
-var Anime$b = MotorCortex$1.loadPlugin(index$1);
+var Anime$b = MotorCortex.loadPlugin(index$1);
 
 var Intro = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(Intro, _HTMLClip);
@@ -2443,9 +2428,9 @@ var Intro = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return Intro;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$a = MotorCortex$1.loadPlugin(index$1);
+var Anime$a = MotorCortex.loadPlugin(index$1);
 
 var IntroFade = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(IntroFade, _HTMLClip);
@@ -2526,9 +2511,9 @@ var IntroFade = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return IntroFade;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$9 = MotorCortex$1.loadPlugin(index$1);
+var Anime$9 = MotorCortex.loadPlugin(index$1);
 
 var SlideOne = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(SlideOne, _HTMLClip);
@@ -2710,9 +2695,9 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return SlideOne;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$8 = MotorCortex$1.loadPlugin(index$1);
+var Anime$8 = MotorCortex.loadPlugin(index$1);
 
 var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(SlideTwo, _HTMLClip);
@@ -2894,9 +2879,9 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return SlideTwo;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$7 = MotorCortex$1.loadPlugin(index$1);
+var Anime$7 = MotorCortex.loadPlugin(index$1);
 
 var SlideThree = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(SlideThree, _HTMLClip);
@@ -3078,9 +3063,9 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return SlideThree;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$6 = MotorCortex$1.loadPlugin(index$1);
+var Anime$6 = MotorCortex.loadPlugin(index$1);
 
 var Technologies = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(Technologies, _HTMLClip);
@@ -3274,9 +3259,9 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return Technologies;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$5 = MotorCortex$1.loadPlugin(index$1);
+var Anime$5 = MotorCortex.loadPlugin(index$1);
 
 var Highlights = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(Highlights, _HTMLClip);
@@ -3460,9 +3445,9 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return Highlights;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$4 = MotorCortex$1.loadPlugin(index$1);
+var Anime$4 = MotorCortex.loadPlugin(index$1);
 
 var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(SlideOneSVG, _HTMLClip);
@@ -3644,9 +3629,9 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return SlideOneSVG;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$3 = MotorCortex$1.loadPlugin(index$1);
+var Anime$3 = MotorCortex.loadPlugin(index$1);
 
 var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(SlideTwoSVG, _HTMLClip);
@@ -3828,9 +3813,9 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return SlideTwoSVG;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$2 = MotorCortex$1.loadPlugin(index$1);
+var Anime$2 = MotorCortex.loadPlugin(index$1);
 
 var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(SlideThreeSVG, _HTMLClip);
@@ -4012,9 +3997,9 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return SlideThreeSVG;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime$1 = MotorCortex$1.loadPlugin(index$1);
+var Anime$1 = MotorCortex.loadPlugin(index$1);
 
 var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(TechnologiesSVG, _HTMLClip);
@@ -4075,7 +4060,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
         html += "<div class=\"img\"><img src=\"".concat(this.attrs.logos[i], "\"/></div>");
       }
 
-      var word = new MotorCortex$1.HTMLClip({
+      var word = new MotorCortex.HTMLClip({
         css: this.css,
         html: "<div class=\"img-container\">".concat(html, "</div>"),
         selector: ".content-container"
@@ -4208,9 +4193,9 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return TechnologiesSVG;
-}(MotorCortex$1.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Anime = MotorCortex$1.loadPlugin(index$1);
+var Anime = MotorCortex.loadPlugin(index$1);
 
 var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
   _inherits$1(HighlightsSVG, _HTMLClip);
@@ -4412,9 +4397,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
   }]);
 
   return HighlightsSVG;
-}(MotorCortex$1.HTMLClip);
-
-var _SlideTwoVal, _TechnologiesVal, _HighlightsVal;
+}(MotorCortex.HTMLClip);
 
 var _COLOR = "color";
 var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
@@ -4510,11 +4493,6 @@ var SlideOneSVGVal = {
     optional: false,
     type: "string"
   },
-  compLogoWidth: {
-    optional: false,
-    type: "number",
-    units: nu
-  },
   title: {
     optional: true,
     type: "string"
@@ -4568,7 +4546,7 @@ var SlideOneSVGVal = {
     min: 0
   }
 };
-var SlideTwoVal = (_SlideTwoVal = {
+var SlideTwoVal = {
   $$strict: true,
   width: {
     optional: true,
@@ -4593,11 +4571,6 @@ var SlideTwoVal = (_SlideTwoVal = {
     optional: false,
     type: "string"
   },
-  compLogoWidth: {
-    optional: true,
-    type: "number",
-    min: 0
-  },
   title: {
     optional: false,
     type: "string"
@@ -4605,9 +4578,6 @@ var SlideTwoVal = (_SlideTwoVal = {
   textOne: {
     optional: false,
     type: "string"
-  },
-  bgColor: {
-    type: _COLOR
   },
   overlayColor: {
     optional: true,
@@ -4639,18 +4609,21 @@ var SlideTwoVal = (_SlideTwoVal = {
   app: {
     optional: false,
     type: "string"
+  },
+  bgColor: {
+    optional: true,
+    type: _COLOR
+  },
+  bgUrl: {
+    optional: true,
+    type: "string"
+  },
+  mainColor: {
+    optional: true,
+    type: _COLOR
   }
-}, _defineProperty$1(_SlideTwoVal, "bgColor", {
-  optional: true,
-  type: _COLOR
-}), _defineProperty$1(_SlideTwoVal, "bgUrl", {
-  optional: true,
-  type: "string"
-}), _defineProperty$1(_SlideTwoVal, "mainColor", {
-  optional: true,
-  type: _COLOR
-}), _SlideTwoVal);
-var TechnologiesVal = (_TechnologiesVal = {
+};
+var TechnologiesVal = {
   $$strict: true,
   width: {
     optional: true,
@@ -4686,10 +4659,6 @@ var TechnologiesVal = (_TechnologiesVal = {
       type: "string"
     }
   },
-  bgColor: {
-    optional: true,
-    type: "string"
-  },
   overlayColor: {
     optional: true,
     type: "array",
@@ -4721,18 +4690,21 @@ var TechnologiesVal = (_TechnologiesVal = {
   contentSubTitle: {
     optional: true,
     type: "string"
+  },
+  bgColor: {
+    optional: true,
+    type: _COLOR
+  },
+  bgUrl: {
+    optional: true,
+    type: "string"
+  },
+  mainColor: {
+    optional: true,
+    type: _COLOR
   }
-}, _defineProperty$1(_TechnologiesVal, "bgColor", {
-  optional: true,
-  type: _COLOR
-}), _defineProperty$1(_TechnologiesVal, "bgUrl", {
-  optional: true,
-  type: "string"
-}), _defineProperty$1(_TechnologiesVal, "mainColor", {
-  optional: true,
-  type: _COLOR
-}), _TechnologiesVal);
-var HighlightsVal = (_HighlightsVal = {
+};
+var HighlightsVal = {
   $$strict: true,
   width: {
     optional: true,
@@ -4764,9 +4736,6 @@ var HighlightsVal = (_HighlightsVal = {
   app: {
     optional: false,
     type: "string"
-  },
-  bgColor: {
-    type: _COLOR
   },
   overlayColor: {
     optional: true,
@@ -4801,17 +4770,20 @@ var HighlightsVal = (_HighlightsVal = {
   },
   scroll: {
     type: "boolean"
+  },
+  bgColor: {
+    optional: true,
+    type: _COLOR
+  },
+  bgUrl: {
+    optional: true,
+    type: "string"
+  },
+  mainColor: {
+    optional: true,
+    type: _COLOR
   }
-}, _defineProperty$1(_HighlightsVal, "bgColor", {
-  optional: true,
-  type: _COLOR
-}), _defineProperty$1(_HighlightsVal, "bgUrl", {
-  optional: true,
-  type: "string"
-}), _defineProperty$1(_HighlightsVal, "mainColor", {
-  optional: true,
-  type: _COLOR
-}), _HighlightsVal);
+};
 
 var name = "@kissmybutton/motorcortex-presenter";
 var version = "1.0.9";
@@ -4825,7 +4797,8 @@ var index = {
     attributesValidationRules: introVal
   }, {
     exportable: IntroFade,
-    name: "IntroFade"
+    name: "IntroFade",
+    attributesValidationRules: introVal
   }, {
     exportable: SlideOne,
     name: "SlideOne",

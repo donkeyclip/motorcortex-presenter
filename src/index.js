@@ -30,7 +30,8 @@ export default {
     },
     {
       exportable: IntroFade,
-      name: "IntroFade"
+      name: "IntroFade",
+      attributesValidationRules: introVal
     },
     {
       exportable: SlideOne,
