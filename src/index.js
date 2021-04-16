@@ -1,17 +1,23 @@
-import Intro from "./Intro"
-import IntroFade from "./IntroFade"
-import SlideOne from "./SlideOne"
-import SlideTwo from "./SlideTwo"
-import SlideThree from "./SlideThree"
-import Technologies from "./Technologies"
-import Highlights from "./Highlights"
-import SlideOneSVG from "./SlideOneSVG"
-import SlideTwoSVG from "./SlideTwoSVG"
-import SlideThreeSVG from "./SlideThreeSVG"
-import TechnologiesSVG from "./TechnologiesSVG"
-import HighlightsSVG from "./HighlightsSVG"
-import {introVal,SlideOneSVGVal,SlideTwoVal,TechnologiesVal,HighlightsVal} from "./validation"
-import {name,version}  from '../package.json'
+import Intro from "./Intro";
+import IntroFade from "./IntroFade";
+import SlideOne from "./SlideOne";
+import SlideTwo from "./SlideTwo";
+import SlideThree from "./SlideThree";
+import Technologies from "./Technologies";
+import Highlights from "./Highlights";
+import SlideOneSVG from "./SlideOneSVG";
+import SlideTwoSVG from "./SlideTwoSVG";
+import SlideThreeSVG from "./SlideThreeSVG";
+import TechnologiesSVG from "./TechnologiesSVG";
+import HighlightsSVG from "./HighlightsSVG";
+import {
+  introVal,
+  SlideOneSVGVal,
+  SlideTwoVal,
+  TechnologiesVal,
+  HighlightsVal
+} from "./validation";
+import { name, version } from "../package.json";
 
 export default {
   npm_name: name,
@@ -24,8 +30,7 @@ export default {
     },
     {
       exportable: IntroFade,
-      name: "IntroFade",
-
+      name: "IntroFade"
     },
     {
       exportable: SlideOne,
