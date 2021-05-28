@@ -15,13 +15,14 @@ const clip = new HTMLClip({
       height:720px;
     }
   `,
-  html: ` 
+  html: ` <div>
     <div class="container container1"></div>
     <div class="container container2"></div>
     <div class="container container3"></div>
     <div class="container container4"></div>
     <div class="container container5"></div>
     <div class="container container6"></div>
+    </div>
   `,
   host: document.getElementById("clip"),
   containerParams: {
