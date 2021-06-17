@@ -72,11 +72,7 @@ export const introVal = {
     optional: true,
     type: _COLOR
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  }
+  
 };
 
 export const SlideOneSVGVal = {
@@ -153,11 +149,6 @@ export const SlideOneSVGVal = {
     optional: false,
     type: "string"
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  }
 };
 
 export const SlideTwoVal = {
@@ -200,11 +191,7 @@ export const SlideTwoVal = {
   },
   fontColor: { type: _COLOR },
   contentColor: { type: _COLOR },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  },
+  
   contentTitle: {
     optional: false,
     type: "string"
@@ -276,11 +263,7 @@ export const TechnologiesVal = {
     optional: true,
     type: "string"
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  },
+  
   contentTitle: {
     optional: true,
     type: "string"
@@ -349,11 +332,7 @@ export const HighlightsVal = {
   },
   fontColor: { type: _COLOR },
   contentColor: { type: _COLOR },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  },
+  
   contentTitle: {
     optional: true,
     type: "string"

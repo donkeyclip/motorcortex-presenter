@@ -37,7 +37,6 @@ const introClip = new Clip.Intro(
     overlayColor: overlay,
     mainColor: main,
     fontColor: "#fff",
-    speed: 2
   },
   {
     selector: ".container6"
@@ -59,7 +58,7 @@ const introClip = new Clip.Intro(
 | date |  start and end year of project  |  string  |
 | overlayColor |  the overlay color of background image |  hex values or RGB or text  |
 | fontColor |  the color of fonts  |  hex values or RGB or text  |
-| speed |  how fast animation will play  |  num  |
+
 
 
 
@@ -82,7 +81,6 @@ const SlideOne = new Clip.SlideOne(
     contentColor: "#c10000",
     overlayColor: overlay,
     fontColor: "#fff",
-    speed: 2,
     contentTitle: "Scope",
     app: "./app.png"
   },
@@ -110,7 +108,7 @@ const SlideOne = new Clip.SlideOne(
 | overlayColor |  the overlay color of background image |  hex values or RGB or text  |
 | fontColor |  the color of fonts  |  hex values or RGB or text  |
 | app |  path of app img  |  string  |
-| speed |  how fast animation will play  |  num  |
+
 
 
 
@@ -133,7 +131,6 @@ const SlideTwo = new Clip.SlideTwo(
     overlayColor: overlay,
     fontColor: "#fff",
     contentColor: "#c10000",
-    speed: 2,
     contentTitle: "Scope",
     fonSize: 40,
     app: "./app.png"
@@ -163,7 +160,7 @@ const SlideTwo = new Clip.SlideTwo(
 | fontColor |  the color of fonts  |  hex values or RGB or text  |
 | fontSize |  font size of paragraph  |  num  |
 | app |  path of app img  |  string  |
-| speed |  how fast animation will play  |  num  |
+
 
 
 
@@ -184,7 +181,6 @@ const Technologies = new Clip.Technologies(
     overlayColor: overlay,
     fontColor: "#fff",
     contentColor: "#c10000",
-    speed: 2,
     contentTitle: "Technologies",
     contentSubTitle: "USed"
   },
@@ -212,7 +208,7 @@ const Technologies = new Clip.Technologies(
 | overlayColor |  the overlay color of background image |  hex values or RGB or text  |
 | fontColor |  the color of fonts  |  hex values or RGB or text  |
 | app |  path of app img  |  string  |
-| speed |  how fast animation will play  |  num  |
+
 
 
 
@@ -233,7 +229,6 @@ const Highlights = new Clip.Highlights(
     overlayColor: overlay,
     fontColor: "#fff",
     contentColor: "#c10000",
-    speed: 2,
     contentTitle: "Highlights",
     contentSubTitle: "USed",
     scroll: false
@@ -262,7 +257,7 @@ const Highlights = new Clip.Highlights(
 | overlayColor |  the overlay color of background image |  hex values or RGB or text  |
 | fontColor |  the color of fonts  |  hex values or RGB or text  |
 | app |  path of app img  |  string  |
-| speed |  how fast animation will play  |  num  |
+
 | scroll |  if the app img will scroll  |  boolean  |
 
 

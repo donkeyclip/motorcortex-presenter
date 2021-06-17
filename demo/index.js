@@ -47,7 +47,6 @@ const introClip = new Clip.Intro(
       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/bg.jpg",
     overlayColor: overlay,
     fontColor: "#fff",
-    speed: 2
   },
   {
     selector: ".container6"
@@ -71,7 +70,6 @@ const SlideOneSVG = new Clip.SlideOneSVG(
     overlayColor: overlay,
     fontColor: "#fff",
     contentColor: "#c10000",
-    speed: 2,
     contentTitle: "Scope",
     app:
       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
@@ -98,7 +96,6 @@ const SlideTwoSVG = new Clip.SlideTwoSVG(
     overlayColor: overlay,
     fontColor: "#fff",
     contentColor: "#c10000",
-    speed: 2,
     contentTitle: "Scope",
     fonSize: 40,
     app:
@@ -126,7 +123,6 @@ const SlideThreeSVG = new Clip.SlideThreeSVG(
     overlayColor: overlay,
     fontColor: "#fff",
     contentColor: "#c10000",
-    speed: 2,
     contentTitle: "Scope",
     fonSize: 40,
     app:
@@ -158,7 +154,6 @@ const TechnologiesSVG = new Clip.TechnologiesSVG(
     overlayColor: overlay,
     fontColor: "#fff",
     contentColor: "#c10000",
-    speed: 2,
     contentTitle: "Technologies",
     fonSize: 40,
     contentSubTitle: "USed"
@@ -184,7 +179,6 @@ const HighlightsSVG = new Clip.HighlightsSVG(
     overlayColor: overlay,
     fontColor: "#fff",
     contentColor: "#c10000",
-    speed: 2,
     contentTitle: "Highlights",
     fonSize: 40,
     contentSubTitle: "USed",
@@ -202,150 +196,6 @@ clip.addIncident(SlideThreeSVG, 15000);
 clip.addIncident(TechnologiesSVG, 21000);
 clip.addIncident(HighlightsSVG, 27000);
 
-// const SlideOne = new Clip.SlideOne(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
-//     clientLogoWidth: 150,
-//     compLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
-//     title: "RMIS / University of Zurich",
-//     textOne: "generic",
-//     textTwo: "module-based",
-//     textThree: "eHealth platform",
-//     bgColor: "#000c8f",
-//     contentColor: "#c10000",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     speed: 2,
-//     contentTitle: "Scope",
-//     app:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
-//   },
-//   {
-//     selector: ".container5"
-//   }
-// );
 
-// const SlideTwo = new Clip.SlideTwo(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
-//     clientLogoWidth: 150,
-//     compLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
-//     title: "RMIS / University of Zurich",
-//     textOne:
-//       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
-//     bgColor: "#000c8f",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     contentColor: "#c10000",
-//     speed: 2,
-//     contentTitle: "Scope",
-//     fonSize: 40,
-//     app:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
-//   },
-//   {
-//     selector: ".container4"
-//   }
-// );
-
-// const SlideThree = new Clip.SlideThree(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
-//     clientLogoWidth: 150,
-//     compLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
-//     title: "RMIS / University of Zurich",
-//     textOne:
-//       "Patients answer to the questionnaires, read articles and consume personalized content based on their condition, progress and answers, always maintaining their anonymity",
-//     bgColor: "#000c8f",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     contentColor: "#c10000",
-//     speed: 2,
-//     contentTitle: "Scope",
-//     fonSize: 40,
-//     app:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
-//   },
-//   {
-//     selector: ".container3"
-//   }
-// );
-
-// const Technologies = new Clip.Technologies(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
-//     clientLogoWidth: 150,
-//     compLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
-//     title: "RMIS / University of Zurich",
-//     logos: [
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/1.png",
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/2.png",
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/3.png",
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/4.png",
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/5.png"
-//     ],
-//     bgColor: "#000c8f",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     contentColor: "#c10000",
-//     speed: 2,
-//     contentTitle: "Technologies",
-//     fonSize: 40,
-//     contentSubTitle: "USed"
-//   },
-//   {
-//     selector: ".container2"
-//   }
-// );
-
-// const Highlights = new Clip.Highlights(
-//   {
-//     width: 1270,
-//     height: 720,
-//     clientLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
-//     clientLogoWidth: 150,
-//     compLogo:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
-//     title: "RMIS / University of Zurich",
-//     app:
-//       "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png",
-//     bgColor: "#000c8f",
-//     overlayColor: overlay,
-//     fontColor: "#fff",
-//     contentColor: "#c10000",
-//     speed: 2,
-//     contentTitle: "Highlights",
-//     fonSize: 40,
-//     contentSubTitle: "USed",
-//     scroll: false
-//   },
-//   {
-//     selector: ".container1"
-//   }
-// );
-
-// const addTime = 34000;
-// clip.addIncident(SlideOne, 3000 + addTime);
-// clip.addIncident(SlideTwo, 9000 + addTime);
-// clip.addIncident(SlideThree, 15000 + addTime);
-// clip.addIncident(Technologies, 21000 + addTime);
-// clip.addIncident(Highlights, 27000 + addTime);
 
 new Player({ clip });
