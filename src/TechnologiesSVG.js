@@ -27,7 +27,6 @@ export default class TechnologiesSVG extends HTMLClip {
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
-    this.attrs.speed ??= 2;
 
     return `
       <div class="bg">
@@ -224,7 +223,7 @@ export default class TechnologiesSVG extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 2500 * this.attrs.speed,
+        duration: 5000,
         selector: ".shape2",
         easing: "easeOutCubic"
       }
@@ -241,7 +240,7 @@ export default class TechnologiesSVG extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeOutCubic"
       }
@@ -258,7 +257,7 @@ export default class TechnologiesSVG extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeOutCubic"
       }
@@ -275,7 +274,7 @@ export default class TechnologiesSVG extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeOutCubic"
       }
@@ -292,7 +291,7 @@ export default class TechnologiesSVG extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border",
         easing: "easeInQuart"
       }
@@ -309,7 +308,7 @@ export default class TechnologiesSVG extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeInQuart"
       }
@@ -326,7 +325,7 @@ export default class TechnologiesSVG extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeInQuart"
       }
@@ -343,7 +342,7 @@ export default class TechnologiesSVG extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeInQuart"
       }
@@ -368,10 +367,10 @@ export default class TechnologiesSVG extends HTMLClip {
     this.addIncident(content, 0);
     this.addIncident(subtitle, 0);
     this.addIncident(title, 0);
-    this.addIncident(borderOut, 2000 * this.attrs.speed);
-    this.addIncident(contentOut, 2000 * this.attrs.speed);
-    this.addIncident(subtitleOut, 2000 * this.attrs.speed);
-    this.addIncident(titleOut, 2000 * this.attrs.speed);
-    this.addIncident(bgout, 6000 * this.speed);
+    this.addIncident(borderOut, 4000);
+    this.addIncident(contentOut, 4000);
+    this.addIncident(subtitleOut, 4000);
+    this.addIncident(titleOut, 4000);
+    this.addIncident(bgout, 6000);
   }
 }

@@ -2347,11 +2347,10 @@ var Intro = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"wrapper\">\n          <div class=\"container-logo\">\n            <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n            <div class=\"line\"> </div>\n            <div class=\"pro-name\">\n              <span> ").concat(this.attrs.title, "</span>\n            </div>\n          </div>\n          <div class=\"date-container\">\n            <div class=\"logo-comp\"><img src=\"").concat(this.attrs.compLogo, "\"></div>\n            <div class=\"date\">Date : ").concat(this.attrs.date, "</div>\n          </div>\n        </div>\n      </div>\n    ");
     }
   }, {
@@ -2371,7 +2370,7 @@ var Intro = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 3000,
         selector: ".logo-client",
         easing: "easeOutQuart"
       });
@@ -2384,7 +2383,7 @@ var Intro = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1250 * this.attrs.speed,
+        duration: 2500,
         selector: ".line ",
         easing: "easeOutQuart"
       });
@@ -2397,7 +2396,7 @@ var Intro = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".pro-name ",
         easing: "easeOutQuart"
       });
@@ -2410,7 +2409,7 @@ var Intro = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".logo-comp,.date",
         easing: "easeOutQuart"
       });
@@ -2427,7 +2426,7 @@ var Intro = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(lineIn, 0);
       this.addIncident(proIn, 0);
       this.addIncident(logoCompIn, 0);
-      this.addIncident(bgout, 1500 * this.attrs.speed);
+      this.addIncident(bgout, 3000);
     }
   }]);
 
@@ -2466,11 +2465,10 @@ var IntroFade = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"wrapper\">\n          <div class=\"container-logo\">\n            <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n            <div class=\"pro-name\">\n              <span> ").concat(this.attrs.title, "</span>\n            </div>\n          </div>\n          <div class=\"date-container\">\n            <div class=\"logo-comp\"><img src=\"").concat(this.attrs.compLogo, "\"></div>\n            <div class=\"date\">Date : ").concat(this.attrs.date, "</div>\n          </div>\n        </div>\n      </div>\n    ");
     }
   }, {
@@ -2510,7 +2508,7 @@ var IntroFade = /*#__PURE__*/function (_HTMLClip) {
         selector: ".bg"
       });
       this.addIncident(fadeIn, 0);
-      this.addIncident(bgout, 2000 * this.attrs.speed);
+      this.addIncident(bgout, 4000);
     }
   }]);
 
@@ -2557,11 +2555,10 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"></div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\" >\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n            <p class=\"text2\"> ").concat(this.attrs.textTwo, "</p>\n            <p class=\"text3\" > ").concat(this.attrs.textThree, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\"></div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
     }
   }, {
@@ -2581,7 +2578,7 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeOutCubic"
       });
@@ -2594,7 +2591,7 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
@@ -2607,7 +2604,7 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
@@ -2620,7 +2617,7 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeOutCubic"
       });
@@ -2633,7 +2630,7 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeInQuart"
       });
@@ -2646,7 +2643,7 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeInQuart"
       });
@@ -2659,7 +2656,7 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
@@ -2672,7 +2669,7 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
@@ -2690,11 +2687,11 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(content, 1000);
       this.addIncident(appHolder, 0);
       this.addIncident(border, 250);
-      this.addIncident(titleHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(contentOut, 2000 * this.attrs.speed);
-      this.addIncident(appHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(borderOut, 2000 * this.attrs.speed);
-      this.addIncident(bgout, 3000 * this.attrs.speed);
+      this.addIncident(titleHolderOut, 4000);
+      this.addIncident(contentOut, 4000);
+      this.addIncident(appHolderOut, 4000);
+      this.addIncident(borderOut, 4000);
+      this.addIncident(bgout, 6000);
     }
   }]);
 
@@ -2741,11 +2738,10 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\" >\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\"></div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
     }
   }, {
@@ -2765,7 +2761,7 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeOutCubic"
       });
@@ -2778,7 +2774,7 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
@@ -2791,7 +2787,7 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
@@ -2804,7 +2800,7 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeOutCubic"
       });
@@ -2817,7 +2813,7 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeInQuart"
       });
@@ -2830,7 +2826,7 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeInQuart"
       });
@@ -2843,7 +2839,7 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
@@ -2856,7 +2852,7 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
@@ -2874,11 +2870,11 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(content, 1000);
       this.addIncident(appHolder, 0);
       this.addIncident(border, 250);
-      this.addIncident(titleHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(contentOut, 2000 * this.attrs.speed);
-      this.addIncident(appHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(borderOut, 2000 * this.attrs.speed);
-      this.addIncident(bgout, 3000 * this.attrs.speed);
+      this.addIncident(titleHolderOut, 4000);
+      this.addIncident(contentOut, 4000);
+      this.addIncident(appHolderOut, 4000);
+      this.addIncident(borderOut, 4000);
+      this.addIncident(bgout, 6000);
     }
   }]);
 
@@ -2949,7 +2945,7 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeOutCubic"
       });
@@ -2962,7 +2958,7 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
@@ -2975,7 +2971,7 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
@@ -2988,7 +2984,7 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeOutCubic"
       });
@@ -3001,7 +2997,7 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeInQuart"
       });
@@ -3014,7 +3010,7 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeInQuart"
       });
@@ -3027,7 +3023,7 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
@@ -3040,7 +3036,7 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
@@ -3058,11 +3054,11 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(content, 1000);
       this.addIncident(appHolder, 0);
       this.addIncident(border, 250);
-      this.addIncident(titleHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(contentOut, 2000 * this.attrs.speed);
-      this.addIncident(appHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(borderOut, 2000 * this.attrs.speed);
-      this.addIncident(bgout, 3000 * this.attrs.speed);
+      this.addIncident(titleHolderOut, 4000);
+      this.addIncident(contentOut, 4000);
+      this.addIncident(appHolderOut, 4000);
+      this.addIncident(borderOut, 4000);
+      this.addIncident(bgout, 6000);
     }
   }]);
 
@@ -3109,11 +3105,10 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\"> </div>\n      </div>\n    ");
     }
   }, {
@@ -3145,7 +3140,7 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border",
         easing: "easeOutCubic"
       });
@@ -3158,7 +3153,7 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeOutCubic"
       });
@@ -3171,7 +3166,7 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeOutCubic"
       });
@@ -3184,7 +3179,7 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeOutCubic"
       });
@@ -3197,7 +3192,7 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border",
         easing: "easeInQuart"
       });
@@ -3210,7 +3205,7 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeInQuart"
       });
@@ -3223,7 +3218,7 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeInQuart"
       });
@@ -3236,7 +3231,7 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeInQuart"
       });
@@ -3254,11 +3249,11 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(content, 0);
       this.addIncident(subtitle, 0);
       this.addIncident(title, 0);
-      this.addIncident(borderOut, 2000 * this.attrs.speed);
-      this.addIncident(contentOut, 2000 * this.attrs.speed);
-      this.addIncident(subtitleOut, 2000 * this.attrs.speed);
-      this.addIncident(titleOut, 2000 * this.attrs.speed);
-      this.addIncident(bgout, 6000 * this.speed);
+      this.addIncident(borderOut, 4000);
+      this.addIncident(contentOut, 4000);
+      this.addIncident(subtitleOut, 4000);
+      this.addIncident(titleOut, 4000);
+      this.addIncident(bgout, 6000);
     }
   }]);
 
@@ -3331,7 +3326,7 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border",
         easing: "easeOutCubic"
       });
@@ -3344,7 +3339,7 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeOutCubic"
       });
@@ -3357,7 +3352,7 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeOutCubic"
       });
@@ -3370,7 +3365,7 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeOutCubic"
       });
@@ -3383,7 +3378,7 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border",
         easing: "easeInQuart"
       });
@@ -3396,7 +3391,7 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeInQuart"
       });
@@ -3409,7 +3404,7 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeInQuart"
       });
@@ -3422,7 +3417,7 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeInQuart"
       });
@@ -3440,11 +3435,11 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(content, 0);
       this.addIncident(subtitle, 0);
       this.addIncident(title, 0);
-      this.addIncident(borderOut, 2000 * this.attrs.speed + scroll);
-      this.addIncident(contentOut, 2000 * this.attrs.speed + scroll);
-      this.addIncident(subtitleOut, 2000 * this.attrs.speed + scroll);
-      this.addIncident(titleOut, 2000 * this.attrs.speed + scroll);
-      this.addIncident(bgout, 3000 * this.attrs.speed + scroll);
+      this.addIncident(borderOut, 4000 + scroll);
+      this.addIncident(contentOut, 4000 + scroll);
+      this.addIncident(subtitleOut, 4000 + scroll);
+      this.addIncident(titleOut, 4000 + scroll);
+      this.addIncident(bgout, 6000 + scroll);
     }
   }]);
 
@@ -3491,11 +3486,10 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"></div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\" >\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n            <p class=\"text2\"> ").concat(this.attrs.textTwo, "</p>\n            <p class=\"text3\" > ").concat(this.attrs.textThree, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
     }
   }, {
@@ -3515,7 +3509,7 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeOutCubic"
       });
@@ -3528,7 +3522,7 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
@@ -3541,7 +3535,7 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
@@ -3554,7 +3548,7 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2500 * this.attrs.speed,
+        duration: 5000,
         selector: ".shape2",
         easing: "easeOutCubic"
       });
@@ -3567,7 +3561,7 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeInQuart"
       });
@@ -3580,7 +3574,7 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeInQuart"
       });
@@ -3593,7 +3587,7 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
@@ -3606,7 +3600,7 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
@@ -3624,11 +3618,11 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(content, 1000);
       this.addIncident(appHolder, 0);
       this.addIncident(border, 250);
-      this.addIncident(titleHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(contentOut, 2000 * this.attrs.speed);
-      this.addIncident(appHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(borderOut, 2000 * this.attrs.speed);
-      this.addIncident(bgout, 3000 * this.attrs.speed);
+      this.addIncident(titleHolderOut, 4000);
+      this.addIncident(contentOut, 4000);
+      this.addIncident(appHolderOut, 4000);
+      this.addIncident(borderOut, 4000);
+      this.addIncident(bgout, 6000);
     }
   }]);
 
@@ -3675,11 +3669,10 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\">\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
     }
   }, {
@@ -3699,7 +3692,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeOutCubic"
       });
@@ -3712,7 +3705,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
@@ -3725,7 +3718,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
@@ -3738,7 +3731,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2500 * this.attrs.speed,
+        duration: 5000,
         selector: ".shape2",
         easing: "easeOutCubic"
       });
@@ -3751,7 +3744,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeInQuart"
       });
@@ -3764,7 +3757,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeInQuart"
       });
@@ -3777,7 +3770,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
@@ -3790,7 +3783,7 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border",
         easing: "easeInQuart"
       });
@@ -3808,11 +3801,11 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(content, 1000);
       this.addIncident(appHolder, 0);
       this.addIncident(border, 250);
-      this.addIncident(titleHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(contentOut, 2000 * this.attrs.speed);
-      this.addIncident(appHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(borderOut, 2000 * this.attrs.speed);
-      this.addIncident(bgout, 3000 * this.attrs.speed);
+      this.addIncident(titleHolderOut, 4000);
+      this.addIncident(contentOut, 4000);
+      this.addIncident(appHolderOut, 4000);
+      this.addIncident(borderOut, 4000);
+      this.addIncident(bgout, 6000);
     }
   }]);
 
@@ -3859,11 +3852,10 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\">\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
     }
   }, {
@@ -3883,7 +3875,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeOutCubic"
       });
@@ -3896,7 +3888,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeOutCubic"
       });
@@ -3909,7 +3901,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeOutCubic"
       });
@@ -3922,7 +3914,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2500 * this.attrs.speed,
+        duration: 5000,
         selector: ".shape2",
         easing: "easeOutCubic"
       });
@@ -3935,7 +3927,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeInQuart"
       });
@@ -3948,7 +3940,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeInQuart"
       });
@@ -3961,7 +3953,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeInQuart"
       });
@@ -3974,7 +3966,7 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeInQuart"
       });
@@ -3992,11 +3984,11 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(content, 1000);
       this.addIncident(appHolder, 0);
       this.addIncident(border, 250);
-      this.addIncident(titleHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(contentOut, 2000 * this.attrs.speed);
-      this.addIncident(appHolderOut, 2000 * this.attrs.speed);
-      this.addIncident(borderOut, 2000 * this.attrs.speed);
-      this.addIncident(bgout, 3000 * this.attrs.speed);
+      this.addIncident(titleHolderOut, 4000);
+      this.addIncident(contentOut, 4000);
+      this.addIncident(appHolderOut, 4000);
+      this.addIncident(borderOut, 4000);
+      this.addIncident(bgout, 6000);
     }
   }]);
 
@@ -4043,11 +4035,10 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n      </div>\n    ");
     }
   }, {
@@ -4079,7 +4070,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2500 * this.attrs.speed,
+        duration: 5000,
         selector: ".shape2",
         easing: "easeOutCubic"
       });
@@ -4092,7 +4083,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeOutCubic"
       });
@@ -4105,7 +4096,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeOutCubic"
       });
@@ -4118,7 +4109,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeOutCubic"
       });
@@ -4131,7 +4122,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border",
         easing: "easeInQuart"
       });
@@ -4144,7 +4135,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeInQuart"
       });
@@ -4157,7 +4148,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeInQuart"
       });
@@ -4170,7 +4161,7 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeInQuart"
       });
@@ -4188,11 +4179,11 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(content, 0);
       this.addIncident(subtitle, 0);
       this.addIncident(title, 0);
-      this.addIncident(borderOut, 2000 * this.attrs.speed);
-      this.addIncident(contentOut, 2000 * this.attrs.speed);
-      this.addIncident(subtitleOut, 2000 * this.attrs.speed);
-      this.addIncident(titleOut, 2000 * this.attrs.speed);
-      this.addIncident(bgout, 6000 * this.speed);
+      this.addIncident(borderOut, 4000);
+      this.addIncident(contentOut, 4000);
+      this.addIncident(subtitleOut, 4000);
+      this.addIncident(titleOut, 4000);
+      this.addIncident(bgout, 6000);
     }
   }]);
 
@@ -4239,11 +4230,10 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
+      var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
 
       (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
       (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-      (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
       return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n      </div>\n    ");
     }
   }, {
@@ -4264,7 +4254,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2500 * this.attrs.speed,
+        duration: 5000,
         selector: ".shape2",
         easing: "easeOutCubic"
       });
@@ -4277,7 +4267,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeOutCubic"
       });
@@ -4290,7 +4280,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2000 * this.attrs.speed,
+        duration: 4000,
         selector: ".content-container",
         easing: "easeOutCubic"
       });
@@ -4303,7 +4293,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeOutCubic"
       });
@@ -4316,7 +4306,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeOutCubic"
       });
@@ -4329,7 +4319,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border",
         easing: "easeInQuart"
       });
@@ -4342,7 +4332,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".content-container",
         easing: "easeInQuart"
       });
@@ -4355,7 +4345,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeInQuart"
       });
@@ -4368,7 +4358,7 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".title-holder",
         easing: "easeInQuart"
       });
@@ -4388,15 +4378,15 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
       this.addIncident(title, 0);
 
       if (this.attrs.scroll) {
-        this.addIncident(appScroll, 2000 * this.attrs.speed);
+        this.addIncident(appScroll, 4000);
         scroll = 2000;
       }
 
-      this.addIncident(borderOut, 2000 * this.attrs.speed + scroll);
-      this.addIncident(contentOut, 2000 * this.attrs.speed + scroll);
-      this.addIncident(subtitleOut, 2000 * this.attrs.speed + scroll);
-      this.addIncident(titleOut, 2000 * this.attrs.speed + scroll);
-      this.addIncident(bgout, 3000 * this.attrs.speed + scroll);
+      this.addIncident(borderOut, 4000 + scroll);
+      this.addIncident(contentOut, 4000 + scroll);
+      this.addIncident(subtitleOut, 4000 + scroll);
+      this.addIncident(titleOut, 4000 + scroll);
+      this.addIncident(bgout, 6000 + scroll);
     }
   }]);
 
@@ -4461,11 +4451,6 @@ var introVal = {
   mainColor: {
     optional: true,
     type: _COLOR
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   }
 };
 var SlideOneSVGVal = {
@@ -4543,11 +4528,6 @@ var SlideOneSVGVal = {
   app: {
     optional: false,
     type: "string"
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   }
 };
 var SlideTwoVal = {
@@ -4595,11 +4575,6 @@ var SlideTwoVal = {
   },
   contentColor: {
     type: _COLOR
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   },
   contentTitle: {
     optional: false,
@@ -4677,11 +4652,6 @@ var TechnologiesVal = {
     optional: true,
     type: "string"
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  },
   contentTitle: {
     optional: true,
     type: "string"
@@ -4754,11 +4724,6 @@ var HighlightsVal = {
   contentColor: {
     type: _COLOR
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  },
   contentTitle: {
     optional: true,
     type: "string"
@@ -4790,7 +4755,7 @@ var HighlightsVal = {
 };
 
 var name = "@kissmybutton/motorcortex-presenter";
-var version = "1.0.11";
+var version = "1.1.0";
 
 var index = {
   npm_name: name,

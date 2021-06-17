@@ -27,7 +27,6 @@ export default class Intro extends HTMLClip {
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
-    this.attrs.speed ??= 2;
 
     return `
       <div class="bg">
@@ -158,7 +157,7 @@ export default class Intro extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1500 * this.attrs.speed,
+        duration: 3000,
         selector: ".logo-client",
         easing: "easeOutQuart"
       }
@@ -175,7 +174,7 @@ export default class Intro extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1250 * this.attrs.speed,
+        duration: 2500,
         selector: ".line ",
         easing: "easeOutQuart"
       }
@@ -192,7 +191,7 @@ export default class Intro extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".pro-name ",
         easing: "easeOutQuart"
       }
@@ -209,7 +208,7 @@ export default class Intro extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".logo-comp,.date",
         easing: "easeOutQuart"
       }
@@ -233,6 +232,6 @@ export default class Intro extends HTMLClip {
     this.addIncident(lineIn, 0);
     this.addIncident(proIn, 0);
     this.addIncident(logoCompIn, 0);
-    this.addIncident(bgout, 1500 * this.attrs.speed);
+    this.addIncident(bgout, 3000);
   }
 }

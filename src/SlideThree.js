@@ -185,7 +185,7 @@ export default class SlideThree extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeOutCubic"
       }
@@ -202,7 +202,7 @@ export default class SlideThree extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeOutCubic"
       }
@@ -219,7 +219,7 @@ export default class SlideThree extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeOutCubic"
       }
@@ -236,7 +236,7 @@ export default class SlideThree extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeOutCubic"
       }
@@ -253,7 +253,7 @@ export default class SlideThree extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .content-container",
         easing: "easeInQuart"
       }
@@ -270,7 +270,7 @@ export default class SlideThree extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: " .title-holder",
         easing: "easeInQuart"
       }
@@ -287,7 +287,7 @@ export default class SlideThree extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".app-holder ",
         easing: "easeInQuart"
       }
@@ -304,7 +304,7 @@ export default class SlideThree extends HTMLClip {
         attrs: {}
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 2000,
         selector: ".border,.border1",
         easing: "easeInQuart"
       }
@@ -329,10 +329,10 @@ export default class SlideThree extends HTMLClip {
     this.addIncident(content, 1000);
     this.addIncident(appHolder, 0);
     this.addIncident(border, 250);
-    this.addIncident(titleHolderOut, 2000 * this.attrs.speed);
-    this.addIncident(contentOut, 2000 * this.attrs.speed);
-    this.addIncident(appHolderOut, 2000 * this.attrs.speed);
-    this.addIncident(borderOut, 2000 * this.attrs.speed);
-    this.addIncident(bgout, 3000 * this.attrs.speed);
+    this.addIncident(titleHolderOut, 4000);
+    this.addIncident(contentOut, 4000);
+    this.addIncident(appHolderOut, 4000);
+    this.addIncident(borderOut, 4000);
+    this.addIncident(bgout, 6000);
   }
 }

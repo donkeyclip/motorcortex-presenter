@@ -18,7 +18,6 @@ export default class IntroFade extends HTMLClip {
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
-    this.attrs.speed ??= 2;
 
     return `
       <div class="bg">
@@ -152,6 +151,6 @@ export default class IntroFade extends HTMLClip {
     );
 
     this.addIncident(fadeIn, 0);
-    this.addIncident(bgout, 2000 * this.attrs.speed);
+    this.addIncident(bgout, 4000);
   }
 }
