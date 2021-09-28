@@ -1,5 +1,5 @@
-import { HTMLClip, loadPlugin } from "@kissmybutton/motorcortex";
-import Player from "@kissmybutton/motorcortex-player";
+import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
+import Player from "@donkeyclip/motorcortex-player";
 import presenter from "../dist/motorcortex-presenter.umd.js";
 
 const Clip = loadPlugin(presenter);
@@ -36,17 +36,17 @@ const introClip = new Clip.Intro(
     width: 1270,
     height: 720,
     clientLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 500,
     compLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/logo.png",
     compLogoWidth: 150,
     title: "RMIS / University of Zurich",
     date: "2019 - Today",
     bgUrl:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/bg.jpg",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/bg.jpg",
     overlayColor: overlay,
-    fontColor: "#fff",
+    fontColor: "#fff"
   },
   {
     selector: ".container6"
@@ -58,10 +58,10 @@ const SlideOneSVG = new Clip.SlideOneSVG(
     width: 1270,
     height: 720,
     clientLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
     compLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/logo.png",
     title: "RMIS / University of Zurich",
     textOne: "generic",
     textTwo: "module-based",
@@ -72,7 +72,7 @@ const SlideOneSVG = new Clip.SlideOneSVG(
     contentColor: "#c10000",
     contentTitle: "Scope",
     app:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/app.png"
   },
   {
     selector: ".container5"
@@ -84,10 +84,10 @@ const SlideTwoSVG = new Clip.SlideTwoSVG(
     width: 1270,
     height: 720,
     clientLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
     compLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/logo.png",
 
     title: "RMIS / University of Zurich",
     textOne:
@@ -99,7 +99,7 @@ const SlideTwoSVG = new Clip.SlideTwoSVG(
     contentTitle: "Scope",
     fonSize: 40,
     app:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/app.png"
   },
   {
     selector: ".container4"
@@ -111,10 +111,10 @@ const SlideThreeSVG = new Clip.SlideThreeSVG(
     width: 1270,
     height: 720,
     clientLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
     compLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/logo.png",
 
     title: "RMIS / University of Zurich",
     textOne:
@@ -126,7 +126,7 @@ const SlideThreeSVG = new Clip.SlideThreeSVG(
     contentTitle: "Scope",
     fonSize: 40,
     app:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/app.png"
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/app.png"
   },
   {
     selector: ".container3"
@@ -138,17 +138,17 @@ const TechnologiesSVG = new Clip.TechnologiesSVG(
     width: 1270,
     height: 720,
     clientLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
     compLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/logo.png",
     title: "RMIS / University of Zurich",
     logos: [
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/1.png",
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/2.png",
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/3.png",
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/4.png",
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/5.png"
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/1.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/2.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/3.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/4.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/5.png"
     ],
     bgColor: "#000c8f",
     overlayColor: overlay,
@@ -168,13 +168,13 @@ const HighlightsSVG = new Clip.HighlightsSVG(
     width: 1270,
     height: 720,
     clientLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/img.svg",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/img.svg",
     clientLogoWidth: 150,
     compLogo:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/logo.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/logo.png",
     title: "RMIS / University of Zurich",
     app:
-      "https://kissmybutton.github.io/motorcortex-presenter/demo/assets/appLong.png",
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/appLong.png",
     bgColor: "#000c8f",
     overlayColor: overlay,
     fontColor: "#fff",
@@ -195,7 +195,5 @@ clip.addIncident(SlideTwoSVG, 9000);
 clip.addIncident(SlideThreeSVG, 15000);
 clip.addIncident(TechnologiesSVG, 21000);
 clip.addIncident(HighlightsSVG, 27000);
-
-
 
 new Player({ clip });
