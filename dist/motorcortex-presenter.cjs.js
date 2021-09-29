@@ -83,6 +83,8 @@ function _assertThisInitialized$1(self) {
 function _possibleConstructorReturn$1(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
   }
 
   return _assertThisInitialized$1(self);
@@ -1357,7 +1359,7 @@ var Anime$c = /*#__PURE__*/function (_MotorCortex$Effect) {
   }]);
 
   return Anime;
-}(MotorCortex__default['default'].Effect);
+}(MotorCortex__default["default"].Effect);
 /**
  * Takes as attributes:
  * {
@@ -1411,7 +1413,7 @@ var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
   }]);
 
   return MotionPath;
-}(MotorCortex__default['default'].Effect);
+}(MotorCortex__default["default"].Effect);
 
 var nu$1 = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
 var ru = ["deg", "rad", "grad", "turn"];
