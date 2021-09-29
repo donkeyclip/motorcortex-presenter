@@ -1,20 +1,20 @@
 # motorcortex-presenter
 
-## [Demo](https://kissmybutton.github.io/motorcortex-presenter/demo/)
+## [Demo](https://donkeyclip.github.io/motorcortex-presenter/demo/)
 
 ## Installation
 
 ```bash
-$ npm install --save @kissmybutton/motorcortex-presenter
+$ npm install --save @donkeyclip/motorcortex-presenter
 # OR
-$ yarn add @kissmybutton/motorcortex-presenter
+$ yarn add @donkeyclip/motorcortex-presenter
 ```
 
 ## Loading
 
 ```javascript
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const presenterPlugin = require("@kissmybutton/motorcortex-presenter");
+const MotorCortex = require("@donkeyclip/motorcortex/");
+const presenterPlugin = require("@donkeyclip/motorcortex-presenter");
 const Clip = MotorCortex.loadPlugin(presenterPlugin);
 ```
 
