@@ -4759,7 +4759,7 @@ var HighlightsVal = {
 };
 
 var name = "@donkeyclip/motorcortex-presenter";
-var version = "1.1.0";
+var version = "1.0.11";
 
 var index = {
   npm_name: name,

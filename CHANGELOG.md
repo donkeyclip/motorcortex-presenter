@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.0.11](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.0.10...v1.0.11) (2021-09-29)
+
+
+### Bug Fixes
+
+* remove speed attribute from incidents ([877f2b0](https://www.github.com/donkeyclip/motorcortex-presenter/commit/877f2b0a54d3676362179cda34a612a1d8b89bda))
+* update deps ([3fc2874](https://www.github.com/donkeyclip/motorcortex-presenter/commit/3fc2874376814b60a674dfe2696abcc8fb373870))
+* update npm name ([b330bdc](https://www.github.com/donkeyclip/motorcortex-presenter/commit/b330bdc48746b8e37e1dd5bb300af758d9e2443e))
+
 ### 1.0.10 (2021-04-16)
 
 
