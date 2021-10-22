@@ -39,28 +39,25 @@ const introClip = new Clip.Intro(
     fontColor: "#fff",
   },
   {
-    selector: ".container6"
+    selector: ".container6",
   }
 );
 ```
 
 ### introClip Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width     | width of the clip  | string/number |
-| height     | height of the clip  | string/number |
-| clientLogo   | path of client logo | string |
-| clientLogoWidth |  size of clien logo   |  string/number |
-| compLogo   | path of company or dev team logo | string |
-| compLogoWidth |  size of company or dev team logo   |  string/number |
-| title |  the title of project/app   |  string  |
-| date |  start and end year of project  |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB or text  |
-| fontColor |  the color of fonts  |  hex values or RGB or text  |
-
-
-
+| Name            |                  Are                  |                    Values |
+| --------------- | :-----------------------------------: | ------------------------: |
+| width           |           width of the clip           |             string/number |
+| height          |          height of the clip           |             string/number |
+| clientLogo      |          path of client logo          |                    string |
+| clientLogoWidth |          size of clien logo           |             string/number |
+| compLogo        |   path of company or dev team logo    |                    string |
+| compLogoWidth   |   size of company or dev team logo    |             string/number |
+| title           |       the title of project/app        |                    string |
+| date            |     start and end year of project     |                    string |
+| overlayColor    | the overlay color of background image | hex values or RGB or text |
+| fontColor       |          the color of fonts           | hex values or RGB or text |
 
 ## SlideOne
 
@@ -82,36 +79,32 @@ const SlideOne = new Clip.SlideOne(
     overlayColor: overlay,
     fontColor: "#fff",
     contentTitle: "Scope",
-    app: "./app.png"
+    app: "./app.png",
   },
   {
-    selector: ".container5"
+    selector: ".container5",
   }
 );
 ```
 
 ### SlideOne Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width     | width of the clip  | string/number |
-| height     | height of the clip  | string/number |
-| clientLogo   | path of client logo | string |
-| clientLogoWidth |  size of clien logo   |  string/number |
-| compLogo   | path of company or dev team logo | string |
-| compLogoWidth |  size of company or dev team logo   |  string/number |
-| title |  the title of project/app   |  string  |
-| textOne,textTwo,textThree |  3 rows that describe the main consepts of the projects   |  string  |
-| contentColor |  the color of content container |  hex values or RGB or text img path  |
-| bgColor |  the color of background |  hex values or RGB or text or img path |
-| contentTitle |  title of slide |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB or text  |
-| fontColor |  the color of fonts  |  hex values or RGB or text  |
-| app |  path of app img  |  string  |
-
-
-
-
+| Name                      |                          Are                           |                                Values |
+| ------------------------- | :----------------------------------------------------: | ------------------------------------: |
+| width                     |                   width of the clip                    |                         string/number |
+| height                    |                   height of the clip                   |                         string/number |
+| clientLogo                |                  path of client logo                   |                                string |
+| clientLogoWidth           |                   size of clien logo                   |                         string/number |
+| compLogo                  |            path of company or dev team logo            |                                string |
+| compLogoWidth             |            size of company or dev team logo            |                         string/number |
+| title                     |                the title of project/app                |                                string |
+| textOne,textTwo,textThree | 3 rows that describe the main consepts of the projects |                                string |
+| contentColor              |             the color of content container             |    hex values or RGB or text img path |
+| bgColor                   |                the color of background                 | hex values or RGB or text or img path |
+| contentTitle              |                     title of slide                     |                                string |
+| overlayColor              |         the overlay color of background image          |             hex values or RGB or text |
+| fontColor                 |                   the color of fonts                   |             hex values or RGB or text |
+| app                       |                    path of app img                     |                                string |
 
 ## SlideTwo,SlideThree
 
@@ -133,36 +126,33 @@ const SlideTwo = new Clip.SlideTwo(
     contentColor: "#c10000",
     contentTitle: "Scope",
     fonSize: 40,
-    app: "./app.png"
+    app: "./app.png",
   },
   {
-    selector: ".container4"
+    selector: ".container4",
   }
 );
 ```
 
 ### SlideTwo,SlideThree Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width     | width of the clip  | string/number |
-| height     | height of the clip  | string/number |
-| clientLogo   | path of client logo | string |
-| clientLogoWidth |  size of clien logo   |  string/number |
-| compLogo   | path of company or dev team logo | string |
-| compLogoWidth |  size of company or dev team logo   |  string/number |
-| title |  the title of project/app   |  string  |
-| textOne |  paragraph that describe the main consepts of the projects   |  string  |
-| contentColor |  the color of content container |  hex values or RGB or text img path  |
-| bgColor |  the color of background |  hex values or RGB or text or img path |
-| contentTitle |  title of slide |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB or text  |
-| fontColor |  the color of fonts  |  hex values or RGB or text  |
-| fontSize |  font size of paragraph  |  num  |
-| app |  path of app img  |  string  |
-
-
-
+| Name            |                            Are                            |                                Values |
+| --------------- | :-------------------------------------------------------: | ------------------------------------: |
+| width           |                     width of the clip                     |                         string/number |
+| height          |                    height of the clip                     |                         string/number |
+| clientLogo      |                    path of client logo                    |                                string |
+| clientLogoWidth |                    size of clien logo                     |                         string/number |
+| compLogo        |             path of company or dev team logo              |                                string |
+| compLogoWidth   |             size of company or dev team logo              |                         string/number |
+| title           |                 the title of project/app                  |                                string |
+| textOne         | paragraph that describe the main consepts of the projects |                                string |
+| contentColor    |              the color of content container               |    hex values or RGB or text img path |
+| bgColor         |                  the color of background                  | hex values or RGB or text or img path |
+| contentTitle    |                      title of slide                       |                                string |
+| overlayColor    |           the overlay color of background image           |             hex values or RGB or text |
+| fontColor       |                    the color of fonts                     |             hex values or RGB or text |
+| fontSize        |                  font size of paragraph                   |                                   num |
+| app             |                      path of app img                      |                                string |
 
 ## Technologies
 
@@ -182,35 +172,32 @@ const Technologies = new Clip.Technologies(
     fontColor: "#fff",
     contentColor: "#c10000",
     contentTitle: "Technologies",
-    contentSubTitle: "USed"
+    contentSubTitle: "USed",
   },
   {
-    selector: ".container2"
+    selector: ".container2",
   }
 );
 ```
 
 ### Technologies Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width     | width of the clip  | string/number |
-| height     | height of the clip  | string/number |
-| clientLogo   | path of client logo | string |
-| clientLogoWidth |  size of clien logo   |  string/number |
-| compLogo   | path of company or dev team logo | string |
-| compLogoWidth |  size of company or dev team logo   |  string/number |
-| title |  the title of project/app   |  string  |
-| logos |  array with img paths    |  array of strings  |
-| contentColor |  the color of content container |  hex values or RGB or text img path  |
-| bgColor |  the color of background |  hex values or RGB or text or img path |
-| contentTitle |  title of slide |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB or text  |
-| fontColor |  the color of fonts  |  hex values or RGB or text  |
-| app |  path of app img  |  string  |
-
-
-
+| Name            |                  Are                  |                                Values |
+| --------------- | :-----------------------------------: | ------------------------------------: |
+| width           |           width of the clip           |                         string/number |
+| height          |          height of the clip           |                         string/number |
+| clientLogo      |          path of client logo          |                                string |
+| clientLogoWidth |          size of clien logo           |                         string/number |
+| compLogo        |   path of company or dev team logo    |                                string |
+| compLogoWidth   |   size of company or dev team logo    |                         string/number |
+| title           |       the title of project/app        |                                string |
+| logos           |         array with img paths          |                      array of strings |
+| contentColor    |    the color of content container     |    hex values or RGB or text img path |
+| bgColor         |        the color of background        | hex values or RGB or text or img path |
+| contentTitle    |            title of slide             |                                string |
+| overlayColor    | the overlay color of background image |             hex values or RGB or text |
+| fontColor       |          the color of fonts           |             hex values or RGB or text |
+| app             |            path of app img            |                                string |
 
 ## Highlights
 
@@ -231,51 +218,54 @@ const Highlights = new Clip.Highlights(
     contentColor: "#c10000",
     contentTitle: "Highlights",
     contentSubTitle: "USed",
-    scroll: false
+    scroll: false,
   },
   {
-    selector: ".container1"
+    selector: ".container1",
   }
 );
 ```
 
 ### Highlights Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| width     | width of the clip  | string/number |
-| height     | height of the clip  | string/number |
-| clientLogo   | path of client logo | string |
-| clientLogoWidth |  size of clien logo   |  string/number |
-| compLogo   | path of company or dev team logo | string |
-| compLogoWidth |  size of company or dev team logo   |  string/number |
-| title |  the title of project/app   |  string  |
-| contentSubTitle |  subtitle of slide   |  string  |
-| contentColor |  the color of content container |  hex values or RGB or text img path  |
-| bgColor |  the color of background |  hex values or RGB or text or img path |
-| contentTitle |  title of slide |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB or text  |
-| fontColor |  the color of fonts  |  hex values or RGB or text  |
-| app |  path of app img  |  string  |
+| Name            |                  Are                  |                                Values |
+| --------------- | :-----------------------------------: | ------------------------------------: |
+| width           |           width of the clip           |                         string/number |
+| height          |          height of the clip           |                         string/number |
+| clientLogo      |          path of client logo          |                                string |
+| clientLogoWidth |          size of clien logo           |                         string/number |
+| compLogo        |   path of company or dev team logo    |                                string |
+| compLogoWidth   |   size of company or dev team logo    |                         string/number |
+| title           |       the title of project/app        |                                string |
+| contentSubTitle |           subtitle of slide           |                                string |
+| contentColor    |    the color of content container     |    hex values or RGB or text img path |
+| bgColor         |        the color of background        | hex values or RGB or text or img path |
+| contentTitle    |            title of slide             |                                string |
+| overlayColor    | the overlay color of background image |             hex values or RGB or text |
+| fontColor       |          the color of fonts           |             hex values or RGB or text |
+| app             |            path of app img            |                                string |
 
-| scroll |  if the app img will scroll  |  boolean  |
-
-
-
-
+| scroll | if the app img will scroll | boolean |
 
 # Add incident to your clip
 
 ```javascript
 clip.addIncident(nameOfIncident, 0);
 ```
+
 # Clip classes
 
-| Clip        | Svg version        |
-| ------------- |:-------------:|
-| Intro        | -       |
-| SlideOne        | SlideOneSVG        |
-| SlideTwo        | SlideTwoSVG        |
-| SlideThree        | SlideThreeSVG        |
-| Technologies        | TechnologiesSVG        |
-| Highlights        | HighlightsSVG        |
+| Clip         |   Svg version   |
+| ------------ | :-------------: |
+| Intro        |        -        |
+| SlideOne     |   SlideOneSVG   |
+| SlideTwo     |   SlideTwoSVG   |
+| SlideThree   |  SlideThreeSVG  |
+| Technologies | TechnologiesSVG |
+| Highlights   |  HighlightsSVG  |
+
+## License
+
+[MIT License](https://opensource.org/licenses/MIT)
+
+[<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)
