@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class Intro extends HTMLClip {
   dinamicFontSize(lc, width) {
@@ -19,8 +17,8 @@ export default class Intro extends HTMLClip {
     return [
       {
         type: `google-font`,
-        src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`
-      }
+        src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`,
+      },
     ];
   }
 
@@ -146,85 +144,85 @@ export default class Intro extends HTMLClip {
   }
 
   buildTree() {
-    const logoIn = new Anime.Anime(
+    const logoIn = new CSSEffect(
       {
         animatedAttrs: {
-          top: "0%"
+          top: "0%",
         },
         initialValues: {
-          top: "-100%"
+          top: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 3000,
         selector: ".logo-client",
-        easing: "easeOutQuart"
+        easing: "easeOutQuart",
       }
     );
 
-    const lineIn = new Anime.Anime(
+    const lineIn = new CSSEffect(
       {
         animatedAttrs: {
-          top: "0%"
+          top: "0%",
         },
         initialValues: {
-          top: "-100%"
+          top: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2500,
         selector: ".line ",
-        easing: "easeOutQuart"
+        easing: "easeOutQuart",
       }
     );
 
-    const proIn = new Anime.Anime(
+    const proIn = new CSSEffect(
       {
         animatedAttrs: {
-          top: "0%"
+          top: "0%",
         },
         initialValues: {
-          top: "-100%"
+          top: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".pro-name ",
-        easing: "easeOutQuart"
+        easing: "easeOutQuart",
       }
     );
 
-    const logoCompIn = new Anime.Anime(
+    const logoCompIn = new CSSEffect(
       {
         animatedAttrs: {
-          top: "0%"
+          top: "0%",
         },
         initialValues: {
-          top: "200%"
+          top: "200%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".logo-comp,.date",
-        easing: "easeOutQuart"
+        easing: "easeOutQuart",
       }
     );
 
-    const bgout = new Anime.Anime(
+    const bgout = new CSSEffect(
       {
         animatedAttrs: {
-          opacity: 0
+          opacity: 0,
         },
 
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1000,
-        selector: ".bg"
+        selector: ".bg",
       }
     );
 

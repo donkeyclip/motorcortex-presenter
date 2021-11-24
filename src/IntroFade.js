@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class IntroFade extends HTMLClip {
   dinamicFontSize(lc, width) {
@@ -113,40 +111,40 @@ export default class IntroFade extends HTMLClip {
   }
 
   buildTree() {
-    const fadeIn = new Anime.Anime(
+    const fadeIn = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
-            scale: 0.5
+            scale: 0.5,
           },
-          opacity: 1
+          opacity: 1,
         },
         initialValues: {
           transform: {
-            scale: 2
+            scale: 2,
           },
-          opacity: 0
+          opacity: 0,
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1000,
-        selector: ".wrapper"
+        selector: ".wrapper",
       }
     );
 
-    const bgout = new Anime.Anime(
+    const bgout = new CSSEffect(
       {
         animatedAttrs: {
           width: "0px",
-          opacity: 0
+          opacity: 0,
         },
 
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1,
-        selector: ".bg"
+        selector: ".bg",
       }
     );
 

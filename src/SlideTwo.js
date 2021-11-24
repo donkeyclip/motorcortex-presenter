@@ -1,6 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class SlideTwo extends HTMLClip {
   dinamicFontSize(lc, width) {
@@ -19,8 +17,8 @@ export default class SlideTwo extends HTMLClip {
     return [
       {
         type: `google-font`,
-        src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`
-      }
+        src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`,
+      },
     ];
   }
 
@@ -175,154 +173,154 @@ export default class SlideTwo extends HTMLClip {
   }
 
   buildTree() {
-    const content = new Anime.Anime(
+    const content = new CSSEffect(
       {
         animatedAttrs: {
-          right: "0%"
+          right: "0%",
         },
         initialValues: {
-          right: "100%"
+          right: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: " .content-container",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
-    const titleHolder = new Anime.Anime(
+    const titleHolder = new CSSEffect(
       {
         animatedAttrs: {
-          top: "15%"
+          top: "15%",
         },
         initialValues: {
-          top: "100%"
+          top: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: " .title-holder",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
-    const appHolder = new Anime.Anime(
+    const appHolder = new CSSEffect(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "100%"
+          left: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".app-holder ",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
-    const border = new Anime.Anime(
+    const border = new CSSEffect(
       {
         animatedAttrs: {
-          right: "5%"
+          right: "5%",
         },
         initialValues: {
-          right: "120%"
+          right: "120%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".border,.border1",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
-    const contentOut = new Anime.Anime(
+    const contentOut = new CSSEffect(
       {
         animatedAttrs: {
-          top: "-120%"
+          top: "-120%",
         },
         initialValues: {
-          top: "25%"
+          top: "25%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: " .content-container",
-        easing: "easeInQuart"
+        easing: "easeInQuart",
       }
     );
 
-    const titleHolderOut = new Anime.Anime(
+    const titleHolderOut = new CSSEffect(
       {
         animatedAttrs: {
-          top: "100%"
+          top: "100%",
         },
         initialValues: {
-          top: "15%"
+          top: "15%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: " .title-holder",
-        easing: "easeInQuart"
+        easing: "easeInQuart",
       }
     );
 
-    const appHolderOut = new Anime.Anime(
+    const appHolderOut = new CSSEffect(
       {
         animatedAttrs: {
-          left: "120%"
+          left: "120%",
         },
         initialValues: {
-          left: "0%"
+          left: "0%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".app-holder ",
-        easing: "easeInQuart"
+        easing: "easeInQuart",
       }
     );
 
-    const borderOut = new Anime.Anime(
+    const borderOut = new CSSEffect(
       {
         animatedAttrs: {
-          right: "120%"
+          right: "120%",
         },
         initialValues: {
-          right: "5%"
+          right: "5%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".border,.border1",
-        easing: "easeInQuart"
+        easing: "easeInQuart",
       }
     );
 
-    const bgout = new Anime.Anime(
+    const bgout = new CSSEffect(
       {
         animatedAttrs: {
           width: "0px",
-          opacity: 0
+          opacity: 0,
         },
 
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1,
-        selector: ".bg"
+        selector: ".bg",
       }
     );
 
