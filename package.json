@@ -1,6 +1,6 @@
 {
   "name": "@donkeyclip/motorcortex-presenter",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Presenter plugin for MotorCortex",
   "main": "dist/motorcortex-presenter.cjs.js",
   "module": "dist/motorcortex-presenter.esm.js",

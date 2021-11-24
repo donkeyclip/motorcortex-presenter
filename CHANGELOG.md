@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.0.12](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.0.11...v1.0.12) (2021-11-24)
+
+
+### Bug Fixes
+
+* drop code from demo config ([f9a1676](https://www.github.com/donkeyclip/motorcortex-presenter/commit/f9a16763eb7a54d027d348c42d577de7d5f1e00b))
+* fix broken config ([3bf0bee](https://www.github.com/donkeyclip/motorcortex-presenter/commit/3bf0beee74d17b977d26c55329fb88cf9f77e8d3))
+* fix broken webpack config ([bb26267](https://www.github.com/donkeyclip/motorcortex-presenter/commit/bb26267e595ef409f47cc455609258b37e638aac))
+
 ### [1.0.11](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.0.10...v1.0.11) (2021-09-29)
 
 
