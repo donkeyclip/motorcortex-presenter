@@ -1,7 +1,4 @@
-import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-
-const Anime = loadPlugin(AnimeDefinition);
+import { HTMLClip, CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class Highlights extends HTMLClip {
   dinamicFontSize(lc, width) {
@@ -20,13 +17,12 @@ export default class Highlights extends HTMLClip {
     return [
       {
         type: `google-font`,
-        src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`
-      }
+        src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`,
+      },
     ];
   }
 
   get html() {
-    this.attrs.bgUrl = this.attrs.bgUrl;
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
     this.attrs.speed ??= 2;
@@ -191,154 +187,154 @@ export default class Highlights extends HTMLClip {
 
   buildTree() {
     const scroll = 0;
-    const border = new Anime.Anime(
+    const border = new CSSEffect(
       {
         animatedAttrs: {
-          bottom: "0%"
+          bottom: "0%",
         },
         initialValues: {
-          bottom: "-150%"
+          bottom: "-150%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".border",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
-    const content = new Anime.Anime(
+    const content = new CSSEffect(
       {
         animatedAttrs: {
-          bottom: "15%"
+          bottom: "15%",
         },
         initialValues: {
-          bottom: "120%"
+          bottom: "120%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".content-container",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
-    const subtitle = new Anime.Anime(
+    const subtitle = new CSSEffect(
       {
         animatedAttrs: {
-          left: "10%"
+          left: "10%",
         },
         initialValues: {
-          left: "-100%"
+          left: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".subtitle-holder",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
-    const title = new Anime.Anime(
+    const title = new CSSEffect(
       {
         animatedAttrs: {
-          left: "5%"
+          left: "5%",
         },
         initialValues: {
-          left: "-100%"
+          left: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".title-holder",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
-    const borderOut = new Anime.Anime(
+    const borderOut = new CSSEffect(
       {
         animatedAttrs: {
-          bottom: "150%"
+          bottom: "150%",
         },
         initialValues: {
-          bottom: "0%"
+          bottom: "0%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".border",
-        easing: "easeInQuart"
+        easing: "easeInQuart",
       }
     );
 
-    const contentOut = new Anime.Anime(
+    const contentOut = new CSSEffect(
       {
         animatedAttrs: {
-          bottom: "-120%"
+          bottom: "-120%",
         },
         initialValues: {
-          bottom: "15%"
+          bottom: "15%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".content-container",
-        easing: "easeInQuart"
+        easing: "easeInQuart",
       }
     );
 
-    const subtitleOut = new Anime.Anime(
+    const subtitleOut = new CSSEffect(
       {
         animatedAttrs: {
-          left: "-120%"
+          left: "-120%",
         },
         initialValues: {
-          left: "10%"
+          left: "10%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".subtitle-holder",
-        easing: "easeInQuart"
+        easing: "easeInQuart",
       }
     );
 
-    const titleOut = new Anime.Anime(
+    const titleOut = new CSSEffect(
       {
         animatedAttrs: {
-          top: "-120%"
+          top: "-120%",
         },
         initialValues: {
-          top: "40%"
+          top: "40%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 2000,
         selector: ".title-holder",
-        easing: "easeInQuart"
+        easing: "easeInQuart",
       }
     );
 
-    const bgout = new Anime.Anime(
+    const bgout = new CSSEffect(
       {
         animatedAttrs: {
           width: "0px",
-          opacity: 0
+          opacity: 0,
         },
 
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 1,
-        selector: ".bg"
+        selector: ".bg",
       }
     );
 

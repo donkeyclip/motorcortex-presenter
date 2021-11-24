@@ -1,6 +1,6 @@
 import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
 import Player from "@donkeyclip/motorcortex-player";
-import presenter from "../dist/motorcortex-presenter.umd.js";
+import presenter from "../dist/motorcortex-presenter.esm.js";
 
 const Clip = loadPlugin(presenter);
 const overlay = ["#0012E2c0", "#101820FF"];
@@ -27,8 +27,8 @@ const clip = new HTMLClip({
   host: document.getElementById("clip"),
   containerParams: {
     width: "1270px",
-    height: "720px"
-  }
+    height: "720px",
+  },
 });
 
 const introClip = new Clip.Intro(
@@ -46,10 +46,10 @@ const introClip = new Clip.Intro(
     bgUrl:
       "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/bg.jpg",
     overlayColor: overlay,
-    fontColor: "#fff"
+    fontColor: "#fff",
   },
   {
-    selector: ".container6"
+    selector: ".container6",
   }
 );
 
@@ -71,11 +71,10 @@ const SlideOneSVG = new Clip.SlideOneSVG(
     fontColor: "#fff",
     contentColor: "#c10000",
     contentTitle: "Scope",
-    app:
-      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/app.png"
+    app: "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/app.png",
   },
   {
-    selector: ".container5"
+    selector: ".container5",
   }
 );
 
@@ -98,11 +97,10 @@ const SlideTwoSVG = new Clip.SlideTwoSVG(
     contentColor: "#c10000",
     contentTitle: "Scope",
     fonSize: 40,
-    app:
-      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/app.png"
+    app: "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/app.png",
   },
   {
-    selector: ".container4"
+    selector: ".container4",
   }
 );
 
@@ -125,11 +123,10 @@ const SlideThreeSVG = new Clip.SlideThreeSVG(
     contentColor: "#c10000",
     contentTitle: "Scope",
     fonSize: 40,
-    app:
-      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/app.png"
+    app: "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/app.png",
   },
   {
-    selector: ".container3"
+    selector: ".container3",
   }
 );
 
@@ -148,7 +145,7 @@ const TechnologiesSVG = new Clip.TechnologiesSVG(
       "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/2.png",
       "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/3.png",
       "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/4.png",
-      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/5.png"
+      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/5.png",
     ],
     bgColor: "#000c8f",
     overlayColor: overlay,
@@ -156,10 +153,10 @@ const TechnologiesSVG = new Clip.TechnologiesSVG(
     contentColor: "#c10000",
     contentTitle: "Technologies",
     fonSize: 40,
-    contentSubTitle: "USed"
+    contentSubTitle: "USed",
   },
   {
-    selector: ".container2"
+    selector: ".container2",
   }
 );
 
@@ -173,8 +170,7 @@ const HighlightsSVG = new Clip.HighlightsSVG(
     compLogo:
       "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/logo.png",
     title: "RMIS / University of Zurich",
-    app:
-      "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/appLong.png",
+    app: "https://donkeyclip.github.io/motorcortex-presenter/demo/assets/appLong.png",
     bgColor: "#000c8f",
     overlayColor: overlay,
     fontColor: "#fff",
@@ -182,10 +178,10 @@ const HighlightsSVG = new Clip.HighlightsSVG(
     contentTitle: "Highlights",
     fonSize: 40,
     contentSubTitle: "USed",
-    scroll: true
+    scroll: true,
   },
   {
-    selector: ".container1"
+    selector: ".container1",
   }
 );
 
