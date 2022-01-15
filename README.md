@@ -26,6 +26,13 @@
 # Intro / Features
 If you are looking for a simple way to create amazing clip presentations, MotorCortex-Presenter is the right plugin for you.
 
+This Plugin exposes five Incident:
+- Intro
+- SlideOne
+- SlideTwo
+- Technologies
+- Highlights
+
 # Getting Started
 
 ## Installation
