@@ -1,6 +1,32 @@
-# motorcortex-presenter
+# MotorCortex-Presenter
 
-## [Demo](https://donkeyclip.github.io/motorcortex-presenter/demo/)
+**Table of Contents**
+
+- [MotorMortex-Presenter](#motorcortex-presenter)
+  - [Demo](#demo)
+- [Intro / Features](#intro--features)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Importing and Loading](#importing-and-loading)
+- [Creating Incidents](#creating-incidents)
+  - [Intro](#intro)
+  - [SlideOne](#slideone)
+  - [SlideTwo / SlideThree](#slidetwo--slidethree)
+  - [Technologies](#technologies)
+  - [Highlights](#highlights)
+  - [Clip classes](#clip-classes)
+- [Adding Incidents in your clip](#adding-incidents-in-your-clip)
+- [Contributing](#contributing)
+- [License](#license)
+- [Sponsored by](#sponsored-by)
+
+## Demo
+[Check it out here](https://donkeyclip.github.io/motorcortex-presenter/demo/)
+
+# Intro / Features
+If you are looking for a simple way to create amazing clip presentations, MotorCortex-Presenter is the right plugin for you.
+
+# Getting Started
 
 ## Installation
 
@@ -10,17 +36,17 @@ $ npm install --save @donkeyclip/motorcortex-presenter
 $ yarn add @donkeyclip/motorcortex-presenter
 ```
 
-## Loading
+## Importing and loading
 
 ```javascript
-const MotorCortex = require("@donkeyclip/motorcortex/");
+const { loadPlugin } = require("@donkeyclip/motorcortex/");
 const presenterPlugin = require("@donkeyclip/motorcortex-presenter");
-const Clip = MotorCortex.loadPlugin(presenterPlugin);
+const Clip = loadPlugin(presenterPlugin);
 ```
 
-# Create incident
+# Creating Incidents
 
-## introClip
+## Intro 
 
 ```javascript
 const introClip = new Clip.Intro(
@@ -44,7 +70,7 @@ const introClip = new Clip.Intro(
 );
 ```
 
-### introClip Attrs
+### Intro Attrs
 
 | Name            |                  Are                  |                    Values |
 | --------------- | :-----------------------------------: | ------------------------: |
@@ -106,7 +132,7 @@ const SlideOne = new Clip.SlideOne(
 | fontColor                 |                   the color of fonts                   |             hex values or RGB or text |
 | app                       |                    path of app img                     |                                string |
 
-## SlideTwo,SlideThree
+## SlideTwo / SlideThree
 
 ```javascript
 const SlideTwo = new Clip.SlideTwo(
@@ -134,7 +160,7 @@ const SlideTwo = new Clip.SlideTwo(
 );
 ```
 
-### SlideTwo,SlideThree Attrs
+### SlideTwo / SlideThree Attrs
 
 | Name            |                            Are                            |                                Values |
 | --------------- | :-------------------------------------------------------: | ------------------------------------: |
@@ -247,13 +273,7 @@ const Highlights = new Clip.Highlights(
 
 | scroll | if the app img will scroll | boolean |
 
-# Add incident to your clip
-
-```javascript
-clip.addIncident(nameOfIncident, 0);
-```
-
-# Clip classes
+## Clip classes
 
 | Clip         |   Svg version   |
 | ------------ | :-------------: |
@@ -264,8 +284,25 @@ clip.addIncident(nameOfIncident, 0);
 | Technologies | TechnologiesSVG |
 | Highlights   |  HighlightsSVG  |
 
-## License
+# Adding Incidents in your clip
+
+```javascript
+clipName.addIncident(incidentName,startTime);
+```
+
+# Contributing 
+
+In general, we follow the "fork-and-pull" Git workflow, so if you want to submit patches and additions you should follow the next steps:
+1.	**Fork** the repo on GitHub
+2.	**Clone** the project to your own machine
+3.	**Commit** changes to your own branch
+4.	**Push** your work back up to your fork
+5.	Submit a **Pull request** so that we can review your changes
+
+# License
 
 [MIT License](https://opensource.org/licenses/MIT)
 
+# Sponsored by
 [<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)
+
