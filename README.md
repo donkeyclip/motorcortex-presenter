@@ -2,7 +2,7 @@
 
 **Table of Contents**
 
-- [MotorMortex-Presenter](#motorcortex-presenter)
+- [MotorCortex-Presenter](#motorcortex-presenter)
   - [Demo](#demo)
 - [Intro / Features](#intro--features)
 - [Getting Started](#getting-started)
