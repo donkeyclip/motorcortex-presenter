@@ -46,8 +46,8 @@ $ yarn add @donkeyclip/motorcortex-presenter
 ## Importing and loading
 
 ```javascript
-const { loadPlugin } = require("@donkeyclip/motorcortex/");
-const presenterPlugin = require("@donkeyclip/motorcortex-presenter");
+import { loadPlugin } from "@donkeyclip/motorcortex";
+import presenterPlugin from "@donkeyclip/motorcortex-presenter";
 const Clip = loadPlugin(presenterPlugin);
 ```
 
