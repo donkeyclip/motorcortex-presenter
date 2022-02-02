@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.1.0...v1.1.1) (2022-02-02)
+
+
+### Bug Fixes
+
+* fix fonts and demo ([e89183b](https://www.github.com/donkeyclip/motorcortex-presenter/commit/e89183b72c7c7376ce60c60cc74ecc3912a4b934))
+
 ## [1.1.0](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.0.11...v1.1.0) (2021-11-24)
 
 
