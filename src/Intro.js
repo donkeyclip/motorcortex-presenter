@@ -13,11 +13,11 @@ export default class Intro extends HTMLClip {
     return fontsize;
   }
 
-  get font() {
+  get fonts() {
     return [
       {
         type: `google-font`,
-        src: `href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap`,
+        src: `https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`,
       },
     ];
   }
@@ -60,7 +60,7 @@ export default class Intro extends HTMLClip {
         align-items: center;
         flex-direction: column;
         color: ${this.attrs.fontColor};
-        font-family: lato;
+        font-family: 'Lato';
       }
 
       .bg:after {

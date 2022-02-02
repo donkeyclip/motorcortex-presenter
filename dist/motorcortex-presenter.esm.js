@@ -1280,11 +1280,11 @@ var Intro = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -1299,7 +1299,7 @@ var Intro = /*#__PURE__*/function (_HTMLClip) {
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1270px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .logo-client img {\n        width : ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .logo-comp img {\n        width : ").concat(this.attrs.compLogoWidth, "px\n      }\n\n      .logo-comp,.date{\n        position: relative;\n        top: 200%;\n      }\n\n      .logo-client{\n        position: relative ;\n        top : -100%;\n      }\n\n      .container-logo{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        flex: 1;\n        overflow: hidden;\n        position: relative;\n      }\n\n      .date-container{\n        display: flex;\n        align-items: flex-end;\n        margin: 2%;\n        justify-content: space-between;\n        width: 90%;\n        position: relative;\n      }\n   \n      .line{\n        border-top: 5px solid ").concat(this.attrs.fontColor, ";\n        width: 100%;\n        position : relative;\n        top: -100%;\n      }\n\n      .pro-name {\n        position : relative;\n        font-size: 50px;\n        overflow: hidden;\n        padding-top: 10%;\n        top: -100%;\n      }\n\n      .date{\n        font-size: 20px;\n      }\n      \n      .wrapper{ \n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        width: 100%;\n        height: 100%;\n\n      }\n    ");
+      return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1270px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: 'Lato';\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .logo-client img {\n        width : ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .logo-comp img {\n        width : ").concat(this.attrs.compLogoWidth, "px\n      }\n\n      .logo-comp,.date{\n        position: relative;\n        top: 200%;\n      }\n\n      .logo-client{\n        position: relative ;\n        top : -100%;\n      }\n\n      .container-logo{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        flex: 1;\n        overflow: hidden;\n        position: relative;\n      }\n\n      .date-container{\n        display: flex;\n        align-items: flex-end;\n        margin: 2%;\n        justify-content: space-between;\n        width: 90%;\n        position: relative;\n      }\n   \n      .line{\n        border-top: 5px solid ").concat(this.attrs.fontColor, ";\n        width: 100%;\n        position : relative;\n        top: -100%;\n      }\n\n      .pro-name {\n        position : relative;\n        font-size: 50px;\n        overflow: hidden;\n        padding-top: 10%;\n        top: -100%;\n      }\n\n      .date{\n        font-size: 20px;\n      }\n      \n      .wrapper{ \n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        width: 100%;\n        height: 100%;\n\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -1484,11 +1484,11 @@ var SlideOne = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -1665,11 +1665,11 @@ var SlideTwo = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -1846,11 +1846,11 @@ var SlideThree = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -2028,11 +2028,11 @@ var Technologies = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -2221,11 +2221,11 @@ var Highlights = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -2404,11 +2404,11 @@ var SlideOneSVG = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -2585,11 +2585,11 @@ var SlideTwoSVG = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -2766,11 +2766,11 @@ var SlideThreeSVG = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -2947,11 +2947,11 @@ var TechnologiesSVG = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
@@ -3140,11 +3140,11 @@ var HighlightsSVG = /*#__PURE__*/function (_HTMLClip) {
       return fontsize;
     }
   }, {
-    key: "font",
+    key: "fonts",
     get: function get() {
       return [{
         type: "google-font",
-        src: "href=\"https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap"
+        src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
       }];
     }
   }, {
