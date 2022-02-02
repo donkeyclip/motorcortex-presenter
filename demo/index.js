@@ -29,6 +29,14 @@ const clip = new HTMLClip({
     width: "1270px",
     height: "720px",
   },
+//  fonts:
+//     [
+//       {
+//         type: `google-font`,
+//         src: `https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`,
+//       },
+//     ]
+  
 });
 
 const introClip = new Clip.Intro(
