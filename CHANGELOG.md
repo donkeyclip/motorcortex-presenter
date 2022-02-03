@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.2](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.1.1...v1.1.2) (2022-02-03)
+
+
+### Bug Fixes
+
+* fix package-lock ([e5d3d83](https://www.github.com/donkeyclip/motorcortex-presenter/commit/e5d3d83c9c8cbb39273da3d4eb1387ad3b28a794))
+
 ### [1.1.1](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.1.0...v1.1.1) (2022-02-02)
 
 
