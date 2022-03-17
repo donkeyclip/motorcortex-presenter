@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.1.2...v1.2.0) (2022-03-17)
+
+
+### Features
+
+* declare mc 8 as compatible ([35efbcb](https://www.github.com/donkeyclip/motorcortex-presenter/commit/35efbcb172c7e6939dd76263c642bf336bf16fac))
+
 ### [1.1.2](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.1.1...v1.1.2) (2022-02-03)
 
 
