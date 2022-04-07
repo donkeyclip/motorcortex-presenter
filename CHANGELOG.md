@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.0](https://github.com/donkeyclip/motorcortex-presenter/compare/v1.2.0...v1.3.0) (2022-04-07)
+
+
+### Features
+
+* drop explorer 11 support ([c3c24e6](https://github.com/donkeyclip/motorcortex-presenter/commit/c3c24e63de9974f84cfeec9fae35e9fda4506961))
+* update compatibility with motorcortex ([a544f4c](https://github.com/donkeyclip/motorcortex-presenter/commit/a544f4ce010bd2d39378ba05541b53cfb26c3dc8))
+
 ## [1.2.0](https://www.github.com/donkeyclip/motorcortex-presenter/compare/v1.1.2...v1.2.0) (2022-03-17)
 
 
