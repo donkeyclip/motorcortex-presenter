@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.3.1](https://github.com/donkeyclip/motorcortex-presenter/compare/v1.3.0...v1.3.1) (2022-05-16)
+
+
+### Bug Fixes
+
+* delete commitlint.config.js ([bcdb432](https://github.com/donkeyclip/motorcortex-presenter/commit/bcdb4328dc517b0452bc76381e7260a9045c2efc))
+
 ## [1.3.0](https://github.com/donkeyclip/motorcortex-presenter/compare/v1.2.0...v1.3.0) (2022-04-07)
 
 
