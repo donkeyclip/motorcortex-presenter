@@ -4,25 +4,20 @@ class Intro extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -44,7 +39,6 @@ class Intro extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -142,7 +136,6 @@ class Intro extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const logoIn = new CSSEffect({
       animatedAttrs: {
@@ -211,25 +204,20 @@ class Intro extends HTMLClip {
     this.addIncident(logoCompIn, 0);
     this.addIncident(bgout, 3000);
   }
-
 }
 
 class IntroFade extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -250,7 +238,6 @@ class IntroFade extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -325,7 +312,6 @@ class IntroFade extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const fadeIn = new CSSEffect({
       animatedAttrs: {
@@ -358,32 +344,26 @@ class IntroFade extends HTMLClip {
     this.addIncident(fadeIn, 0);
     this.addIncident(bgout, 4000);
   }
-
 }
 
 class SlideOne extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -412,7 +392,6 @@ class SlideOne extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -538,7 +517,6 @@ class SlideOne extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const content = new CSSEffect({
       animatedAttrs: {
@@ -664,32 +642,26 @@ class SlideOne extends HTMLClip {
     this.addIncident(borderOut, 4000);
     this.addIncident(bgout, 6000);
   }
-
 }
 
 class SlideTwo extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -716,7 +688,6 @@ class SlideTwo extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -835,7 +806,6 @@ class SlideTwo extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const content = new CSSEffect({
       animatedAttrs: {
@@ -961,32 +931,26 @@ class SlideTwo extends HTMLClip {
     this.addIncident(borderOut, 4000);
     this.addIncident(bgout, 6000);
   }
-
 }
 
 class SlideThree extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -1014,7 +978,6 @@ class SlideThree extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -1131,7 +1094,6 @@ class SlideThree extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const content = new CSSEffect({
       animatedAttrs: {
@@ -1257,32 +1219,26 @@ class SlideThree extends HTMLClip {
     this.addIncident(borderOut, 4000);
     this.addIncident(bgout, 6000);
   }
-
 }
 
 class Technologies extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -1306,7 +1262,6 @@ class Technologies extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .img img{
@@ -1428,14 +1383,11 @@ class Technologies extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     let html = "";
-
     for (let i = 0; i < this.attrs.logos.length; i++) {
       html += `<div class="img"><img src="${this.attrs.logos[i]}"/></div>`;
     }
-
     const word = new HTMLClip({
       css: this.css,
       html: `<div class="img-container">${html}</div>`,
@@ -1566,32 +1518,26 @@ class Technologies extends HTMLClip {
     this.addIncident(titleOut, 4000);
     this.addIncident(bgout, 6000);
   }
-
 }
 
 class Highlights extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -1616,7 +1562,6 @@ class Highlights extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .app-img{
@@ -1747,7 +1692,6 @@ class Highlights extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const scroll = 0;
     const border = new CSSEffect({
@@ -1874,32 +1818,26 @@ class Highlights extends HTMLClip {
     this.addIncident(titleOut, 4000 + scroll);
     this.addIncident(bgout, 6000 + scroll);
   }
-
 }
 
 class SlideOneSVG extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -1932,7 +1870,6 @@ class SlideOneSVG extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -2070,7 +2007,6 @@ class SlideOneSVG extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const content = new CSSEffect({
       animatedAttrs: {
@@ -2196,32 +2132,26 @@ class SlideOneSVG extends HTMLClip {
     this.addIncident(borderOut, 4000);
     this.addIncident(bgout, 6000);
   }
-
 }
 
 class SlideTwoSVG extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -2252,7 +2182,6 @@ class SlideTwoSVG extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -2384,7 +2313,6 @@ class SlideTwoSVG extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const content = new CSSEffect({
       animatedAttrs: {
@@ -2510,32 +2438,26 @@ class SlideTwoSVG extends HTMLClip {
     this.addIncident(borderOut, 4000);
     this.addIncident(bgout, 6000);
   }
-
 }
 
 class SlideThreeSVG extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -2566,7 +2488,6 @@ class SlideThreeSVG extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -2697,7 +2618,6 @@ class SlideThreeSVG extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const content = new CSSEffect({
       animatedAttrs: {
@@ -2823,32 +2743,26 @@ class SlideThreeSVG extends HTMLClip {
     this.addIncident(borderOut, 4000);
     this.addIncident(bgout, 6000);
   }
-
 }
 
 class TechnologiesSVG extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -2876,7 +2790,6 @@ class TechnologiesSVG extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .img img{
@@ -3010,14 +2923,11 @@ class TechnologiesSVG extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     let html = "";
-
     for (let i = 0; i < this.attrs.logos.length; i++) {
       html += `<div class="img"><img src="${this.attrs.logos[i]}"/></div>`;
     }
-
     const word = new HTMLClip({
       css: this.css,
       html: `<div class="img-container">${html}</div>`,
@@ -3148,32 +3058,26 @@ class TechnologiesSVG extends HTMLClip {
     this.addIncident(titleOut, 4000);
     this.addIncident(bgout, 6000);
   }
-
 }
 
 class HighlightsSVG extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = Math.round(width / 0.6 / lc);
-
     if (fontsize >= 100 && width <= 1270) {
       fontsize = 100;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 60;
     }
-
     return fontsize;
   }
-
   get fonts() {
     return [{
       type: `google-font`,
       src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
-
   get html() {
     this.attrs.overlayColor ??= "#ff00b34d";
     this.attrs.mainColor ??= "#00ff40";
@@ -3201,7 +3105,6 @@ class HighlightsSVG extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .app-img{
@@ -3344,7 +3247,6 @@ class HighlightsSVG extends HTMLClip {
       }  
     `;
   }
-
   buildTree() {
     let scroll = 0;
     const border = new CSSEffect({
@@ -3478,19 +3380,16 @@ class HighlightsSVG extends HTMLClip {
     this.addIncident(content, 0);
     this.addIncident(subtitle, 0);
     this.addIncident(title, 0);
-
     if (this.attrs.scroll) {
       this.addIncident(appScroll, 4000);
       scroll = 2000;
     }
-
     this.addIncident(borderOut, 4000 + scroll);
     this.addIncident(contentOut, 4000 + scroll);
     this.addIncident(subtitleOut, 4000 + scroll);
     this.addIncident(titleOut, 4000 + scroll);
     this.addIncident(bgout, 6000 + scroll);
   }
-
 }
 
 const _COLOR = "color";
