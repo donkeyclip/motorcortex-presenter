@@ -18,21 +18,129 @@ class Intro extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"wrapper\">\n          <div class=\"container-logo\">\n            <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n            <div class=\"line\"> </div>\n            <div class=\"pro-name\">\n              <span> ").concat(this.attrs.title, "</span>\n            </div>\n          </div>\n          <div class=\"date-container\">\n            <div class=\"logo-comp\"><img src=\"").concat(this.attrs.compLogo, "\"></div>\n            <div class=\"date\">Date : ").concat(this.attrs.date, "</div>\n          </div>\n        </div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="wrapper">
+          <div class="container-logo">
+            <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+            <div class="line"> </div>
+            <div class="pro-name">
+              <span> ${this.attrs.title}</span>
+            </div>
+          </div>
+          <div class="date-container">
+            <div class="logo-comp"><img src="${this.attrs.compLogo}"></div>
+            <div class="date">Date : ${this.attrs.date}</div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1270px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: 'Lato';\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .logo-client img {\n        width : ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .logo-comp img {\n        width : ").concat(this.attrs.compLogoWidth, "px\n      }\n\n      .logo-comp,.date{\n        position: relative;\n        top: 200%;\n      }\n\n      .logo-client{\n        position: relative ;\n        top : -100%;\n      }\n\n      .container-logo{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        flex: 1;\n        overflow: hidden;\n        position: relative;\n      }\n\n      .date-container{\n        display: flex;\n        align-items: flex-end;\n        margin: 2%;\n        justify-content: space-between;\n        width: 90%;\n        position: relative;\n      }\n   \n      .line{\n        border-top: 5px solid ").concat(this.attrs.fontColor, ";\n        width: 100%;\n        position : relative;\n        top: -100%;\n      }\n\n      .pro-name {\n        position : relative;\n        font-size: 50px;\n        overflow: hidden;\n        padding-top: 10%;\n        top: -100%;\n      }\n\n      .date{\n        font-size: 20px;\n      }\n      \n      .wrapper{ \n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        width: 100%;\n        height: 100%;\n\n      }\n    ");
+    return `
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background-image: url(${this.attrs.bgUrl});
+        background-size: 1270px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: 'Lato';
+      }
+
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .logo-client img {
+        width : ${this.attrs.clientLogoWidth}px;
+      }
+
+      .logo-comp img {
+        width : ${this.attrs.compLogoWidth}px
+      }
+
+      .logo-comp,.date{
+        position: relative;
+        top: 200%;
+      }
+
+      .logo-client{
+        position: relative ;
+        top : -100%;
+      }
+
+      .container-logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .date-container{
+        display: flex;
+        align-items: flex-end;
+        margin: 2%;
+        justify-content: space-between;
+        width: 90%;
+        position: relative;
+      }
+   
+      .line{
+        border-top: 5px solid ${this.attrs.fontColor};
+        width: 100%;
+        position : relative;
+        top: -100%;
+      }
+
+      .pro-name {
+        position : relative;
+        font-size: 50px;
+        overflow: hidden;
+        padding-top: 10%;
+        top: -100%;
+      }
+
+      .date{
+        font-size: 20px;
+      }
+      
+      .wrapper{ 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+
+      }
+    `;
   }
 
   buildTree() {
@@ -123,15 +231,99 @@ class IntroFade extends HTMLClip {
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"wrapper\">\n          <div class=\"container-logo\">\n            <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n            <div class=\"pro-name\">\n              <span> ").concat(this.attrs.title, "</span>\n            </div>\n          </div>\n          <div class=\"date-container\">\n            <div class=\"logo-comp\"><img src=\"").concat(this.attrs.compLogo, "\"></div>\n            <div class=\"date\">Date : ").concat(this.attrs.date, "</div>\n          </div>\n        </div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="wrapper">
+          <div class="container-logo">
+            <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+            <div class="pro-name">
+              <span> ${this.attrs.title}</span>
+            </div>
+          </div>
+          <div class="date-container">
+            <div class="logo-comp"><img src="${this.attrs.compLogo}"></div>
+            <div class="date">Date : ${this.attrs.date}</div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: ".concat(this.attrs.width, ";\n        height: ").concat(this.attrs.height, ";\n        position: relative;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1270px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .logo-client img {\n        width : ").concat(this.attrs.clientLogoWidth, " ;\n      }\n\n      .logo-comp img {\n        width : ").concat(this.attrs.compLogoWidth, "\n      }\n\n      .container-logo{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        flex: 1 ;\n      }\n\n      .date-container{\n        display: flex;\n        align-items: flex-end;\n        margin: 2%;\n        justify-content: space-between;\n        width: 90%;\n      }\n\n      .pro-name {\n        font-size: 50px;\n        border-top: 5px solid #fff;\n        padding-top: 5%;\n      }\n      .date{\n        font-size: 20px;\n      }\n      \n      .wrapper{ \n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        width: 100%;\n        height: 100%;\n        transform: scale(2);\n        opacity: 0;\n      }\n    ");
+    return `
+      .bg {
+        width: ${this.attrs.width};
+        height: ${this.attrs.height};
+        position: relative;
+        background-image: url(${this.attrs.bgUrl});
+        background-size: 1270px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+      }
+
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .logo-client img {
+        width : ${this.attrs.clientLogoWidth} ;
+      }
+
+      .logo-comp img {
+        width : ${this.attrs.compLogoWidth}
+      }
+
+      .container-logo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        flex: 1 ;
+      }
+
+      .date-container{
+        display: flex;
+        align-items: flex-end;
+        margin: 2%;
+        justify-content: space-between;
+        width: 90%;
+      }
+
+      .pro-name {
+        font-size: 50px;
+        border-top: 5px solid #fff;
+        padding-top: 5%;
+      }
+      .date{
+        font-size: 20px;
+      }
+      
+      .wrapper{ 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        transform: scale(2);
+        opacity: 0;
+      }
+    `;
   }
 
   buildTree() {
@@ -187,21 +379,164 @@ class SlideOne extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"></div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\" >\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n            <p class=\"text2\"> ").concat(this.attrs.textTwo, "</p>\n            <p class=\"text3\" > ").concat(this.attrs.textThree, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\"></div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"></div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container">
+          <div class= "content-wrapper" >
+            <p class="text1">${this.attrs.textOne}</p>
+            <p class="text2"> ${this.attrs.textTwo}</p>
+            <p class="text3" > ${this.attrs.textThree}</p>
+          </div>
+        </div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="app-holder"></div>
+        <div class="border"></div>
+        <div class="border1"></div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : 100%;\n        left : 5%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 0;\n        position: relative;\n        \n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n\n      .text1{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textOne.length, this.attrs.width * 0.55), "px;\n      }\n\n      .text2{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textTwo.length, this.attrs.width * 0.5), "px;\n      }\n\n      .text3{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textThree.length, this.attrs.width * 0.5), "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 40%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 0;\n        border-left: 5px solid;\n        border-top: 5px solid;\n        border-right: 5px solid;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 2;\n        box-shadow: -21px 25px 23px rgba(0,0,0,0.65);\n        border-left: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 100%;\n        left: 55%;\n        width: ").concat(this.attrs.width * 0.3, "px;\n        display: flex;\n        justify-content: center;\n        \n      }\n    ");
+    return `
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.65}px;
+        height: ${this.attrs.height * 0.6}px;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+        position: absolute;
+        top : 100%;
+        left : 5%;
+        display:flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background: ${this.attrs.contentColor};
+        z-index: 2;
+      }
+
+      .content-wrapper{
+        margin: 0;
+        position: relative;
+        
+      }
+
+      p{
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 200;
+      }
+
+      .text1{
+        font-size: ${this.dinamicFontSize(this.attrs.textOne.length, this.attrs.width * 0.55)}px;
+      }
+
+      .text2{
+        font-size: ${this.dinamicFontSize(this.attrs.textTwo.length, this.attrs.width * 0.5)}px;
+      }
+
+      .text3{
+        font-size: ${this.dinamicFontSize(this.attrs.textThree.length, this.attrs.width * 0.5)}px;
+      }
+
+      .app-holder{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 40%;
+        z-index: 1;
+        background: url(${this.attrs.app});
+        background-size: cover;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+      }
+    
+      .border{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 7%;
+        z-index: 0;
+        border-left: 5px solid;
+        border-top: 5px solid;
+        border-right: 5px solid;
+        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      }
+
+      .border1{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 7%;
+        z-index: 2;
+        box-shadow: -21px 25px 23px rgba(0,0,0,0.65);
+        border-left: 5px solid;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top: 100%;
+        left: 55%;
+        width: ${this.attrs.width * 0.3}px;
+        display: flex;
+        justify-content: center;
+        
+      }
+    `;
   }
 
   buildTree() {
@@ -350,21 +685,155 @@ class SlideTwo extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\" >\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\"></div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"> </div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container">
+          <div class= "content-wrapper" >
+            <p class="text1">${this.attrs.textOne}</p>
+          </div>
+        </div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="app-holder"></div>
+        <div class="border"></div>
+        <div class="border1"></div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : 25%;\n        right : 100%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 0;\n        position: relative;\n        width: ").concat(this.attrs.width * 0.55, "px;\n        height: ").concat(this.attrs.height * 0.5, "px;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n\n      .text1{\n        font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 10%;\n        left: 100%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 5%;\n        right: 100%;\n        z-index: 0;\n        border-left: 5px solid;\n        border-top: 5px solid;\n        border-left: 5px solid;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 5%;\n        right:-100%;\n        z-index: 2;\n        box-shadow: 22px 25px 23px rgba(0,0,0,0.65);\n        border-right: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 100%;\n        right: 0%;\n        width: ").concat(this.attrs.width * 0.4, "px;\n        display: flex;\n        justify-content: center;\n        \n      }\n    ");
+    return `
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.65}px;
+        height: ${this.attrs.height * 0.6}px;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+        position: absolute;
+        top : 25%;
+        right : 100%;
+        display:flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background: ${this.attrs.contentColor};
+        z-index: 2;
+      }
+
+      .content-wrapper{
+        margin: 0;
+        position: relative;
+        width: ${this.attrs.width * 0.55}px;
+        height: ${this.attrs.height * 0.5}px;
+      }
+
+      p{
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 200;
+      }
+
+      .text1{
+        font-size: ${this.attrs.fonSize}px;
+      }
+
+      .app-holder{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 10%;
+        left: 100%;
+        z-index: 1;
+        background: url(${this.attrs.app});
+        background-size: cover;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+      }
+    
+      .border{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 5%;
+        right: 100%;
+        z-index: 0;
+        border-left: 5px solid;
+        border-top: 5px solid;
+        border-left: 5px solid;
+        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      }
+
+      .border1{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 5%;
+        right:-100%;
+        z-index: 2;
+        box-shadow: 22px 25px 23px rgba(0,0,0,0.65);
+        border-right: 5px solid;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top: 100%;
+        right: 0%;
+        width: ${this.attrs.width * 0.4}px;
+        display: flex;
+        justify-content: center;
+        
+      }
+    `;
   }
 
   buildTree() {
@@ -513,22 +982,154 @@ class SlideThree extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\">\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\"></div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    this.attrs.speed ??= 2;
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"> </div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container">
+          <div class= "content-wrapper">
+            <p class="text1">${this.attrs.textOne}</p>
+          </div>
+        </div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="app-holder"></div>
+        <div class="border"></div>
+        <div class="border1"></div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : -100%;\n        left : 5%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 5%;\n        position: relative;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n   \n      .text1{\n        font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 40%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 0;\n        border-left: 5px solid;\n        border-top: 5px solid;\n        border-right: 5px solid;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.33, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 2;\n        box-shadow: -23px -4px 23px rgba(0,0,0,0.65);\n        border-left: 5px solid;\n        border-top: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 80%;\n        left: 120%;\n        width: ").concat(this.attrs.width * 0.3, "px;\n        display: flex;\n        justify-content: center;\n      }\n    ");
+    return `
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.65}px;
+        height: ${this.attrs.height * 0.6}px;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+        position: absolute;
+        top : -100%;
+        left : 5%;
+        display:flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background: ${this.attrs.contentColor};
+        z-index: 2;
+      }
+
+      .content-wrapper{
+        margin: 5%;
+        position: relative;
+      }
+
+      p{
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 200;
+      }
+   
+      .text1{
+        font-size: ${this.attrs.fonSize}px;
+      }
+
+      .app-holder{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 40%;
+        z-index: 1;
+        background: url(${this.attrs.app});
+        background-size: cover;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+      }
+    
+      .border{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 7%;
+        z-index: 0;
+        border-left: 5px solid;
+        border-top: 5px solid;
+        border-right: 5px solid;
+        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      }
+
+      .border1{
+        width: ${this.attrs.width * 0.33}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 7%;
+        z-index: 2;
+        box-shadow: -23px -4px 23px rgba(0,0,0,0.65);
+        border-left: 5px solid;
+        border-top: 5px solid;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top: 80%;
+        left: 120%;
+        width: ${this.attrs.width * 0.3}px;
+        display: flex;
+        justify-content: center;
+      }
+    `;
   }
 
   buildTree() {
@@ -677,33 +1278,167 @@ class Technologies extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\"> </div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"> </div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container"></div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="subtitle-holder">
+          <span> ${this.attrs.contentSubTitle}</span>
+        </div>
+        <div class="border"> </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .img img{\n        width:80%;\n        -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n        filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n      }\n\n      .img{\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n      }\n\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        bottom: 120%;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .img-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.5, "px;\n        height: 200%;\n        position: absolute;  \n        overflow: hidden;      \n        bottom: -150%;    \n        left: 7%;     \n        z-index: 0;     \n        border-left: 5px solid;     \n        border: 5px solid;    \n        box-shadow: -8px -3px 23px\n        rgba(0,0,0,0.65);   \n        -ms-transform: rotate(-45deg);     \n        -ms-transform-origin: 20% 40%;  \n        -webkit-transform: rotate(-45deg); \n        -webkit-transform-origin: 69% 83%;\n        transform: rotate(79deg);\n      }\n\n      .subtitle-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: #c10000;\n        z-index: 3;\n        text-transform: uppercase;\n        box-shadow: -20px 9px 44px rgb(0, 0, 0);\n        position: absolute;\n        top:33%;\n        left:120%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.2, "px;\n        height: ").concat(this.attrs.height * 0.15, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top:120%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.2, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n    ");
+    return `
+      .img img{
+        width:80%;
+        -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));
+        filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));
+      }
+
+      .img{
+        display:flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+      }
+
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.84}px;
+        height: ${this.attrs.height * 0.42}px;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+        position: absolute;
+        bottom: 120%;
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        background: ${this.attrs.contentColor};
+        z-index: 2;
+      }
+
+      .img-container{
+        width: ${this.attrs.width * 0.84}px;
+        height: ${this.attrs.height * 0.42}px;
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+      }
+    
+      .border{
+        width: ${this.attrs.width * 0.5}px;
+        height: 200%;
+        position: absolute;  
+        overflow: hidden;      
+        bottom: -150%;    
+        left: 7%;     
+        z-index: 0;     
+        border-left: 5px solid;     
+        border: 5px solid;    
+        box-shadow: -8px -3px 23px
+        rgba(0,0,0,0.65);   
+        -ms-transform: rotate(-45deg);     
+        -ms-transform-origin: 20% 40%;  
+        -webkit-transform: rotate(-45deg); 
+        -webkit-transform-origin: 69% 83%;
+        transform: rotate(79deg);
+      }
+
+      .subtitle-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15)}px;
+        color:${this.attrs.bgColor};
+        background: #c10000;
+        z-index: 3;
+        text-transform: uppercase;
+        box-shadow: -20px 9px 44px rgb(0, 0, 0);
+        position: absolute;
+        top:33%;
+        left:120%;
+        font-weight: 900;
+        width: ${this.attrs.width * 0.2}px;
+        height: ${this.attrs.height * 0.15}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top:120%;
+        font-weight: 900;
+        width: ${this.attrs.width * 0.45}px;
+        height: ${this.attrs.height * 0.2}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    `;
   }
 
   buildTree() {
     let html = "";
 
     for (let i = 0; i < this.attrs.logos.length; i++) {
-      html += "<div class=\"img\"><img src=\"".concat(this.attrs.logos[i], "\"/></div>");
+      html += `<div class="img"><img src="${this.attrs.logos[i]}"/></div>`;
     }
 
     const word = new HTMLClip({
       css: this.css,
-      html: "<div class=\"img-container\">".concat(html, "</div>"),
+      html: `<div class="img-container">${html}</div>`,
       selector: ".content-container"
     });
     this.addIncident(word, 0);
@@ -852,22 +1587,165 @@ class Highlights extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo, _this$attrs3, _this$attrs3$speed;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    (_this$attrs3$speed = (_this$attrs3 = this.attrs).speed) !== null && _this$attrs3$speed !== void 0 ? _this$attrs3$speed : _this$attrs3.speed = 2;
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\"></div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    this.attrs.speed ??= 2;
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"> </div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container"></div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="subtitle-holder">
+          <span> ${this.attrs.contentSubTitle}</span>
+        </div>
+        <div class="border"></div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .app-img{\n        height: 101%;\n        object-fit: cover;\n      }\n\n      .img{\n        object-fit: cover;\n      }\n\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.82, "px;\n        position: absolute;\n        bottom: 120%;\n        right: 7%;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n        background: url(").concat(this.attrs.app, ");\n        z-index: 2;\n        transform: skew(-18deg, 0deg) rotateX(6deg);\n        filter: drop-shadow(31px 35px 53px\n        rgb(0, 0, 0));\n        background-size: cover;\n      }\n\n      .img-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n\n      }\n    \n      .border{\n        width: ").concat(this.attrs.width * 0.5, "px;\n        height: 200%;\n        position: absolute;  \n        overflow: hidden;      \n        bottom: -150%;    \n        left: 7%;     \n        z-index: 0;     \n        border-left: 5px solid;     \n        border: 5px solid;    \n        box-shadow: -8px -3px 23px\n        rgba(0,0,0,0.65);   \n        -ms-transform: rotate(-45deg);     \n        -ms-transform-origin: 20% 40%;  \n        -webkit-transform: rotate(-45deg); \n        -webkit-transform-origin: 69% 83%;\n        transform: rotate(79deg);\n      }\n\n      .subtitle-holder,.title-holder{\n        -ms-transform-origin: 30% 180%;\n        -webkit-transform: rotate(-10deg);\n        -webkit-transform-origin: 30% 180%;\n        transform: rotate(-10deg);\n      }\n      \n      .subtitle-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: #c10000;\n        z-index: 3;\n        text-transform: uppercase;\n        box-shadow: -20px 9px 44px rgb(0, 0, 0);\n        position: absolute;\n        top:60%;\n        left:-100%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.2, "px;\n        height: ").concat(this.attrs.height * 0.15, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top:40%;\n        left: -100%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.2, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n    ");
+    return `
+      .app-img{
+        height: 101%;
+        object-fit: cover;
+      }
+
+      .img{
+        object-fit: cover;
+      }
+
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.45}px;
+        height: ${this.attrs.height * 0.82}px;
+        position: absolute;
+        bottom: 120%;
+        right: 7%;
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        background: url(${this.attrs.app});
+        z-index: 2;
+        transform: skew(-18deg, 0deg) rotateX(6deg);
+        filter: drop-shadow(31px 35px 53px
+        rgb(0, 0, 0));
+        background-size: cover;
+      }
+
+      .img-container{
+        width: ${this.attrs.width * 0.84}px;
+        height: ${this.attrs.height * 0.42}px;
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+
+      }
+    
+      .border{
+        width: ${this.attrs.width * 0.5}px;
+        height: 200%;
+        position: absolute;  
+        overflow: hidden;      
+        bottom: -150%;    
+        left: 7%;     
+        z-index: 0;     
+        border-left: 5px solid;     
+        border: 5px solid;    
+        box-shadow: -8px -3px 23px
+        rgba(0,0,0,0.65);   
+        -ms-transform: rotate(-45deg);     
+        -ms-transform-origin: 20% 40%;  
+        -webkit-transform: rotate(-45deg); 
+        -webkit-transform-origin: 69% 83%;
+        transform: rotate(79deg);
+      }
+
+      .subtitle-holder,.title-holder{
+        -ms-transform-origin: 30% 180%;
+        -webkit-transform: rotate(-10deg);
+        -webkit-transform-origin: 30% 180%;
+        transform: rotate(-10deg);
+      }
+      
+      .subtitle-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15)}px;
+        color:${this.attrs.bgColor};
+        background: #c10000;
+        z-index: 3;
+        text-transform: uppercase;
+        box-shadow: -20px 9px 44px rgb(0, 0, 0);
+        position: absolute;
+        top:60%;
+        left:-100%;
+        font-weight: 900;
+        width: ${this.attrs.width * 0.2}px;
+        height: ${this.attrs.height * 0.15}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top:40%;
+        left: -100%;
+        font-weight: 900;
+        width: ${this.attrs.width * 0.45}px;
+        height: ${this.attrs.height * 0.2}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    `;
   }
 
   buildTree() {
@@ -1017,21 +1895,180 @@ class SlideOneSVG extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"></div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\" >\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n            <p class=\"text2\"> ").concat(this.attrs.textTwo, "</p>\n            <p class=\"text3\" > ").concat(this.attrs.textThree, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"></div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container">
+          <div class= "content-wrapper" >
+            <p class="text1">${this.attrs.textOne}</p>
+            <p class="text2"> ${this.attrs.textTwo}</p>
+            <p class="text3" > ${this.attrs.textThree}</p>
+          </div>
+        </div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="app-holder"></div>
+        <div class="border">
+          <svg height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" xmlns="http://www.w3.org/2000/svg">
+            <rect class="shape2" height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" />
+          </svg>
+        </div>
+        <div class="border1"></div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : 100%;\n        left : 5%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 0;\n        position: relative;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n\n      .text1{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textOne.length, this.attrs.width * 0.55), "px;\n      }\n\n      .text2{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textTwo.length, this.attrs.width * 0.5), "px;\n      }\n\n      .text3{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.textThree.length, this.attrs.width * 0.5), "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 40%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        position: absolute;\n        overflow: hidden;\n        top: 15%;\n        left: 10%;\n        z-index: 0;\n        transform: rotate(-90deg);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 2;\n        box-shadow: -21px 25px 23px rgba(0,0,0,0.65);\n        border-left: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 100%;\n        left: 55%;\n        width: ").concat(this.attrs.width * 0.3, "px;\n        display: flex;\n        justify-content: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n    ");
+    return `
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.65}px;
+        height: ${this.attrs.height * 0.6}px;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+        position: absolute;
+        top : 100%;
+        left : 5%;
+        display:flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background: ${this.attrs.contentColor};
+        z-index: 2;
+      }
+
+      .content-wrapper{
+        margin: 0;
+        position: relative;
+      }
+
+      p{
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 200;
+      }
+
+      .text1{
+        font-size: ${this.dinamicFontSize(this.attrs.textOne.length, this.attrs.width * 0.55)}px;
+      }
+
+      .text2{
+        font-size: ${this.dinamicFontSize(this.attrs.textTwo.length, this.attrs.width * 0.5)}px;
+      }
+
+      .text3{
+        font-size: ${this.dinamicFontSize(this.attrs.textThree.length, this.attrs.width * 0.5)}px;
+      }
+
+      .app-holder{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 40%;
+        z-index: 1;
+        background: url(${this.attrs.app});
+        background-size: cover;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+      }
+    
+      .border{
+        position: absolute;
+        overflow: hidden;
+        top: 15%;
+        left: 10%;
+        z-index: 0;
+        transform: rotate(-90deg);
+      }
+
+      .border1{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 7%;
+        z-index: 2;
+        box-shadow: -21px 25px 23px rgba(0,0,0,0.65);
+        border-left: 5px solid;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top: 100%;
+        left: 55%;
+        width: ${this.attrs.width * 0.3}px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .svg-wrapper {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+      }
+      
+      .shape2 {
+        stroke-dasharray: 5000;
+        stroke-width: 10px;
+        fill: transparent;
+        stroke: ${this.attrs.fontColor};
+        border-bottom: 5px solid black;
+        stroke-dashoffset: -5000;
+        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      }
+    `;
   }
 
   buildTree() {
@@ -1180,21 +2217,172 @@ class SlideTwoSVG extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\">\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"> </div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container">
+          <div class= "content-wrapper">
+            <p class="text1">${this.attrs.textOne}</p>
+          </div>
+        </div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="app-holder"></div>
+        <div class="border">
+          <svg height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" xmlns="http://www.w3.org/2000/svg">
+            <rect class="shape2" height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" />
+          </svg>
+        </div>
+        <div class="border1"></div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : 25%;\n        right : 100%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 0;\n        position: relative;\n        width: ").concat(this.attrs.width * 0.55, "px;\n        height: ").concat(this.attrs.height * 0.5, "px;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n\n      .text1{\n        font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 10%;\n        left: 100%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        position: absolute;\n        overflow: hidden;\n        top: 1%;\n        right: 7%;\n        z-index: 0;\n        transform: rotate(-90deg);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 5%;\n        right:-100%;\n        z-index: 2;\n        box-shadow: 22px 25px 23px rgba(0,0,0,0.65);\n        border-right: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 100%;\n        right: 0%;\n        width: ").concat(this.attrs.width * 0.4, "px;\n        display: flex;\n        justify-content: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n    ");
+    return `
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.65}px;
+        height: ${this.attrs.height * 0.6}px;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+        position: absolute;
+        top : 25%;
+        right : 100%;
+        display:flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background: ${this.attrs.contentColor};
+        z-index: 2;
+      }
+
+      .content-wrapper{
+        margin: 0;
+        position: relative;
+        width: ${this.attrs.width * 0.55}px;
+        height: ${this.attrs.height * 0.5}px;
+      }
+
+      p{
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 200;
+      }
+
+      .text1{
+        font-size: ${this.attrs.fonSize}px;
+      }
+
+      .app-holder{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 10%;
+        left: 100%;
+        z-index: 1;
+        background: url(${this.attrs.app});
+        background-size: cover;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+      }
+    
+      .border{
+        position: absolute;
+        overflow: hidden;
+        top: 1%;
+        right: 7%;
+        z-index: 0;
+        transform: rotate(-90deg);
+      }
+
+      .border1{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 5%;
+        right:-100%;
+        z-index: 2;
+        box-shadow: 22px 25px 23px rgba(0,0,0,0.65);
+        border-right: 5px solid;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top: 100%;
+        right: 0%;
+        width: ${this.attrs.width * 0.4}px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .svg-wrapper {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+      }
+      
+      .shape2 {
+        stroke-dasharray: 5000;
+        stroke-width: 10px;
+        fill: transparent;
+        stroke: ${this.attrs.fontColor};
+        border-bottom: 5px solid black;
+        stroke-dashoffset: -5000;
+        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      }
+    `;
   }
 
   buildTree() {
@@ -1343,21 +2531,171 @@ class SlideThreeSVG extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\">\n          <div class= \"content-wrapper\">\n            <p class=\"text1\">").concat(this.attrs.textOne, "</p>\n          </div>\n        </div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"app-holder\"></div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n        <div class=\"border1\"></div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"> </div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container">
+          <div class= "content-wrapper">
+            <p class="text1">${this.attrs.textOne}</p>
+          </div>
+        </div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="app-holder"></div>
+        <div class="border">
+          <svg height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" xmlns="http://www.w3.org/2000/svg">
+            <rect class="shape2" height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" />
+          </svg>
+        </div>
+        <div class="border1"></div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.65, "px;\n        height: ").concat(this.attrs.height * 0.6, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        top : -100%;\n        left : 5%;\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .content-wrapper{\n        margin: 5%;\n        position: relative;\n      }\n\n      p{\n        margin: 0;\n        text-transform: uppercase;\n        font-weight: 200;\n      }\n   \n      .text1{\n        font-size: ").concat(this.attrs.fonSize, "px;\n      }\n\n      .app-holder{\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 40%;\n        z-index: 1;\n        background: url(").concat(this.attrs.app, ");\n        background-size: cover;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n      }\n    \n      .border{\n        position: absolute;\n        overflow: hidden;\n        top: 15%;\n        left: 10%;\n        z-index: 0;\n        transform: rotate(-90deg);\n      }\n\n      .border1{\n        width: ").concat(this.attrs.width * 0.33, "px;\n        height: 100%;\n        position: absolute;\n        overflow: hidden;\n        top: 100%;\n        left: 7%;\n        z-index: 2;\n        box-shadow: -23px -4px 23px rgba(0,0,0,0.65);\n        border-left: 5px solid;\n        border-top: 5px solid;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top: 80%;\n        left: 120%;\n        width: ").concat(this.attrs.width * 0.3, "px;\n        display: flex;\n        justify-content: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n    ");
+    return `
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.65}px;
+        height: ${this.attrs.height * 0.6}px;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+        position: absolute;
+        top : -100%;
+        left : 5%;
+        display:flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background: ${this.attrs.contentColor};
+        z-index: 2;
+      }
+
+      .content-wrapper{
+        margin: 5%;
+        position: relative;
+      }
+
+      p{
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 200;
+      }
+   
+      .text1{
+        font-size: ${this.attrs.fonSize}px;
+      }
+
+      .app-holder{
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 40%;
+        z-index: 1;
+        background: url(${this.attrs.app});
+        background-size: cover;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+      }
+    
+      .border{
+        position: absolute;
+        overflow: hidden;
+        top: 15%;
+        left: 10%;
+        z-index: 0;
+        transform: rotate(-90deg);
+      }
+
+      .border1{
+        width: ${this.attrs.width * 0.33}px;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 100%;
+        left: 7%;
+        z-index: 2;
+        box-shadow: -23px -4px 23px rgba(0,0,0,0.65);
+        border-left: 5px solid;
+        border-top: 5px solid;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.2)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top: 80%;
+        left: 120%;
+        width: ${this.attrs.width * 0.3}px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .svg-wrapper {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+      }
+      
+      .shape2 {
+        stroke-dasharray: 5000;
+        stroke-width: 10px;
+        fill: transparent;
+        stroke: ${this.attrs.fontColor};
+        border-bottom: 5px solid black;
+        stroke-dashoffset: -5000;
+        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      }
+    `;
   }
 
   buildTree() {
@@ -1506,33 +2844,183 @@ class TechnologiesSVG extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"> </div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container"></div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="subtitle-holder">
+          <span> ${this.attrs.contentSubTitle}</span>
+        </div>
+        <div class="border">
+          <svg height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" xmlns="http://www.w3.org/2000/svg">
+            <rect class="shape2" height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" />
+          </svg>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .img img{\n        width:80%;\n        -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n        filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));\n      }\n\n      .img{\n        display:flex;\n        justify-content: center;\n        align-content: center;\n        align-items: center;\n      }\n\n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);\n        position: absolute;\n        bottom: 120%;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n        background: ").concat(this.attrs.contentColor, ";\n        z-index: 2;\n      }\n\n      .img-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n      }\n\n      .border{\n        position: absolute;\n        overflow: hidden;\n        left: 7%;\n        z-index: 0;\n        -ms-transform: rotate(-45deg);     \n        -ms-transform-origin: 20% 40%;  \n        -webkit-transform: rotate(-45deg); \n        -webkit-transform-origin: 69% 83%;\n        transform: rotate(79deg);\n      }\n\n      .subtitle-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: #c10000;\n        z-index: 3;\n        text-transform: uppercase;\n        box-shadow: -20px 9px 44px rgb(0, 0, 0);\n        position: absolute;\n        top:33%;\n        left:120%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.2, "px;\n        height: ").concat(this.attrs.height * 0.15, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top:120%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.2, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }\n    ");
+    return `
+      .img img{
+        width:80%;
+        -webkit-filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));
+        filter: drop-shadow(-10px 10px 9px rgba(0,0,0,1));
+      }
+
+      .img{
+        display:flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+      }
+
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.84}px;
+        height: ${this.attrs.height * 0.42}px;
+        box-shadow: -31px 41px 44px 0px rgba(0,0,0,0.65);
+        position: absolute;
+        bottom: 120%;
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        background: ${this.attrs.contentColor};
+        z-index: 2;
+      }
+
+      .img-container{
+        width: ${this.attrs.width * 0.84}px;
+        height: ${this.attrs.height * 0.42}px;
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+      }
+
+      .border{
+        position: absolute;
+        overflow: hidden;
+        left: 7%;
+        z-index: 0;
+        -ms-transform: rotate(-45deg);     
+        -ms-transform-origin: 20% 40%;  
+        -webkit-transform: rotate(-45deg); 
+        -webkit-transform-origin: 69% 83%;
+        transform: rotate(79deg);
+      }
+
+      .subtitle-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15)}px;
+        color:${this.attrs.bgColor};
+        background: #c10000;
+        z-index: 3;
+        text-transform: uppercase;
+        box-shadow: -20px 9px 44px rgb(0, 0, 0);
+        position: absolute;
+        top:33%;
+        left:120%;
+        font-weight: 900;
+        width: ${this.attrs.width * 0.2}px;
+        height: ${this.attrs.height * 0.15}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top:120%;
+        font-weight: 900;
+        width: ${this.attrs.width * 0.45}px;
+        height: ${this.attrs.height * 0.2}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .svg-wrapper {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+      }
+      
+      .shape2 {
+        stroke-dasharray: 5000;
+        stroke-width: 10px;
+        fill: transparent;
+        stroke: ${this.attrs.fontColor};
+        border-bottom: 5px solid black;
+        stroke-dashoffset: -5000;
+        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      }
+    `;
   }
 
   buildTree() {
     let html = "";
 
     for (let i = 0; i < this.attrs.logos.length; i++) {
-      html += "<div class=\"img\"><img src=\"".concat(this.attrs.logos[i], "\"/></div>");
+      html += `<div class="img"><img src="${this.attrs.logos[i]}"/></div>`;
     }
 
     const word = new HTMLClip({
       css: this.css,
-      html: "<div class=\"img-container\">".concat(html, "</div>"),
+      html: `<div class="img-container">${html}</div>`,
       selector: ".content-container"
     });
     this.addIncident(word, 0);
@@ -1681,21 +3169,180 @@ class HighlightsSVG extends HTMLClip {
 
   get fonts() {
     return [{
-      type: "google-font",
-      src: "href=\"https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap"
+      type: `google-font`,
+      src: `href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap`
     }];
   }
 
   get html() {
-    var _this$attrs, _this$attrs$overlayCo, _this$attrs2, _this$attrs2$mainColo;
-
-    (_this$attrs$overlayCo = (_this$attrs = this.attrs).overlayColor) !== null && _this$attrs$overlayCo !== void 0 ? _this$attrs$overlayCo : _this$attrs.overlayColor = "#ff00b34d";
-    (_this$attrs2$mainColo = (_this$attrs2 = this.attrs).mainColor) !== null && _this$attrs2$mainColo !== void 0 ? _this$attrs2$mainColo : _this$attrs2.mainColor = "#00ff40";
-    return "\n      <div class=\"bg\">\n        <div class=\"container-logo\">\n          <div class=\"logo-client\"><img src=\"".concat(this.attrs.clientLogo, "\"></div>\n          <div class=\"line\"> </div>\n          <div class=\"pro-name\">\n            <span> ").concat(this.attrs.title, "</span>\n          </div>\n        </div>\n        <div class=\"content-container\"></div>\n        <div class=\"title-holder\">\n          <span> ").concat(this.attrs.contentTitle, "</span>\n        </div>\n        <div class=\"subtitle-holder\">\n          <span> ").concat(this.attrs.contentSubTitle, "</span>\n        </div>\n        <div class=\"border\">\n          <svg height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" xmlns=\"http://www.w3.org/2000/svg\">\n            <rect class=\"shape2\" height=\"").concat(this.attrs.width * 0.6, "\" width=\"").concat(this.attrs.height, "px\" />\n          </svg>\n        </div>\n      </div>\n    ");
+    this.attrs.overlayColor ??= "#ff00b34d";
+    this.attrs.mainColor ??= "#00ff40";
+    return `
+      <div class="bg">
+        <div class="container-logo">
+          <div class="logo-client"><img src="${this.attrs.clientLogo}"></div>
+          <div class="line"> </div>
+          <div class="pro-name">
+            <span> ${this.attrs.title}</span>
+          </div>
+        </div>
+        <div class="content-container"></div>
+        <div class="title-holder">
+          <span> ${this.attrs.contentTitle}</span>
+        </div>
+        <div class="subtitle-holder">
+          <span> ${this.attrs.contentSubTitle}</span>
+        </div>
+        <div class="border">
+          <svg height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" xmlns="http://www.w3.org/2000/svg">
+            <rect class="shape2" height="${this.attrs.width * 0.6}" width="${this.attrs.height}px" />
+          </svg>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .app-img{\n        height: 101%;\n        object-fit: cover;\n      }\n     \n      .img{\n        object-fit: cover;\n      }\n     \n      .bg {\n        width: ".concat(this.attrs.width, "px;\n        height: ").concat(this.attrs.height, "px;\n        position: relative;\n        background: ").concat(this.attrs.bgColor, ";\n        background-position: center;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-direction: column;\n        color: ").concat(this.attrs.fontColor, ";\n        font-family: lato;\n      }\n\n      .container-logo{\n        position: absolute;\n        top : 3%;\n        left: 2%;\n      }\n\n      .logo-client img{\n        width: ").concat(this.attrs.clientLogoWidth, "px;\n      }\n\n      .pro-name{\n        font-size: 80%;\n      }\n     \n      .content-container{\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.82, "px;\n        position: absolute;\n        bottom: 120%;\n        right: 7%;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n        background: url(").concat(this.attrs.app, ");\n        z-index: 2;\n        transform: skew(-18deg, 0deg) rotateX(6deg);\n        filter: drop-shadow(31px 35px 53px\n        rgb(0, 0, 0));\n        background-size: cover;\n        background-position-y: 0%;\n      }\n\n      .img-container{\n        width: ").concat(this.attrs.width * 0.84, "px;\n        height: ").concat(this.attrs.height * 0.42, "px;\n        display:flex;\n        justify-content: space-around;\n        align-content: center;\n        align-items: center;\n      }\n    \n      .border{\n        position: absolute;\n        overflow: hidden;\n        left: 7%;\n        z-index: 0;\n        -ms-transform: rotate(-45deg);     \n        -ms-transform-origin: 20% 40%;  \n        -webkit-transform: rotate(-45deg); \n        -webkit-transform-origin: 69% 83%;\n        transform: rotate(79deg);\n      }\n\n      .subtitle-holder,.title-holder{\n        -ms-transform-origin: 30% 180%;\n        -webkit-transform: rotate(-10deg);\n        -webkit-transform-origin: 30% 180%;\n        transform: rotate(-10deg);\n      }\n\n      .subtitle-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: #c10000;\n        z-index: 3;\n        text-transform: uppercase;\n        box-shadow: -20px 9px 44px rgb(0, 0, 0);\n        position: absolute;\n        top:60%;\n        left:-100%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.2, "px;\n        height: ").concat(this.attrs.height * 0.15, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .title-holder{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4), "px;\n        color:").concat(this.attrs.bgColor, ";\n        background: ").concat(this.attrs.fontColor, ";\n        z-index: 4;\n        text-transform: uppercase;\n        box-shadow: -17px 7px 18px rgb(0, 0, 0);\n        position: absolute;\n        top:40%;\n        left: -100%;\n        font-weight: 900;\n        width: ").concat(this.attrs.width * 0.45, "px;\n        height: ").concat(this.attrs.height * 0.2, "px;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .svg-wrapper {\n        position: relative;\n        top: 50%;\n        transform: translateY(-50%);\n        margin: 0 auto;\n        width: ").concat(this.attrs.width * 0.6, "px;\n        height: 100%;\n      }\n      \n      .shape2 {\n        stroke-dasharray: 5000;\n        stroke-width: 10px;\n        fill: transparent;\n        stroke: ").concat(this.attrs.fontColor, ";\n        border-bottom: 5px solid black;\n        stroke-dashoffset: -5000;\n        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);\n      }  \n    ");
+    return `
+      .app-img{
+        height: 101%;
+        object-fit: cover;
+      }
+     
+      .img{
+        object-fit: cover;
+      }
+     
+      .bg {
+        width: ${this.attrs.width}px;
+        height: ${this.attrs.height}px;
+        position: relative;
+        background: ${this.attrs.bgColor};
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: ${this.attrs.fontColor};
+        font-family: lato;
+      }
+
+      .container-logo{
+        position: absolute;
+        top : 3%;
+        left: 2%;
+      }
+
+      .logo-client img{
+        width: ${this.attrs.clientLogoWidth}px;
+      }
+
+      .pro-name{
+        font-size: 80%;
+      }
+     
+      .content-container{
+        width: ${this.attrs.width * 0.45}px;
+        height: ${this.attrs.height * 0.82}px;
+        position: absolute;
+        bottom: 120%;
+        right: 7%;
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+        background: url(${this.attrs.app});
+        z-index: 2;
+        transform: skew(-18deg, 0deg) rotateX(6deg);
+        filter: drop-shadow(31px 35px 53px
+        rgb(0, 0, 0));
+        background-size: cover;
+        background-position-y: 0%;
+      }
+
+      .img-container{
+        width: ${this.attrs.width * 0.84}px;
+        height: ${this.attrs.height * 0.42}px;
+        display:flex;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+      }
+    
+      .border{
+        position: absolute;
+        overflow: hidden;
+        left: 7%;
+        z-index: 0;
+        -ms-transform: rotate(-45deg);     
+        -ms-transform-origin: 20% 40%;  
+        -webkit-transform: rotate(-45deg); 
+        -webkit-transform-origin: 69% 83%;
+        transform: rotate(79deg);
+      }
+
+      .subtitle-holder,.title-holder{
+        -ms-transform-origin: 30% 180%;
+        -webkit-transform: rotate(-10deg);
+        -webkit-transform-origin: 30% 180%;
+        transform: rotate(-10deg);
+      }
+
+      .subtitle-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentSubTitle.length, this.attrs.width * 0.15)}px;
+        color:${this.attrs.bgColor};
+        background: #c10000;
+        z-index: 3;
+        text-transform: uppercase;
+        box-shadow: -20px 9px 44px rgb(0, 0, 0);
+        position: absolute;
+        top:60%;
+        left:-100%;
+        font-weight: 900;
+        width: ${this.attrs.width * 0.2}px;
+        height: ${this.attrs.height * 0.15}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .title-holder{
+        font-size: ${this.dinamicFontSize(this.attrs.contentTitle.length, this.attrs.width * 0.4)}px;
+        color:${this.attrs.bgColor};
+        background: ${this.attrs.fontColor};
+        z-index: 4;
+        text-transform: uppercase;
+        box-shadow: -17px 7px 18px rgb(0, 0, 0);
+        position: absolute;
+        top:40%;
+        left: -100%;
+        font-weight: 900;
+        width: ${this.attrs.width * 0.45}px;
+        height: ${this.attrs.height * 0.2}px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .svg-wrapper {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        width: ${this.attrs.width * 0.6}px;
+        height: 100%;
+      }
+      
+      .shape2 {
+        stroke-dasharray: 5000;
+        stroke-width: 10px;
+        fill: transparent;
+        stroke: ${this.attrs.fontColor};
+        border-bottom: 5px solid black;
+        stroke-dashoffset: -5000;
+        box-shadow: -8px -3px 23px rgba(0,0,0,0.65);
+      }  
+    `;
   }
 
   buildTree() {
