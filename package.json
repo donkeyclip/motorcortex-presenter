@@ -93,7 +93,7 @@
     "babel-loader": "8.3.0",
     "browserslist": "4.21.5",
     "caniuse-lite": "1.0.30001469",
-    "commitizen": "4.2.4",
+    "commitizen": "4.3.0",
     "concurrently": "7.2.1",
     "core-js": "3.22.7",
     "cz-conventional-changelog": "3.3.0",
